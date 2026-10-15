@@ -1,0 +1,13 @@
+{
+  "schema_version": "preprocess-report-v1",
+  "dataset_version": "test-version",
+  "input_products": 1,
+  "input_reviews": 1,
+  "rejected": [],
+  "warnings": [],
+  "missing_fields": [],
+  "output_documents": 2,
+  "output_products": 1,
+  "output_reviews": 1,
+  "commerce_mapping_missing": 2
+}
