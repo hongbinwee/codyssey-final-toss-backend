@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:toss-ads:rag:v0.1:source",
+  "type": "object",
+  "properties": {
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "product": {
+      "type": "object",
+      "properties": {
+        "parent_asin": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "parent_asin"
+      ],
+      "additionalProperties": true
+    },
+    "review": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "review_key": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "parent_asin": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "rating": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 5
+            }
+          },
+          "required": [
+            "review_key",
+            "parent_asin",
+            "rating"
+          ],
+          "additionalProperties": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "dataset_version",
+    "category",
+    "product",
+    "review"
+  ],
+  "additionalProperties": false
+}
