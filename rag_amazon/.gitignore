@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+data/
+examples/real_api/
+docs/db_to_rag_real*.json
+docs/rag_to_agent_real*.json
+.env

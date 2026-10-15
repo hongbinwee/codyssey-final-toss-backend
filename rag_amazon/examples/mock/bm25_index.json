@@ -1,0 +1,116 @@
+{
+  "schema_version": "bm25-index-v1",
+  "tokenizer_version": "unicode-word-v1",
+  "library": "rank-bm25",
+  "library_version": "0.2.2",
+  "documents": [
+    {
+      "product_id": "A1",
+      "document_id": "amazon:Appliances:product:A1:A1",
+      "document_type": "product",
+      "title": "Coffee maker",
+      "brand": "Acme",
+      "category": "Appliances",
+      "price": 19.99,
+      "text": "Coffee maker\nAcme\nReusable filter\nMakes hot coffee\nBrand: Acme",
+      "source_id": "A1",
+      "currency": "USD",
+      "price_basis": "dataset_crawl_time",
+      "source_kind": "SYNTHETIC",
+      "source_ref": "https://example.invalid/v1/categories/Appliances/products/A1",
+      "source_locator": "/products/0/record",
+      "source_hash": "29f67f3691ffe43f9e6f4078b9e4c7c633b05d8f3456d3f7acf77d3f703433fe",
+      "dataset_version": "test-version",
+      "parent_asin": "A1",
+      "asin": null,
+      "commerce_product_id": null,
+      "variant_id": null
+    },
+    {
+      "product_id": "A1",
+      "document_id": "amazon:Appliances:review:A1:r1",
+      "document_type": "review",
+      "title": "Coffee maker",
+      "brand": "Acme",
+      "category": "Appliances",
+      "price": 19.99,
+      "text": "  Excellent coffee filter.\n",
+      "source_id": "r1",
+      "currency": "USD",
+      "price_basis": "dataset_crawl_time",
+      "source_kind": "SYNTHETIC",
+      "source_ref": "https://example.invalid/v1/categories/Appliances/reviews?parent_asin=A1",
+      "source_locator": "/reviews/0/record",
+      "source_hash": "830236300ce779824660ceb799fe3146532d05c1c54e63b66deecd827b55348c",
+      "dataset_version": "test-version",
+      "parent_asin": "A1",
+      "asin": null,
+      "commerce_product_id": null,
+      "variant_id": null,
+      "review_title": "Great",
+      "rating": 5,
+      "timestamp": null,
+      "verified_purchase": null
+    }
+  ],
+  "tokens": [
+    [
+      "coffee",
+      "maker",
+      "acme",
+      "reusable",
+      "filter",
+      "makes",
+      "hot",
+      "coffee",
+      "brand",
+      "acme"
+    ],
+    [
+      "excellent",
+      "coffee",
+      "filter"
+    ]
+  ],
+  "state": {
+    "k1": 1.5,
+    "b": 0.75,
+    "epsilon": 0.25,
+    "corpus_size": 2,
+    "avgdl": 6.5,
+    "doc_len": [
+      10,
+      3
+    ],
+    "doc_freqs": [
+      {
+        "coffee": 2,
+        "maker": 1,
+        "acme": 2,
+        "reusable": 1,
+        "filter": 1,
+        "makes": 1,
+        "hot": 1,
+        "brand": 1
+      },
+      {
+        "excellent": 1,
+        "coffee": 1,
+        "filter": 1
+      }
+    ],
+    "idf": {
+      "coffee": -0.08941321735745003,
+      "maker": 0.0,
+      "acme": 0.0,
+      "reusable": 0.0,
+      "filter": -0.08941321735745003,
+      "makes": 0.0,
+      "hot": 0.0,
+      "brand": 0.0,
+      "excellent": 0.0
+    },
+    "average_idf": -0.3576528694298001
+  },
+  "sha256": "2037b61273e294a4c2a5e2b546cb81a5b5a2f0aa60ea05d46bed1e5f3758e045"
+}

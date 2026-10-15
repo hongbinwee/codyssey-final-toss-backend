@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "verified_documents": 2,
+  "verified_reviews": 1,
+  "dataset_version": "test-version",
+  "index_roundtrip": true,
+  "source_kind": "SYNTHETIC"
+}

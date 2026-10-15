@@ -1,0 +1,10 @@
+{
+  "schema_version": "rag-build-v1",
+  "dataset_version": "test-version",
+  "source_kind": "SYNTHETIC",
+  "document_count": 2,
+  "snapshot_sha256": "d1167aae592dd6c521005bda13e25f42db6d8883a93ee9b8b49aade442f5673a",
+  "documents_sha256": "e12d526988d0772350235a5e36e87b93407147f00971d9d2b91b8ee0de3282a0",
+  "build_seconds": 0.006900584000000001,
+  "commerce_mapping_complete": false
+}

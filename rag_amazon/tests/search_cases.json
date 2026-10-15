@@ -1,0 +1,24 @@
+[
+  {
+    "id": "mock-review",
+    "query": "coffee filter",
+    "document_type": "review",
+    "expected_status": "ok",
+    "expected_product_id": "A1"
+  },
+  {
+    "id": "no-evidence",
+    "query": "qzxvneverpresent",
+    "expected_status": "no_results"
+  },
+  {
+    "id": "weak-overlap",
+    "query": "coffee qzxvneverpresent qzxvabsent",
+    "expected_status": "insufficient_evidence"
+  },
+  {
+    "id": "invalid-query",
+    "query": "!!!",
+    "expected_status": "error"
+  }
+]

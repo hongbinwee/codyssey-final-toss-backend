@@ -1,0 +1,50 @@
+{
+  "schema_version": "rag-result-v1",
+  "status": "ok",
+  "query": "coffee filter",
+  "method": "BM25Okapi",
+  "results": [
+    {
+      "product_id": "A1",
+      "document_id": "amazon:Appliances:review:A1:r1",
+      "document_type": "review",
+      "title": "Coffee maker",
+      "brand": "Acme",
+      "category": "Appliances",
+      "price": 19.99,
+      "text": "  Excellent coffee filter.\n",
+      "source_id": "r1",
+      "currency": "USD",
+      "price_basis": "dataset_crawl_time",
+      "source_kind": "SYNTHETIC",
+      "source_ref": "https://example.invalid/v1/categories/Appliances/reviews?parent_asin=A1",
+      "source_locator": "/reviews/0/record",
+      "source_hash": "830236300ce779824660ceb799fe3146532d05c1c54e63b66deecd827b55348c",
+      "dataset_version": "test-version",
+      "parent_asin": "A1",
+      "asin": null,
+      "commerce_product_id": null,
+      "variant_id": null,
+      "review_title": "Great",
+      "rating": 5,
+      "timestamp": null,
+      "verified_purchase": null,
+      "score": -0.23601458388768534,
+      "matched_terms": [
+        "coffee",
+        "filter"
+      ],
+      "query_coverage": 1.0,
+      "evidence_sufficient": true
+    }
+  ],
+  "matched_document_count": 1,
+  "min_query_coverage": 0.5,
+  "dataset_versions": [
+    "test-version"
+  ],
+  "limitations": [
+    "단어 일치 점수이며 의미적 관련성·사실 검증 결과가 아닙니다.",
+    "원본 USD 가격은 수집 시점 값이며 현재 쇼핑몰 구매 가격이 아닙니다."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "amazon-snapshot-v1",
+  "dataset_version": "test-version",
+  "source_kind": "SYNTHETIC",
+  "base_url": "https://example.invalid",
+  "categories": [
+    "Appliances"
+  ],
+  "products": [
+    {
+      "category": "Appliances",
+      "record": {
+        "parent_asin": "A1",
+        "title": "Coffee maker",
+        "price": "19.99",
+        "features": [
+          "Reusable filter"
+        ],
+        "description": [
+          "Makes hot coffee"
+        ],
+        "details": {
+          "Brand": "Acme"
+        }
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "category": "Appliances",
+      "record": {
+        "review_key": "r1",
+        "parent_asin": "A1",
+        "text": "  Excellent coffee filter.\n",
+        "title": "Great",
+        "rating": 5
+      }
+    }
+  ]
+}
