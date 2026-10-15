@@ -1,0 +1,10 @@
+{
+  "mode": "sources",
+  "search_executed": false,
+  "passed": true,
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "case_count": 20,
+  "source_verified_cases": 20,
+  "live_source_checked": true,
+  "annotation_status": "source_verified_pending_team_review"
+}
