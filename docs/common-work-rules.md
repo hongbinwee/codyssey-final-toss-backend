@@ -39,4 +39,10 @@
 
 - 실제 원본 API: 샘플 상품·리뷰와 질문의 근거 필드를 읽어 대조한다.
 - Mock: 계약 검사, 원본 응답 오류, 중복·누락 페이지, 검색 API 실패 경로의 자동 테스트에 사용한다.
-- 미구현/미해결: 실제 BM25·FastEmbed 색인 및 검색 실행, 실서비스 임계값 교정, 공통 질문에 대한 실제 검색 성능, 담당자 합의가 남아 있다.
+- 실행 미검증/미해결: 서비스 코드와 DDL은 추가했지만 DB 확장 구성, 실제 BM25·FastEmbed 색인·검색 실행, 관련성 기준 교정, 공통 질문 성능 측정과 담당자 합의가 남아 있다.
+
+## Backend 통합 브랜치 반영
+
+- 현재 Backend feature branch에 source API client, JSON Pointer 근거 청커, FastEmbed token-aware embedding, PostgreSQL store/bootstrap, full-version indexer, BM25/vector/RRF 검색, LangChain `Document`/`BaseRetriever`, FastAPI `/v1/rag/search` 구현을 추가했다.
+- 이 항목은 코드 작성 완료를 뜻한다. DB extensions 구성, 전체 source 색인, 실제 RAG API 요청과 품질 검증은 아직 실행하지 않았다.
+- 세 산출물의 역할 및 DB/Agent 담당자와 재논의할 지점은 [통합 결정 문서](rag-integration-decisions.md)에 기록한다.

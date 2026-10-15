@@ -21,7 +21,7 @@
           "chunk_id": "bf8ab725b743304f933a30ba533a67bc9ea8088b391c9a350f48f03b40b3cd88",
           "source_type": "review",
           "source_id": "130ad24f3c248563b32bf13b490f9ab692d30358a52457173be5a921ee7e886d",
-          "source_field": "text",
+          "source_field": "/text",
           "source_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
           "evidence_text": "I can't believe a freaking temperature/humidity monitor costs this much.  But it does work.  There's code on github to make it work with linux, and that works pretty well.",
           "source_metadata": {

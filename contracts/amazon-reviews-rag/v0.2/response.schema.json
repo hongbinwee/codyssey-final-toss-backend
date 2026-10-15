@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:toss-ads:rag:v0.2:response",
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "\\S"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "ok",
+        "no_results",
+        "low_relevance",
+        "error"
+      ]
+    },
+    "dataset_version": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "\\S"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "applied_filters": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "\\S"
+        }
+      },
+      "additionalProperties": false
+    },
+    "unverified_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000,
+        "pattern": "\\S"
+      }
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "product_metadata": {
+            "type": "object"
+          },
+          "rrf_score": {
+            "type": "number",
+            "minimum": 0
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "\\S"
+                },
+                "chunk_id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "source_type": {
+                  "enum": [
+                    "product",
+                    "review"
+                  ]
+                },
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "\\S"
+                },
+                "source_field": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500,
+                  "pattern": "\\S"
+                },
+                "source_version": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "\\S"
+                },
+                "evidence_text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100000,
+                  "pattern": "\\S"
+                },
+                "source_metadata": {
+                  "type": "object"
+                },
+                "start_offset": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "end_offset": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "bm25_rank": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "vector_rank": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "rrf_rank": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "product_id",
+                "chunk_id",
+                "source_type",
+                "source_id",
+                "source_field",
+                "source_version",
+                "evidence_text",
+                "source_metadata",
+                "start_offset",
+                "end_offset",
+                "bm25_rank",
+                "vector_rank",
+                "rrf_rank"
+              ],
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "source_type": {
+                        "const": "review"
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "source_id": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "product_id",
+          "category",
+          "product_metadata",
+          "rrf_score",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "enum": [
+            "invalid_request",
+            "index_not_ready",
+            "embedding_failed",
+            "database_failed",
+            "configuration_error",
+            "search_failed",
+            "timeout",
+            "unsupported_category"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "supported_categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true,
+      "description": "Sorted source category keys present in the active index."
+    }
+  },
+  "required": [
+    "request_id",
+    "status",
+    "dataset_version",
+    "applied_filters",
+    "unverified_conditions",
+    "items",
+    "error_code",
+    "supported_categories"
+  ],
+  "additionalProperties": false
+}

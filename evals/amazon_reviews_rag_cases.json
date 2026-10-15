@@ -15,7 +15,7 @@
           "product_id": "9792284354",
           "source_type": "review",
           "source_id": "130ad24f3c248563b32bf13b490f9ab692d30358a52457173be5a921ee7e886d",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 93,
           "end_offset": 171,
           "evidence_text": "There's code on github to make it work with linux, and that works pretty well."
@@ -35,7 +35,7 @@
           "product_id": "9792284354",
           "source_type": "product",
           "source_id": "9792284354",
-          "source_field": "features[0]",
+          "source_field": "/features/0",
           "start_offset": 0,
           "end_offset": 36,
           "evidence_text": "-20 to 70 degree C Measurement Range"
@@ -55,7 +55,7 @@
           "product_id": "B00DM8JECC",
           "source_type": "review",
           "source_id": "40f29bb3a85997e02588970c0b3c9a2129c28576892ce30b4bb4b1e2901fe325",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 124,
           "end_offset": 172,
           "evidence_text": "the water won't drain and the basket won't spin."
@@ -75,7 +75,7 @@
           "product_id": "B00DM8JECC",
           "source_type": "product",
           "source_id": "B00DM8JECC",
-          "source_field": "title",
+          "source_field": "/title",
           "start_offset": 0,
           "end_offset": 23,
           "evidence_text": "Whirlpool 285671 Washer"
@@ -95,7 +95,7 @@
           "product_id": "B00DYS970O",
           "source_type": "review",
           "source_id": "2a127d6777ca895a8a6f72a7b8e2653cf01a2ca5148c5491b1379580eb881a03",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 451,
           "end_offset": 498,
           "evidence_text": "my vent hood is now leaking oil from the edges."
@@ -115,7 +115,7 @@
           "product_id": "B00DYS970O",
           "source_type": "product",
           "source_id": "B00DYS970O",
-          "source_field": "title",
+          "source_field": "/title",
           "start_offset": 0,
           "end_offset": 18,
           "evidence_text": "XtremeAir PX04-I42"
@@ -135,7 +135,7 @@
           "product_id": "B0CBTRRLJC",
           "source_type": "review",
           "source_id": "1ba2085370ca515589afaaa0319038c419236e88bc4943515e5699ca1d32e92d",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 250,
           "end_offset": 329,
           "evidence_text": "It is relatively quiet-although I can tell it is running if the house is quiet."
@@ -155,7 +155,7 @@
           "product_id": "B0CBTRRLJC",
           "source_type": "product",
           "source_id": "B0CBTRRLJC",
-          "source_field": "features[1]",
+          "source_field": "/features/1",
           "start_offset": 50,
           "end_offset": 97,
           "evidence_text": "There is adjustable 7-level temperature control"
@@ -175,7 +175,7 @@
           "product_id": "B08PDVF576",
           "source_type": "review",
           "source_id": "a0220fea2f909bd29c09ef51e5ee547c932b74b5779dd20d1e69faef23a22021",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 83,
           "end_offset": 125,
           "evidence_text": "The fabric is so SOFT. The fit is PERFECT."
@@ -195,7 +195,7 @@
           "product_id": "B08PDVF576",
           "source_type": "product",
           "source_id": "B08PDVF576",
-          "source_field": "features[0]",
+          "source_field": "/features/0",
           "start_offset": 0,
           "end_offset": 25,
           "evidence_text": "50% Polyester, 50% Cotton"
@@ -215,7 +215,7 @@
           "product_id": "B01ESKXPPY",
           "source_type": "review",
           "source_id": "24f7e4e803b28967fc1c4f2dcca1bc5c0d09a1e698e5b71772a3d820b5b293a3",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 153,
           "end_offset": 197,
           "evidence_text": "The wig is well constructed, but very bulky."
@@ -235,7 +235,7 @@
           "product_id": "B01ESKXPPY",
           "source_type": "product",
           "source_id": "B01ESKXPPY",
-          "source_field": "title",
+          "source_field": "/title",
           "start_offset": 0,
           "end_offset": 43,
           "evidence_text": "Simpleyourstyle Ice Blue Anime Cosplay Wigs"
@@ -255,7 +255,7 @@
           "product_id": "B085FQGY6V",
           "source_type": "review",
           "source_id": "0311c186852f3e66a2d1083992fa3f4ca9ad7d09302eb41774de032c5bcafcae",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 0,
           "end_offset": 41,
           "evidence_text": "This white powder has NO flavor, NO smell"
@@ -275,7 +275,7 @@
           "product_id": "B085FQGY6V",
           "source_type": "product",
           "source_id": "B085FQGY6V",
-          "source_field": "features[1]",
+          "source_field": "/features/1",
           "start_offset": 0,
           "end_offset": 39,
           "evidence_text": "100% Pure, Non-GMO, Gluten-Free, Vegan."
@@ -295,7 +295,7 @@
           "product_id": "B01H640HSC",
           "source_type": "review",
           "source_id": "030d3ff61a5c523c797ce38a232e4a1a24b3e1aa47353149ff66e2bb4c5494b4",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 0,
           "end_offset": 29,
           "evidence_text": "A little hard but taste good."
@@ -315,7 +315,7 @@
           "product_id": "B01H640HSC",
           "source_type": "product",
           "source_id": "B01H640HSC",
-          "source_field": "title",
+          "source_field": "/title",
           "start_offset": 0,
           "end_offset": 32,
           "evidence_text": "Broadway Licorice Wheels - 4.4lb"
@@ -335,10 +335,17 @@
           "product_id": "1942191537",
           "source_type": "review",
           "source_id": "f7b0263c2e79d6dbcb7754eec2205cf5d645194974faf930cbef223f4d505250",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 295,
           "end_offset": 355,
           "evidence_text": "Full of Magic , mayhem, romance ,but compulsively addictive."
+        }
+      ],
+      "evaluation_role": "policy_exclusion",
+      "excluded_products": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537"
         }
       ]
     },
@@ -355,10 +362,17 @@
           "product_id": "1942191537",
           "source_type": "product",
           "source_id": "1942191537",
-          "source_field": "title",
+          "source_field": "/title",
           "start_offset": 0,
           "end_offset": 18,
           "evidence_text": "The Would Be Queen"
+        }
+      ],
+      "evaluation_role": "policy_exclusion",
+      "excluded_products": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537"
         }
       ]
     },
@@ -375,7 +389,7 @@
           "product_id": "5480451073",
           "source_type": "review",
           "source_id": "0b288b296f0b6f1f396a527ee2b1c480e0f5f48836246cfe5a95d2fea706b1db",
-          "source_field": "text",
+          "source_field": "/text",
           "start_offset": 0,
           "end_offset": 29,
           "evidence_text": "Tastes like regular black tea"
@@ -395,7 +409,7 @@
           "product_id": "5480451073",
           "source_type": "product",
           "source_id": "5480451073",
-          "source_field": "title",
+          "source_field": "/title",
           "start_offset": 0,
           "end_offset": 35,
           "evidence_text": "Tesco Decaffeinated 80 Teabags 250G"

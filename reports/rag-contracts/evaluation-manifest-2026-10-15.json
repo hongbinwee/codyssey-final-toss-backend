@@ -1,0 +1,266 @@
+{
+  "created_at_utc": "2026-10-15T10:26:58.438474+00:00",
+  "manifest_status": "provisional_appliances_evaluation_complete_pending_team_review",
+  "team_label_approval": "pending; source labels were live-verified, semantic relevance was not team-approved",
+  "agent_response_contract_approval": "pending; service currently emits the v0.2 proposal",
+  "dataset": {
+    "version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+    "categories": [
+      {
+        "category": "Appliances",
+        "product_count": 10000,
+        "review_count": 65618
+      },
+      {
+        "category": "Clothing_Shoes_and_Jewelry",
+        "product_count": 10000,
+        "review_count": 37006
+      },
+      {
+        "category": "Grocery_and_Gourmet_Food",
+        "product_count": 10000,
+        "review_count": 75711
+      }
+    ],
+    "source_products": 30000,
+    "source_reviews": 178335,
+    "source_validation_report": "source-validation-2026-10-15.json",
+    "index_scope": {
+      "categories": [
+        "Appliances"
+      ],
+      "source_products": 10000,
+      "source_reviews": 65618,
+      "other_source_categories_indexed": false
+    }
+  },
+  "evaluation_cases": {
+    "tuning": {
+      "case_count": 12,
+      "relevance_case_count": 10,
+      "policy_exclusion_case_count": 2,
+      "team_relevance_approval": "pending",
+      "search_scored_case_count": 4
+    },
+    "holdout": {
+      "case_count": 8,
+      "relevance_case_count": 8,
+      "policy_exclusion_case_count": 0,
+      "team_relevance_approval": "pending",
+      "search_scored_case_count": 4
+    },
+    "holdout_products_disjoint_from_tuning": true,
+    "policy_exclusions": [
+      "RAG-017",
+      "RAG-018"
+    ],
+    "policy_exclusions_scored_as_relevance": false,
+    "holdout_must_not_be_used_for_tuning": true,
+    "search_scope": {
+      "category": "Appliances",
+      "tuning_case_count": 4,
+      "tuning_case_ids": [
+        "RAG-001",
+        "RAG-002",
+        "RAG-003",
+        "RAG-004"
+      ],
+      "tuning_out_of_scope_case_count": 8,
+      "tuning_out_of_scope_case_ids": [
+        "RAG-009",
+        "RAG-010",
+        "RAG-013",
+        "RAG-014",
+        "RAG-015",
+        "RAG-016",
+        "RAG-017",
+        "RAG-018"
+      ],
+      "holdout_case_count": 4,
+      "holdout_case_ids": [
+        "RAG-005",
+        "RAG-006",
+        "RAG-007",
+        "RAG-008"
+      ],
+      "holdout_out_of_scope_case_count": 4,
+      "holdout_out_of_scope_case_ids": [
+        "RAG-011",
+        "RAG-012",
+        "RAG-019",
+        "RAG-020"
+      ],
+      "out_of_scope_cases_are_not_relevance_scored": true,
+      "reason": "Only Appliances is in the user-approved index scope; the other labels remain source-verified but are not scored against an index that does not contain their categories."
+    }
+  },
+  "search_configuration": {
+    "retrieval": "hybrid BM25 + FastEmbed cosine; LangChain-backed service",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_dimension": 384,
+    "chunker_version": "source-evidence-token-v2",
+    "chunk_max_tokens": 96,
+    "candidate_depth_per_channel": 20,
+    "rrf_k": 60,
+    "product_top_k": 10,
+    "evidence_limit_per_product": 3,
+    "minimum_rrf_score_threshold": null,
+    "minimum_rrf_score_reason": "unset because no team-approved negative judgments or acceptance threshold are available",
+    "review_intent_evidence_channels": {
+      "enabled_for_explicit_review_queries": true,
+      "channels": [
+        "review-only BM25",
+        "review-only FastEmbed cosine"
+      ],
+      "candidate_depth": 20,
+      "affects_product_rrf_score": false,
+      "purpose": "Promote review evidence for explicit review requests while preserving the public BM25+vector product RRF score and response contract."
+    }
+  },
+  "pass_rules": {
+    "relevance_case": "expected status, at least one expected product and exact expected source range, and all returned evidence matches the live source",
+    "policy_exclusion_case": "excluded product absent, response is non-error, and every returned evidence item matches the live source",
+    "team_approval_claimed": false,
+    "retry_policy": {
+      "max_retries": 1,
+      "retryable_error_codes": [
+        "database_failed",
+        "timeout"
+      ],
+      "transport_failures_retried": false,
+      "initial_error_codes_are_recorded": true
+    }
+  },
+  "execution_scope": {
+    "source_api": "http://172.30.1.53:8001 (read-only)",
+    "remote_rag_database": "175.198.15.47:5432 remains connection-refused",
+    "index_target": "dedicated localhost-only staging database on 127.0.0.1:55432 with its own Docker volume",
+    "source_database_mutated": false,
+    "response_schema": "contracts/amazon-reviews-rag/v0.2/response.schema.json (proposal; Agent agreement pending)",
+    "indexed_categories": [
+      "Appliances"
+    ],
+    "indexed_source_products": 10000,
+    "indexed_source_reviews": 65618,
+    "search_service": "http://127.0.0.1:8003 (isolated staging target; local evaluation service)",
+    "secondary_local_rag_target": {
+      "target": "127.0.0.1:5432/toss_rag",
+      "active_run_id": "89c77fe9-b479-4139-ab36-1ae0b645afe4",
+      "used_for_evaluation": false,
+      "status": "active separate run observed"
+    }
+  },
+  "privacy_handling": {
+    "approved_by_user": true,
+    "private_identity_fields": "remove recursively; preserve public product author metadata",
+    "text_redaction": "same-length masking for explicit email and SSN-format values; phone-shaped values only when a strong contact label precedes them within 60 characters with no intervening digits",
+    "offsets_preserved": true,
+    "raw_values_logged_or_retained": false,
+    "counter_fields": [
+      "email",
+      "phone",
+      "ssn",
+      "private_fields_removed"
+    ],
+    "counter_semantics": "Redaction counts are matched string occurrences and removed field occurrences during source retrieval, not unique source record counts; raw matched values are never emitted.",
+    "indexing_redaction_occurrences": {
+      "email": 8,
+      "phone": 1,
+      "ssn": 0,
+      "private_fields_removed": 21199
+    },
+    "post_index_reaudit": {
+      "product_payload_rows": 10000,
+      "evidence_text_rows": 287105,
+      "source_metadata_rows": 287105,
+      "rows_still_changed_by_sanitizer": 0
+    }
+  },
+  "execution_results": {
+    "source_label_validation": {
+      "report": "source-validation-appliances-2026-10-15.json",
+      "cases_verified": 8,
+      "passed": true,
+      "team_semantic_approval": "pending"
+    },
+    "tuning": {
+      "case_count": 4,
+      "search_attempts": 4,
+      "product_hits": 4,
+      "source_hits": 2,
+      "relevance_passes": 2,
+      "invalid_evidence": 0,
+      "search_retries": 0,
+      "report": "search-tuning-appliances-final-2026-10-15.json"
+    },
+    "holdout": {
+      "case_count": 4,
+      "search_attempts": 5,
+      "product_hits": 3,
+      "source_hits": 2,
+      "relevance_passes": 2,
+      "invalid_evidence": 0,
+      "search_retries": 1,
+      "report": "search-holdout-appliances-final-2026-10-15.json",
+      "independence": "provisional; team approval pending and earlier exploratory holdout output preceded one contract-consistency code adjustment"
+    },
+    "case_outcomes": {
+      "tuning": {
+        "RAG-001": {
+          "product_hit": true,
+          "source_hit": false,
+          "passed": false,
+          "error_code": null
+        },
+        "RAG-002": {
+          "product_hit": true,
+          "source_hit": false,
+          "passed": false,
+          "error_code": null
+        },
+        "RAG-003": {
+          "product_hit": true,
+          "source_hit": true,
+          "passed": true,
+          "error_code": null
+        },
+        "RAG-004": {
+          "product_hit": true,
+          "source_hit": true,
+          "passed": true,
+          "error_code": null
+        }
+      },
+      "holdout": {
+        "RAG-005": {
+          "product_hit": false,
+          "source_hit": false,
+          "passed": false,
+          "error_code": null,
+          "retry_count": 0
+        },
+        "RAG-006": {
+          "product_hit": true,
+          "source_hit": false,
+          "passed": false,
+          "error_code": null,
+          "retry_count": 0
+        },
+        "RAG-007": {
+          "product_hit": true,
+          "source_hit": true,
+          "passed": true,
+          "error_code": null,
+          "retry_count": 0
+        },
+        "RAG-008": {
+          "product_hit": true,
+          "source_hit": true,
+          "passed": true,
+          "error_code": null,
+          "retry_count": 1
+        }
+      }
+    }
+  }
+}

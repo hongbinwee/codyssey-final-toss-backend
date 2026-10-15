@@ -1,0 +1,57 @@
+{
+  "mode": "search",
+  "search_executed": true,
+  "passed": false,
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "case_count": 4,
+  "source_verified_cases": 4,
+  "live_source_checked": true,
+  "annotation_status": "source_verified_pending_team_review",
+  "category_scope": "Appliances",
+  "out_of_scope_case_count": 4,
+  "out_of_scope_case_ids": [
+    "RAG-011",
+    "RAG-012",
+    "RAG-019",
+    "RAG-020"
+  ],
+  "results": [
+    {
+      "case_id": "RAG-005",
+      "evaluation_role": "relevance",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": false,
+      "source_hit": false,
+      "relevance_scored": true,
+      "evidence_checked": 13,
+      "invalid_evidence": 0,
+      "passed": false
+    },
+    {
+      "case_id": "RAG-006",
+      "evaluation_role": "relevance",
+      "status": null,
+      "contract_valid": false,
+      "status_match": false,
+      "product_hit": false,
+      "source_hit": false,
+      "relevance_scored": true,
+      "evidence_checked": 0,
+      "invalid_evidence": 0,
+      "passed": false,
+      "error_code": "search_transport_failed"
+    }
+  ],
+  "search_attempts": 2,
+  "error_code": "search_transport_failed",
+  "relevance_case_count": 2,
+  "product_hits": 0,
+  "source_hits": 0,
+  "relevance_passes": 0,
+  "policy_exclusion_case_count": 0,
+  "policy_exclusion_passes": 0,
+  "policy_exclusion_failures": 0,
+  "invalid_evidence": 0
+}

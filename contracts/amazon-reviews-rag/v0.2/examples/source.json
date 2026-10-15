@@ -1,0 +1,60 @@
+{
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "category": "Appliances",
+  "product": {
+    "price": 86.49,
+    "store": "Lascar",
+    "title": "Lascar EL-USB-RT Temperature Humidity and Dew Point USB Sensor",
+    "images": [
+      {
+        "large": "https://m.media-amazon.com/images/I/41Hzm1rzB4L.jpg",
+        "thumb": "https://m.media-amazon.com/images/I/41Hzm1rzB4L._SX38_SY50_CR,0,0,38,50_.jpg",
+        "hi_res": "https://m.media-amazon.com/images/I/71O4ye5GEGL._SL1500_.jpg",
+        "variant": "MAIN"
+      }
+    ],
+    "videos": [],
+    "details": {
+      "Brand": "Lascar",
+      "Item Weight": "0.01 Ounces",
+      "Manufacturer": "Lascar",
+      "Mounting Type": "Tabletop",
+      "Item model number": "EL-USB-RT",
+      "Package Dimensions": "5.8 x 4 x 1.5 inches; 0.01 Ounces",
+      "Date First Available": "September 19, 2011",
+      "Upper Temperature Rating": "158 Degrees Fahrenheit",
+      "Is Discontinued By Manufacturer": "No"
+    },
+    "features": [
+      "-20 to 70 degree C Measurement Range",
+      "0 to 100% RH Measurement Range",
+      "Dew Point Indication via Windows Control Software"
+    ],
+    "categories": [
+      "Appliances",
+      "Parts & Accessories",
+      "Humidifier Parts & Accessories",
+      "Accessories"
+    ],
+    "description": [
+      "When plugged into the USB port of a PC installed with the purpose designed software under 32-bit versions of Windows XP, Vista and 7, EL-USB-RT measures temperature and relative humidity from -20° to +70°C (-4° to +158°F) and 0 to 100%RH. The PC displays the temperature, humidity and dew point(the temperature at which water vapor present in the air begins to condense) in real-time and saves it to a file which can store up to 7 day's worth of data."
+    ],
+    "parent_asin": "9792284354",
+    "main_category": "Industrial & Scientific",
+    "rating_number": 5,
+    "average_rating": 3.2,
+    "bought_together": null
+  },
+  "review": {
+    "asin": "9792284354",
+    "text": "I can't believe a freaking temperature/humidity monitor costs this much.  But it does work.  There's code on github to make it work with linux, and that works pretty well.",
+    "title": "expensive, but it works",
+    "images": [],
+    "rating": 4.0,
+    "timestamp": 1336431691000,
+    "parent_asin": "9792284354",
+    "helpful_vote": 2,
+    "verified_purchase": true,
+    "review_key": "130ad24f3c248563b32bf13b490f9ab692d30358a52457173be5a921ee7e886d"
+  }
+}

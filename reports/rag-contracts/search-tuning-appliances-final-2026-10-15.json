@@ -1,0 +1,103 @@
+{
+  "mode": "search",
+  "search_executed": true,
+  "passed": false,
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "case_count": 4,
+  "source_verified_cases": 4,
+  "live_source_checked": true,
+  "annotation_status": "source_verified_pending_team_review",
+  "category_scope": "Appliances",
+  "out_of_scope_case_count": 8,
+  "out_of_scope_case_ids": [
+    "RAG-009",
+    "RAG-010",
+    "RAG-013",
+    "RAG-014",
+    "RAG-015",
+    "RAG-016",
+    "RAG-017",
+    "RAG-018"
+  ],
+  "results": [
+    {
+      "case_id": "RAG-001",
+      "evaluation_role": "relevance",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": false,
+      "relevance_scored": true,
+      "evidence_checked": 10,
+      "invalid_evidence": 0,
+      "passed": false,
+      "retry_count": 0,
+      "retry_error_codes": []
+    },
+    {
+      "case_id": "RAG-002",
+      "evaluation_role": "relevance",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": false,
+      "relevance_scored": true,
+      "evidence_checked": 10,
+      "invalid_evidence": 0,
+      "passed": false,
+      "retry_count": 0,
+      "retry_error_codes": []
+    },
+    {
+      "case_id": "RAG-003",
+      "evaluation_role": "relevance",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "relevance_scored": true,
+      "evidence_checked": 19,
+      "invalid_evidence": 0,
+      "passed": true,
+      "retry_count": 0,
+      "retry_error_codes": []
+    },
+    {
+      "case_id": "RAG-004",
+      "evaluation_role": "relevance",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "relevance_scored": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true,
+      "retry_count": 0,
+      "retry_error_codes": []
+    }
+  ],
+  "search_attempts": 4,
+  "retry_policy": {
+    "max_retries": 1,
+    "retryable_error_codes": [
+      "database_failed",
+      "timeout"
+    ],
+    "transport_failures_retried": false
+  },
+  "relevance_case_count": 4,
+  "product_hits": 4,
+  "source_hits": 2,
+  "relevance_passes": 2,
+  "search_retries": 0,
+  "retried_search_cases": 0,
+  "policy_exclusion_case_count": 0,
+  "policy_exclusion_passes": 0,
+  "policy_exclusion_failures": 0,
+  "invalid_evidence": 0
+}

@@ -1,0 +1,10 @@
+{
+  "request_id": "REQ-BOOKS-001",
+  "original_question": "책 카테고리의 독서 후기를 찾아줘",
+  "query": "The Would Be Queen magic romance review",
+  "filters": {},
+  "required_conditions": [],
+  "preferences": [],
+  "top_k": 10,
+  "category": "Books"
+}

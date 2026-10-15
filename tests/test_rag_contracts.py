@@ -243,7 +243,8 @@ class RagContractTests(unittest.TestCase):
             validator.collect_live_sources("https://source.test", [validator.load_cases()[0]],
                                            transport=httpx.MockTransport(handle))
 
-    def run_search_cli(self, *, fail_at=None, malformed=False):
+    def run_search_cli(self, *, fail_at=None, malformed=False, transport_fail_at=None,
+                       transient_fail_at=None):
         validator = self.validator()
         fixture = validator.load_sources()
         records = {row["product"]["parent_asin"]: row for row in fixture["records"]}
@@ -253,8 +254,17 @@ class RagContractTests(unittest.TestCase):
             nonlocal attempted
             if request.url.host == "rag.test":
                 attempted += 1
+                if attempted == transport_fail_at:
+                    raise httpx.ConnectError("offline")
                 if attempted == fail_at:
-                    return httpx.Response(503, json={"detail": "unavailable"})
+                    error = self.example("response-error.json")
+                    error["request_id"] = json.loads(request.content)["request_id"]
+                    return httpx.Response(503, json=error)
+                if attempted == transient_fail_at:
+                    error = self.example("response-error.json")
+                    error["request_id"] = json.loads(request.content)["request_id"]
+                    error["error_code"] = "database_failed"
+                    return httpx.Response(503, json=error)
                 result = copy.deepcopy(response)
                 result["request_id"] = json.loads(request.content)["request_id"]
                 return httpx.Response(200, json=[] if malformed else result)
@@ -286,15 +296,34 @@ class RagContractTests(unittest.TestCase):
         self.assertEqual(report["invalid_evidence"], 0)
         self.assertEqual(len(report["results"]), 8)
 
-    def test_failed_search_attempts_are_reported_and_completed_cases_are_preserved(self):
+    def test_search_execution_errors_keep_the_error_code_and_do_not_skip_later_cases(self):
         for fail_at in (1, 2):
             code, report = self.run_search_cli(fail_at=fail_at)
             with self.subTest(fail_at=fail_at):
                 self.assertEqual(code, 1)
                 self.assertTrue(report["search_executed"])
-                self.assertEqual(report["search_attempts"], fail_at)
-                self.assertEqual(len(report["results"]), fail_at)
-                self.assertEqual(report["results"][-1]["error_code"], "search_transport_failed")
+                self.assertEqual(report["search_attempts"], 8)
+                self.assertEqual(len(report["results"]), 8)
+                error = report["results"][fail_at - 1]
+                self.assertTrue(error["contract_valid"])
+                self.assertEqual(error["status"], "error")
+                self.assertEqual(error["error_code"], "index_not_ready")
+
+    def test_transport_failure_is_distinct_and_completed_cases_are_preserved(self):
+        code, report = self.run_search_cli(transport_fail_at=2)
+        self.assertEqual(code, 1)
+        self.assertEqual(report["search_attempts"], 2)
+        self.assertEqual(len(report["results"]), 2)
+        self.assertEqual(report["results"][-1]["error_code"], "search_transport_failed")
+
+    def test_transient_database_error_is_retried_and_recorded(self):
+        code, report = self.run_search_cli(transient_fail_at=2)
+        self.assertEqual(code, 1)
+        self.assertEqual(report["search_attempts"], 9)
+        self.assertEqual(len(report["results"]), 8)
+        self.assertEqual(report["results"][1]["retry_count"], 1)
+        self.assertEqual(report["results"][1]["retry_error_codes"], ["database_failed"])
+        self.assertEqual(report["search_retries"], 1)
 
     def test_malformed_search_json_root_is_reported_without_traceback(self):
         code, report = self.run_search_cli(malformed=True)

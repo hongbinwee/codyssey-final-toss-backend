@@ -18,7 +18,7 @@
 
 - 상품 연결 키는 `(category, parent_asin)`이고 결과의 product_id에는 parent_asin을 사용합니다. dataset_version은 스냅샷을 식별합니다.
 - 리뷰 source_id는 API가 생성한 review_key입니다. 상품 source_id는 parent_asin입니다.
-- source_field는 `title`, `text`, `features[0]`, `description[1]`, `details["Brand"]`처럼 원본 필드를 가리킵니다. JSON 객체 키는 JSON 인용 문자열로 표시합니다.
+- source_field는 RFC 6901 JSON Pointer로 원본 필드를 가리킵니다. 예: `/title`, `/text`, `/features/0`, `/description/1`, `/details/Brand`. 키 안의 `~`와 `/`는 각각 `~0`, `~1`로 escape합니다. 이전 대괄호 표기는 검사기에서 마이그레이션용으로만 읽습니다.
 - start_offset은 포함, end_offset은 제외이며 Python 문자열과 같은 Unicode 코드 포인트 인덱스입니다. 원본 문자열을 정규화하거나 HTML 태그를 제거한 뒤 오프셋을 매기지 않습니다.
 - 숫자·불리언 등 비문자 상세 값은 원본 값의 canonical JSON 표현(UTF-8, sort_keys, 공백 없는 구분자)을 근거 문자열로 사용합니다. null·빈 값은 청크로 만들지 않습니다.
 - user_id는 원본 정규화 단계에서 중첩 필드까지 제거합니다. 상품 영상 메타데이터 안에도 user_id가 있으므로 최상위 키 제거만으로는 충분하지 않습니다.

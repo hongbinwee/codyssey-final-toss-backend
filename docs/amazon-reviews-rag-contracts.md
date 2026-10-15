@@ -1,8 +1,10 @@
 # RAG 규격·공통 질문과 검증 실행
 
-BM25 + FastEmbed 하이브리드, LangChain, 상품 단위 RRF 결합의 입출력 계약은 `contracts/amazon-reviews-rag/v0.1/`에 있습니다. 입력/응답 JSON Schema 3개와 실제 출처를 사용한 완성된 예시 6개를 제공합니다.
+기본 요청·응답 계약 v0.1과 출처 예시는 `contracts/amazon-reviews-rag/v0.1/`에 있습니다. 카테고리 선택 필터, 활성 인덱스 지원 목록, 미지원 카테고리 응답을 추가한 RAG 제안 v0.2는 `contracts/amazon-reviews-rag/v0.2/`에 있습니다. v0.2는 Agent 팀과 공동 검토가 남은 제안이며 Agent 연동 완료를 뜻하지 않습니다.
 
-이 계약은 `codex/rag-contracts-validation` 브랜치에서 검토할 제안입니다. DB·Agent 담당자의 합의 기록은 아직 없으며, 프론트/백엔드 경계 규격도 이 작업의 범위에 포함하지 않았습니다. [공통 작업 규칙](common-work-rules.md)을 따릅니다.
+검색 서비스 구현과 DB/운영 절차는 [Amazon Reviews RAG 서비스 문서](amazon-reviews-rag-service.md)에 있습니다. API 응답의 `source_field`는 통합 시 JSON Pointer(`/text`, `/features/0`)로 정렬했습니다. 평가 검사기는 이전 bracket 경로를 마이그레이션용으로 계속 읽습니다.
+
+v0.2에서 `category`를 보내면 원본 API 카테고리 키로만 해석하고 BM25·벡터 검색 양쪽에서 SQL 하드 필터를 적용합니다. Books처럼 활성 색인에 없는 값은 검색을 넓히지 않고 HTTP 422 `unsupported_category`와 현재 `supported_categories`를 반환합니다. 프론트/Agent 해석 변경과 공동 회귀 스위트는 이 RAG 작업의 범위에 포함하지 않았습니다. [공통 작업 규칙](common-work-rules.md)을 따릅니다.
 
 ## 검증 환경과 실행
 
