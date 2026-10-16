@@ -1,3 +1,4 @@
 .venv-contracts/
 __pycache__/
 *.py[cod]
+.worktrees/
