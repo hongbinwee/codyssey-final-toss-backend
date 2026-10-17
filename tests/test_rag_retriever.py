@@ -146,10 +146,10 @@ class HybridSearchEvidenceTests(unittest.TestCase):
         self.assertEqual(store.source_type_calls, [("bm25", "review"), ("vector", "review")])
         evidence_ids = [item["chunk_id"] for item in response["items"][0]["evidence"]]
         self.assertEqual(evidence_ids, ["review-text", "product-title", "product-feature-1"])
-        self.assertAlmostEqual(response["items"][0]["rrf_score"], 2 / 61)
+        self.assertAlmostEqual(response["items"][0]["rrf_score"], 4 / 61)
         self.assertEqual(store.source_type_calls, [("bm25", "review"), ("vector", "review")])
 
-    def test_review_only_candidates_do_not_create_rank_gaps(self):
+    def test_review_only_candidates_are_ranked_and_returned_with_review_evidence(self):
         global_product = {
             "category": "Appliances",
             "product_id": "z-global-product",
@@ -184,8 +184,16 @@ class HybridSearchEvidenceTests(unittest.TestCase):
             request,
         )
 
-        self.assertEqual([item["product_id"] for item in response["items"]], ["z-global-product"])
-        self.assertEqual(response["items"][0]["evidence"][0]["rrf_rank"], 1)
+        self.assertEqual(
+            [item["product_id"] for item in response["items"]],
+            ["a-review-only-product", "z-global-product"],
+        )
+        review_only = response["items"][0]
+        self.assertAlmostEqual(review_only["rrf_score"], 2 / 61)
+        self.assertEqual(review_only["evidence"][0]["source_type"], "review")
+        self.assertEqual(review_only["evidence"][0]["chunk_id"], "review-only-chunk")
+        self.assertEqual(review_only["evidence"][0]["rrf_rank"], 1)
+        self.assertEqual(response["items"][1]["evidence"][0]["rrf_rank"], 2)
 
 
 if __name__ == "__main__":

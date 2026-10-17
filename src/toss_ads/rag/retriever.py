@@ -139,6 +139,7 @@ def hybrid_search(
         raise
 
     chunks: dict[str, dict[str, Any]] = {}
+    rank_channels = [channel for channel, _rows in retrieval_channels]
     for channel, rows in retrieval_channels:
         for rank, row in enumerate(rows, start=1):
             if request.category is not None and row["category"] != request.category:
@@ -170,22 +171,22 @@ def hybrid_search(
                 "product_id": chunk["product_id"],
                 "category": chunk["category"],
                 "product_metadata": _product_metadata(chunk["product_payload"]),
-                "best_bm25_rank": None,
-                "best_vector_rank": None,
+                "best_rank_by_channel": {channel: None for channel in rank_channels},
                 "rrf_score": 0.0,
                 "chunks": [],
             },
         )
-        if chunk["bm25_rank"] is not None:
-            best = product["best_bm25_rank"]
-            product["best_bm25_rank"] = min(best, chunk["bm25_rank"]) if best else chunk["bm25_rank"]
-        if chunk["vector_rank"] is not None:
-            best = product["best_vector_rank"]
-            product["best_vector_rank"] = min(best, chunk["vector_rank"]) if best else chunk["vector_rank"]
+        for channel in rank_channels:
+            rank = chunk[channel]
+            if rank is not None:
+                best = product["best_rank_by_channel"][channel]
+                product["best_rank_by_channel"][channel] = (
+                    rank if best is None else min(best, rank)
+                )
         product["chunks"].append(chunk)
 
     for product in products.values():
-        for rank in (product["best_bm25_rank"], product["best_vector_rank"]):
+        for rank in product["best_rank_by_channel"].values():
             if rank is not None:
                 product["rrf_score"] += 1.0 / (settings.rrf_k + rank)
 
@@ -195,10 +196,7 @@ def hybrid_search(
             products.values(),
             key=lambda item: (-item["rrf_score"], item["category"], item["product_id"]),
         )
-        if any(
-            chunk["bm25_rank"] is not None or chunk["vector_rank"] is not None
-            for chunk in product["chunks"]
-        )
+        if any(rank is not None for rank in product["best_rank_by_channel"].values())
     ][: request.top_k]
     response_items: list[dict[str, Any]] = []
     for product_rank, product in enumerate(ordered_products, start=1):
@@ -214,7 +212,7 @@ def hybrid_search(
         )
         evidence = []
         for chunk in ordered_chunks:
-            if chunk["bm25_rank"] is None and chunk["vector_rank"] is None:
+            if all(chunk[channel] is None for channel in rank_channels):
                 continue
             evidence.append(
                 {
