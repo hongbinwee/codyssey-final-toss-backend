@@ -1,0 +1,4 @@
+# Reuse the deployed dependency layer for a source-only runtime update.
+ARG RAG_BASE_IMAGE=toss-ads-product-rag-service:2026-10-17-compat
+FROM ${RAG_BASE_IMAGE}
+COPY src ./src
