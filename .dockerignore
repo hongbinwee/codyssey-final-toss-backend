@@ -1,0 +1,8 @@
+.git
+.worktrees
+__pycache__
+**/__pycache__
+*.pyc
+*.env
+data
+reports

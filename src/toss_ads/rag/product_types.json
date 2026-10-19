@@ -1,0 +1,327 @@
+{
+  "version": "product-types-v1",
+  "types": [
+    {
+      "id": "backpack",
+      "aliases": [
+        "백팩",
+        "backpack",
+        "배낭"
+      ]
+    },
+    {
+      "id": "pouch",
+      "aliases": [
+        "파우치",
+        "pouch"
+      ]
+    },
+    {
+      "id": "t_shirt",
+      "aliases": [
+        "티셔츠",
+        "t-shirt",
+        "tshirt",
+        "t shirts",
+        "t-shirts",
+        "반팔",
+        "반소매"
+      ]
+    },
+    {
+      "id": "slacks",
+      "aliases": [
+        "슬랙스",
+        "slacks"
+      ]
+    },
+    {
+      "id": "jeans",
+      "aliases": [
+        "데님",
+        "청바지",
+        "denim",
+        "jeans"
+      ]
+    },
+    {
+      "id": "belt",
+      "aliases": [
+        "벨트",
+        "belt"
+      ]
+    },
+    {
+      "id": "baseball_cap",
+      "aliases": [
+        "야구모자",
+        "야구 모자",
+        "베이스볼 캡",
+        "볼캡",
+        "baseball cap"
+      ]
+    },
+    {
+      "id": "fan",
+      "aliases": [
+        "선풍기",
+        "서큘레이터",
+        "써큘레이터",
+        "circulator"
+      ]
+    },
+    {
+      "id": "tumbler",
+      "aliases": [
+        "텀블러",
+        "tumbler"
+      ]
+    },
+    {
+      "id": "fabric_softener",
+      "aliases": [
+        "섬유유연제",
+        "섬유 유연제"
+      ]
+    },
+    {
+      "id": "dish_detergent",
+      "aliases": [
+        "주방세제",
+        "주방 세제",
+        "설거지비누",
+        "설거지 비누",
+        "설거지 세제"
+      ]
+    },
+    {
+      "id": "laundry_detergent",
+      "aliases": [
+        "세탁세제",
+        "세탁 세제"
+      ]
+    },
+    {
+      "id": "water_filter",
+      "aliases": [
+        "정수기 필터",
+        "정수 필터",
+        "정수필터",
+        "브리타"
+      ]
+    },
+    {
+      "id": "pet_shampoo",
+      "aliases": [
+        "강아지 샴푸",
+        "반려견 샴푸",
+        "펫 샴푸",
+        "애견 샴푸"
+      ]
+    },
+    {
+      "id": "shampoo",
+      "aliases": [
+        "샴푸",
+        "shampoo"
+      ]
+    },
+    {
+      "id": "hair_treatment",
+      "aliases": [
+        "트리트먼트",
+        "헤어팩",
+        "헤어마스크",
+        "헤어 마스크"
+      ]
+    },
+    {
+      "id": "sunscreen",
+      "aliases": [
+        "선크림",
+        "썬크림",
+        "선스크린",
+        "sunscreen"
+      ]
+    },
+    {
+      "id": "sun_stick",
+      "aliases": [
+        "선스틱",
+        "썬스틱"
+      ]
+    },
+    {
+      "id": "face_cream",
+      "aliases": [
+        "보습 크림",
+        "수분 크림",
+        "수분크림",
+        "보습크림",
+        "크림",
+        "로션"
+      ]
+    },
+    {
+      "id": "serum",
+      "aliases": [
+        "세럼",
+        "앰플",
+        "serum",
+        "ampoule"
+      ]
+    },
+    {
+      "id": "lip_tint",
+      "aliases": [
+        "틴트",
+        "lip tint"
+      ]
+    },
+    {
+      "id": "cleansing_oil",
+      "aliases": [
+        "클렌징 오일",
+        "클렌징오일",
+        "cleansing oil"
+      ]
+    },
+    {
+      "id": "cleansing_balm",
+      "aliases": [
+        "클렌징 밤",
+        "클렌징밤"
+      ]
+    },
+    {
+      "id": "body_wash",
+      "aliases": [
+        "바디워시",
+        "바디 워시",
+        "body wash"
+      ]
+    },
+    {
+      "id": "bagel_chip",
+      "aliases": [
+        "베이글칩",
+        "베이글 칩"
+      ]
+    },
+    {
+      "id": "protein_shake",
+      "aliases": [
+        "단백질 쉐이크",
+        "프로틴 쉐이크",
+        "단백질 셰이크",
+        "쉐이크",
+        "셰이크"
+      ]
+    },
+    {
+      "id": "protein_drink",
+      "aliases": [
+        "프로틴 드링크",
+        "단백질 드링크",
+        "단백이",
+        "프로틴 음료",
+        "드링크"
+      ]
+    },
+    {
+      "id": "vitamin_c",
+      "aliases": [
+        "비타민 c",
+        "비타민c",
+        "비타민씨"
+      ]
+    },
+    {
+      "id": "probiotics",
+      "aliases": [
+        "유산균",
+        "프로바이오틱스"
+      ]
+    },
+    {
+      "id": "collagen",
+      "aliases": [
+        "콜라겐",
+        "collagen"
+      ]
+    },
+    {
+      "id": "earphones",
+      "aliases": [
+        "이어폰",
+        "earphone",
+        "earbuds"
+      ]
+    },
+    {
+      "id": "engine_oil",
+      "aliases": [
+        "엔진오일",
+        "엔진 오일",
+        "모터오일"
+      ]
+    },
+    {
+      "id": "graphics_card",
+      "aliases": [
+        "그래픽카드",
+        "그래픽 카드",
+        "rtx 5090",
+        "gpu"
+      ]
+    },
+    {
+      "id": "coffee_grinder",
+      "aliases": [
+        "커피 그라인더",
+        "커피그라인더",
+        "커피분쇄기",
+        "전동 그라인더"
+      ]
+    },
+    {
+      "id": "printer",
+      "aliases": [
+        "프린터",
+        "printer"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "aliases": [
+        "키보드",
+        "keyboard"
+      ]
+    },
+    {
+      "id": "mouse",
+      "aliases": [
+        "마우스",
+        "mouse"
+      ]
+    },
+    {
+      "id": "mouse_pad",
+      "aliases": [
+        "마우스패드",
+        "마우스 패드",
+        "mousepad",
+        "mouse pad"
+      ]
+    },
+    {
+      "id": "earphone_case",
+      "aliases": [
+        "이어폰케이스",
+        "이어폰 케이스",
+        "earphone case",
+        "earbuds case"
+      ]
+    }
+  ]
+}

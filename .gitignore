@@ -1,0 +1,8 @@
+.venv-contracts/
+__pycache__/
+*.py[cod]
+.worktrees/
+.env
+*.env
+!.env.example
+!*.env.example
