@@ -92,7 +92,7 @@ def hybrid_search(
         "request_id": request.request_id, "status": "error", "dataset_version": None,
         "profile_name": profile, "applied_filters": {}, "supported_categories": [],
         "unverified_conditions": _unverified_conditions(request), "items": [], "error_code": None,
-        "search_context": {"ranking_version": "product-hybrid-v1"},
+        "search_context": {"ranking_version": "product-hybrid-v2", "relevance_gate": "product_identity_v2"},
     }
     if profile not in settings.allowed_profiles:
         base["error_code"] = "unsupported_profile"
@@ -116,23 +116,34 @@ def hybrid_search(
         base["error_code"] = "unsupported_currency"
         return base
     registry = type_registry(settings.product_type_registry_path)
-    intent = registry.intent(request.query, request.product_type)
+    intent = registry.request_intent(request.query, request.product_type, request.original_question)
     base["search_context"].update({"product_type": intent.product_type,
         "type_origin": intent.origin, "type_registry_version": registry.version})
     catalog = store.product_catalog(active["run_id"], request.category)
     # Exact-title lookup is authoritative for identity and does not mistake
     # a bundle title with several type words for a multi-product request.
     exact = [r for r in catalog if normalized(request.query) == normalized(str(r["product_payload"].get("title", "")))]
-    if intent.ambiguous and not (exact and request.product_type is None):
+    exact_override = (
+        exact and request.product_type is None
+        and normalized(request.query) in normalized(request.original_question)
+        and registry.matches(request.query) == registry.matches(request.original_question)
+    )
+    if intent.ambiguous and not exact_override:
         base["status"] = "low_relevance"
-        base["search_context"]["reason"] = "ambiguous_product_type"
+        base["search_context"]["reason"] = "conflicting_or_ambiguous_product_type"
         return base
     if exact and request.product_type is None:
         eligible = exact
         base["search_context"]["type_origin"] = "exact_title"
     elif intent.product_type:
+        scopes = registry.category_scope(intent.product_type)
+        if request.category is not None and scopes and request.category not in scopes:
+            base["status"] = "no_results"
+            base["search_context"]["reason"] = "category_type_mismatch"
+            return base
         eligible = [r for r in catalog if registry.product_matches(r["product_payload"], intent.product_type)]
         base["applied_filters"]["product_type"] = intent.product_type
+        base["search_context"]["accepted_product_types"] = sorted(registry.family(intent.product_type))
     else:
         eligible = catalog
     if not eligible:
@@ -208,11 +219,25 @@ def hybrid_search(
             chunk["ranks"][channel] = rank
             chunk["chunk_rrf_score"] += 1 / (settings.rrf_k + rank)
     products: dict[tuple[str, str], dict[str, Any]] = {}
+    rejected_relevance: set[tuple[str, str]] = set()
     for chunk in chunks.values():
         key = (chunk["category"], chunk["product_id"])
+        # Recheck the returned payload as well as the catalogue identity view.
+        # A vector rank, review rating or cheap price cannot bypass this gate.
+        payload = {**chunk["product_payload"], "category": chunk["category"]}
+        if intent.product_type and not (exact and request.product_type is None):
+            relevant = registry.product_matches(payload, intent.product_type)
+        elif exact:
+            relevant = normalized(str(payload.get("title", ""))) == normalized(request.query)
+        else:
+            relevant = lexical_relevance(request.query, payload)[1] > 0
+        if not relevant:
+            rejected_relevance.add(key)
+            continue
         product = products.setdefault(key, {"product_id": key[1], "category": key[0],
-            "payload": chunk["product_payload"], "chunks": []})
+            "payload": payload, "chunks": []})
         product["chunks"].append(chunk)
+    products = {key: product for key, product in products.items() if key not in rejected_relevance}
     # Commerce eligibility is checked on the whole matching catalogue before
     # retrieval, so a cheap/in-stock item beyond the initial top 50 can surface.
     for key, product in products.items():
@@ -273,13 +298,15 @@ def hybrid_search(
         response_items.append({"product_id": product["product_id"], "category": product["category"],
             "product_metadata": metadata, "rrf_score": product["rrf_score"], "evidence": evidence,
             "commerce": commerce_result or {"validation_status": "unverified"},
-            "ranking": {"title_identity_match": product["lexical"][0], "lexical_coverage": product["lexical"][1]},
+            "ranking": {"title_identity_match": product["lexical"][0], "lexical_coverage": product["lexical"][1],
+                "relevance_qualified": True, "requested_product_type": intent.product_type},
         })
         if len(response_items) >= request.top_k:
             break
     base["search_context"].update({"eligible_catalog_products": len(eligible),
         "retrieved_products": len({(c["category"], c["product_id"]) for c in chunks.values()}),
         "commerce_eligible_products": len(products) if commerce is not None else None})
+    base["search_context"]["relevance_rejected_products"] = len(rejected_relevance)
     if not response_items:
         base["status"] = "no_results"
         base["search_context"]["reason"] = "no_eligible_candidates"

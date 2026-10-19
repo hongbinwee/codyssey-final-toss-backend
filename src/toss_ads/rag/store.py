@@ -339,6 +339,7 @@ class RagStore:
             rows = conn.execute("""
                 SELECT product_id, category, jsonb_build_object(
                     'title', product_payload->'title', 'brand', product_payload->'brand',
+                    'category', category,
                     'source_dataset', product_payload->'source_dataset',
                     'price', product_payload->'price',
                     'dataset_release_status', product_payload->'dataset_release_status',

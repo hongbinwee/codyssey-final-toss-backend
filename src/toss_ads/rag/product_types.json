@@ -1,5 +1,5 @@
 {
-  "version": "product-types-v1",
+  "version": "product-types-v2",
   "types": [
     {
       "id": "backpack",
@@ -92,13 +92,22 @@
         "설거지비누",
         "설거지 비누",
         "설거지 세제"
+      ],
+      "parents": [
+        "detergent"
       ]
     },
     {
       "id": "laundry_detergent",
       "aliases": [
         "세탁세제",
-        "세탁 세제"
+        "세탁 세제",
+        "캡슐세제",
+        "액체세제",
+        "속옷전용세제"
+      ],
+      "parents": [
+        "detergent"
       ]
     },
     {
@@ -216,6 +225,9 @@
         "단백질 셰이크",
         "쉐이크",
         "셰이크"
+      ],
+      "parents": [
+        "protein_food"
       ]
     },
     {
@@ -225,7 +237,11 @@
         "단백질 드링크",
         "단백이",
         "프로틴 음료",
-        "드링크"
+        "드링크",
+        "프로틴 밸런스"
+      ],
+      "parents": [
+        "protein_food"
       ]
     },
     {
@@ -321,6 +337,56 @@
         "이어폰 케이스",
         "earphone case",
         "earbuds case"
+      ]
+    },
+    {
+      "id": "detergent",
+      "aliases": [
+        "세제",
+        "세정제",
+        "detergent"
+      ],
+      "categories": [
+        "living"
+      ]
+    },
+    {
+      "id": "dishwasher_detergent",
+      "aliases": [
+        "식기세척기 세제",
+        "식기세척기세제",
+        "식세기 세제"
+      ],
+      "parents": [
+        "detergent"
+      ]
+    },
+    {
+      "id": "protein_food",
+      "aliases": [
+        "단백질",
+        "프로틴",
+        "단백질 보충",
+        "단백질 보충식",
+        "protein supplement",
+        "protein food"
+      ],
+      "categories": [
+        "food"
+      ]
+    },
+    {
+      "id": "protein_snack",
+      "aliases": [
+        "단백질바",
+        "단백질 바",
+        "프로틴바",
+        "프로틴 바",
+        "단백질 스낵",
+        "프로틴 스낵"
+      ],
+      "parents": [
+        "protein_food"
       ]
     }
   ]
