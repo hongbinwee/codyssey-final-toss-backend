@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: toss-ads-postgres-rag:18.6-vector-0.8.7-search-0.26.0
+    build:
+      context: ..
+      dockerfile: deploy/product-rag-postgres.Dockerfile
+    container_name: toss-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB must be set in the env file}
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER must be set in the env file}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in the env file}
+    ports:
+      - "0.0.0.0:5432:5432"
+    volumes:
+      - ${RAG_POSTGRES_DATA_DIR:?RAG_POSTGRES_DATA_DIR must be set in the env file}:/var/lib/postgresql
+      - ${RAG_POSTGRES_ACCESS_DIR:?RAG_POSTGRES_ACCESS_DIR must be set in the env file}/server.crt:/var/run/postgresql/server.crt:ro
+      - ${RAG_POSTGRES_ACCESS_DIR:?RAG_POSTGRES_ACCESS_DIR must be set in the env file}/server.key:/var/run/postgresql/server.key:ro
+    command:
+      - postgres
+      - -c
+      - ssl=on
+      - -c
+      - ssl_cert_file=/var/run/postgresql/server.crt
+      - -c
+      - ssl_key_file=/var/run/postgresql/server.key
+      - -c
+      - ssl_min_protocol_version=TLSv1.2
+      - -c
+      - shared_preload_libraries=pg_search,pg_cron
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s

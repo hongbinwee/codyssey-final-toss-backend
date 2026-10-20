@@ -1,0 +1,519 @@
+{
+  "created_at_utc": "2026-10-15T10:26:58.438445+00:00",
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "review_kind": "independent live provenance verification; no claim of team approval",
+  "source_check": {
+    "passed": true,
+    "live_source_checked": true,
+    "source_verified_cases": 20,
+    "case_count": 20,
+    "source_validation_report": "source-validation-2026-10-15.json"
+  },
+  "team_approval": "pending",
+  "policy_exclusion_basis": "RAG-017 and RAG-018 retain their source labels for audit but are excluded from relevance scoring under the existing category quarantine policy; policy owner confirmation remains pending.",
+  "splits": {
+    "tuning": {
+      "case_count": 12,
+      "relevance_case_count": 10,
+      "policy_exclusion_case_count": 2,
+      "team_relevance_approval": "pending"
+    },
+    "holdout": {
+      "case_count": 8,
+      "relevance_case_count": 8,
+      "policy_exclusion_case_count": 0,
+      "team_relevance_approval": "pending"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "RAG-001",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "9792284354",
+          "source_type": "review",
+          "source_id": "130ad24f3c248563b32bf13b490f9ab692d30358a52457173be5a921ee7e886d",
+          "source_field": "/text",
+          "start_offset": 93,
+          "end_offset": 171
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-002",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "9792284354",
+          "source_type": "product",
+          "source_id": "9792284354",
+          "source_field": "/features/0",
+          "start_offset": 0,
+          "end_offset": 36
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-003",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DM8JECC",
+          "source_type": "review",
+          "source_id": "40f29bb3a85997e02588970c0b3c9a2129c28576892ce30b4bb4b1e2901fe325",
+          "source_field": "/text",
+          "start_offset": 124,
+          "end_offset": 172
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-004",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DM8JECC",
+          "source_type": "product",
+          "source_id": "B00DM8JECC",
+          "source_field": "/title",
+          "start_offset": 0,
+          "end_offset": 23
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-005",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DYS970O",
+          "source_type": "review",
+          "source_id": "2a127d6777ca895a8a6f72a7b8e2653cf01a2ca5148c5491b1379580eb881a03",
+          "source_field": "/text",
+          "start_offset": 451,
+          "end_offset": 498
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-006",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DYS970O",
+          "source_type": "product",
+          "source_id": "B00DYS970O",
+          "source_field": "/title",
+          "start_offset": 0,
+          "end_offset": 18
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-007",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "B0CBTRRLJC",
+          "source_type": "review",
+          "source_id": "1ba2085370ca515589afaaa0319038c419236e88bc4943515e5699ca1d32e92d",
+          "source_field": "/text",
+          "start_offset": 250,
+          "end_offset": 329
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-008",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Appliances",
+          "product_id": "B0CBTRRLJC",
+          "source_type": "product",
+          "source_id": "B0CBTRRLJC",
+          "source_field": "/features/1",
+          "start_offset": 50,
+          "end_offset": 97
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-009",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B08PDVF576",
+          "source_type": "review",
+          "source_id": "a0220fea2f909bd29c09ef51e5ee547c932b74b5779dd20d1e69faef23a22021",
+          "source_field": "/text",
+          "start_offset": 83,
+          "end_offset": 125
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-010",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B08PDVF576",
+          "source_type": "product",
+          "source_id": "B08PDVF576",
+          "source_field": "/features/0",
+          "start_offset": 0,
+          "end_offset": 25
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-011",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B01ESKXPPY",
+          "source_type": "review",
+          "source_id": "24f7e4e803b28967fc1c4f2dcca1bc5c0d09a1e698e5b71772a3d820b5b293a3",
+          "source_field": "/text",
+          "start_offset": 153,
+          "end_offset": 197
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-012",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B01ESKXPPY",
+          "source_type": "product",
+          "source_id": "B01ESKXPPY",
+          "source_field": "/title",
+          "start_offset": 0,
+          "end_offset": 43
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-013",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B085FQGY6V",
+          "source_type": "review",
+          "source_id": "0311c186852f3e66a2d1083992fa3f4ca9ad7d09302eb41774de032c5bcafcae",
+          "source_field": "/text",
+          "start_offset": 0,
+          "end_offset": 41
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-014",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B085FQGY6V",
+          "source_type": "product",
+          "source_id": "B085FQGY6V",
+          "source_field": "/features/1",
+          "start_offset": 0,
+          "end_offset": 39
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-015",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B01H640HSC",
+          "source_type": "review",
+          "source_id": "030d3ff61a5c523c797ce38a232e4a1a24b3e1aa47353149ff66e2bb4c5494b4",
+          "source_field": "/text",
+          "start_offset": 0,
+          "end_offset": 29
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-016",
+      "split": "tuning",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B01H640HSC",
+          "source_type": "product",
+          "source_id": "B01H640HSC",
+          "source_field": "/title",
+          "start_offset": 0,
+          "end_offset": 32
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-017",
+      "split": "tuning",
+      "evaluation_role": "policy_exclusion",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537",
+          "source_type": "review",
+          "source_id": "f7b0263c2e79d6dbcb7754eec2205cf5d645194974faf930cbef223f4d505250",
+          "source_field": "/text",
+          "start_offset": 295,
+          "end_offset": 355
+        }
+      ],
+      "excluded_products": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537"
+        }
+      ],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-018",
+      "split": "tuning",
+      "evaluation_role": "policy_exclusion",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537",
+          "source_type": "product",
+          "source_id": "1942191537",
+          "source_field": "/title",
+          "start_offset": 0,
+          "end_offset": 18
+        }
+      ],
+      "excluded_products": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537"
+        }
+      ],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-019",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "5480451073",
+          "source_type": "review",
+          "source_id": "0b288b296f0b6f1f396a527ee2b1c480e0f5f48836246cfe5a95d2fea706b1db",
+          "source_field": "/text",
+          "start_offset": 0,
+          "end_offset": 29
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    },
+    {
+      "case_id": "RAG-020",
+      "split": "holdout",
+      "evaluation_role": "relevance",
+      "label_count": 1,
+      "labels": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "5480451073",
+          "source_type": "product",
+          "source_id": "5480451073",
+          "source_field": "/title",
+          "start_offset": 0,
+          "end_offset": 35
+        }
+      ],
+      "excluded_products": [],
+      "live_source_provenance_check": "passed",
+      "team_semantic_relevance_review": "pending"
+    }
+  ],
+  "search_evaluation_scope": {
+    "category": "Appliances",
+    "tuning_case_ids": [
+      "RAG-001",
+      "RAG-002",
+      "RAG-003",
+      "RAG-004"
+    ],
+    "tuning_out_of_scope_case_ids": [
+      "RAG-009",
+      "RAG-010",
+      "RAG-013",
+      "RAG-014",
+      "RAG-015",
+      "RAG-016",
+      "RAG-017",
+      "RAG-018"
+    ],
+    "holdout_case_ids": [
+      "RAG-005",
+      "RAG-006",
+      "RAG-007",
+      "RAG-008"
+    ],
+    "holdout_out_of_scope_case_ids": [
+      "RAG-011",
+      "RAG-012",
+      "RAG-019",
+      "RAG-020"
+    ],
+    "team_semantic_approval": "pending"
+  },
+  "evaluation_execution": {
+    "source_validation_report": "source-validation-appliances-2026-10-15.json",
+    "appliances_source_verified_cases": 8,
+    "team_semantic_relevance_approval": "pending",
+    "tuning_report": "search-tuning-appliances-final-2026-10-15.json",
+    "tuning": {
+      "case_count": 4,
+      "search_attempts": 4,
+      "product_hits": 4,
+      "source_hits": 2,
+      "relevance_passes": 2,
+      "invalid_evidence": 0,
+      "search_retries": 0,
+      "report": "search-tuning-appliances-final-2026-10-15.json"
+    },
+    "holdout_report": "search-holdout-appliances-final-2026-10-15.json",
+    "holdout": {
+      "case_count": 4,
+      "search_attempts": 5,
+      "product_hits": 3,
+      "source_hits": 2,
+      "relevance_passes": 2,
+      "invalid_evidence": 0,
+      "search_retries": 1,
+      "report": "search-holdout-appliances-final-2026-10-15.json",
+      "independence": "provisional; team approval pending and earlier exploratory holdout output preceded one contract-consistency code adjustment"
+    },
+    "holdout_independence": "provisional; no team approval, and an API contract-consistency adjustment followed an exploratory holdout run. No relevance-based parameter changes were made from holdout results.",
+    "out_of_scope_case_ids": {
+      "tuning": [
+        "RAG-009",
+        "RAG-010",
+        "RAG-013",
+        "RAG-014",
+        "RAG-015",
+        "RAG-016",
+        "RAG-017",
+        "RAG-018"
+      ],
+      "holdout": [
+        "RAG-011",
+        "RAG-012",
+        "RAG-019",
+        "RAG-020"
+      ]
+    }
+  }
+}

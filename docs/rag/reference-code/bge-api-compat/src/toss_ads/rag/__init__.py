@@ -1,0 +1,1 @@
+"""Product-grounded retrieval service."""

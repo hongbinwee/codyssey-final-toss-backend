@@ -1,0 +1,349 @@
+{
+  "observed_at": "2026-10-20T09:25:51.950392+00:00",
+  "evidence_type": "read_only_bge_runtime_state_not_new_quality_evaluation",
+  "database_endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "toss_rag"
+  },
+  "settings": {
+    "embedding_model": "BAAI/bge-m3",
+    "chunk_max_tokens": 96,
+    "channel_depth": 20,
+    "rrf_k": 60,
+    "min_rrf_score": null
+  },
+  "module_chunker_version": "source-evidence-token-v2",
+  "model_max_tokens": 128,
+  "bge_model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "http_calls_hybrid_search_directly": true,
+  "retriever_has_structured_search_method": false,
+  "module_sha256": {
+    "toss_ads.rag.api": "e5a9659ce889945840f7739f03b1245ae5992916e64a5e9a00b37336b4291be0",
+    "toss_ads.rag.chunker": "a6d36aa340629be6a2d00ea65aa989b02d1ae3cd267b471154776b8b171582a7",
+    "toss_ads.rag.embeddings": "559bc1acccdf714299ddef8586a38b1f3ebddbf89a60f0dc6804cc996d042192",
+    "toss_ads.rag.retriever": "1c2c6d2c1ff03a76ea11ce07ac3423a98435c0955ecbe5c772b449587fadf89c",
+    "toss_ads.rag.config": "883e4a7f6106bdc4920248723ebf8aa00f170bfca201b2d5e61ad5f2dbf0f407",
+    "toss_ads.rag.store": "26a2a4860199b82f137cec1f2291f6692ab0cc9897bc2531d9d85a6b3a1d942d",
+    "toss_ads.rag.bge_m3": "ac53b4705756f2c3a797910bc96c12fd5b9e8a357200c096e9d8e37251e5159a",
+    "toss_ads.rag.schemas": "52c2be8d0213841d060a2a958253f3f28619d6f44c1d635aae60f891913e4bcd"
+  },
+  "request_schema": {
+    "$defs": {
+      "PriceFilters": {
+        "additionalProperties": false,
+        "properties": {
+          "price_min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Price Min"
+          },
+          "price_max": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Price Max"
+          },
+          "currency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Currency"
+          }
+        },
+        "title": "PriceFilters",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "request_id": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Request Id"
+      },
+      "original_question": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "title": "Original Question",
+        "type": "string"
+      },
+      "query": {
+        "maxLength": 1000,
+        "minLength": 1,
+        "title": "Query",
+        "type": "string"
+      },
+      "category": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Category"
+      },
+      "filters": {
+        "$ref": "#/$defs/PriceFilters"
+      },
+      "required_conditions": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Required Conditions",
+        "type": "array"
+      },
+      "preferences": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Preferences",
+        "type": "array"
+      },
+      "top_k": {
+        "default": 10,
+        "maximum": 20,
+        "minimum": 1,
+        "title": "Top K",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "original_question",
+      "query"
+    ],
+    "title": "RagSearchRequest",
+    "type": "object"
+  },
+  "healthz": {
+    "http_status": 200,
+    "body": {
+      "status": "ok",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "supported_categories": [
+        "beauty",
+        "fashion",
+        "food",
+        "living"
+      ]
+    }
+  },
+  "openapi.json": {
+    "http_status": 200,
+    "info": {
+      "title": "Product Reviews RAG",
+      "description": "Product and review search using BM25 and vector retrieval.",
+      "version": "0.2.0"
+    },
+    "paths": [
+      "/healthz",
+      "/v1/rag/search"
+    ]
+  },
+  "extensions": [
+    {
+      "extname": "pg_search",
+      "extversion": "0.26.0"
+    },
+    {
+      "extname": "vector",
+      "extversion": "0.8.7"
+    }
+  ],
+  "active_profiles": [
+    {
+      "profile_name": "all_products",
+      "active_run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689",
+      "status": "active",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "chunker_version": "source-evidence-token-v2:max_tokens=96",
+      "counts": {
+        "chunk_count": 6741,
+        "review_count": 4737,
+        "product_count": 180,
+        "category_counts": {
+          "beauty": {
+            "chunks": 6741,
+            "reviews": 4737,
+            "products": 180,
+            "source_reviews": 4737,
+            "source_products": 180,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          }
+        }
+      }
+    },
+    {
+      "profile_name": "test_items2",
+      "active_run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+      "status": "active",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "chunker_version": "source-evidence-token-v2:max_tokens=96",
+      "counts": {
+        "chunk_count": 114106,
+        "review_count": 46100,
+        "product_count": 1500,
+        "category_counts": {
+          "food": {
+            "chunks": 13409,
+            "reviews": 5682,
+            "products": 182,
+            "source_reviews": 5682,
+            "source_products": 182,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "beauty": {
+            "chunks": 78595,
+            "reviews": 34545,
+            "products": 781,
+            "source_reviews": 34545,
+            "source_products": 781,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "living": {
+            "chunks": 10536,
+            "reviews": 3112,
+            "products": 268,
+            "source_reviews": 3112,
+            "source_products": 268,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "fashion": {
+            "chunks": 11566,
+            "reviews": 2761,
+            "products": 269,
+            "source_reviews": 2761,
+            "source_products": 269,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          }
+        }
+      }
+    }
+  ],
+  "chunk_counts": [
+    {
+      "category": "beauty",
+      "source_type": "product",
+      "chunks": 19485
+    },
+    {
+      "category": "beauty",
+      "source_type": "review",
+      "chunks": 59110
+    },
+    {
+      "category": "fashion",
+      "source_type": "product",
+      "chunks": 8128
+    },
+    {
+      "category": "fashion",
+      "source_type": "review",
+      "chunks": 3438
+    },
+    {
+      "category": "food",
+      "source_type": "product",
+      "chunks": 4364
+    },
+    {
+      "category": "food",
+      "source_type": "review",
+      "chunks": 9045
+    },
+    {
+      "category": "living",
+      "source_type": "product",
+      "chunks": 5942
+    },
+    {
+      "category": "living",
+      "source_type": "review",
+      "chunks": 4594
+    }
+  ],
+  "additional_embedding_profiles": [
+    {
+      "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+      "embedding_model": "BAAI/bge-m3",
+      "model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "dimension": 1024,
+      "max_input_tokens": 128,
+      "category_scope": "*",
+      "status": "ready",
+      "chunk_count": 114106,
+      "created_at": "2026-10-19 17:09:30.737453+00:00",
+      "updated_at": "2026-10-20 08:33:39.596616+00:00"
+    }
+  ],
+  "bge_vector_counts": [
+    {
+      "category": "beauty",
+      "vectors": 78595
+    },
+    {
+      "category": "fashion",
+      "vectors": 11566
+    },
+    {
+      "category": "food",
+      "vectors": 13409
+    },
+    {
+      "category": "living",
+      "vectors": 10536
+    }
+  ],
+  "active_run_selected_by_runtime": {
+    "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+    "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunker_version": "source-evidence-token-v2:max_tokens=96"
+  },
+  "container": {
+    "name": "product-rag-api",
+    "image": "toss-ads-product-rag-service:rag-bge-m3-full-test-items2-252bc90",
+    "state": "running"
+  }
+}

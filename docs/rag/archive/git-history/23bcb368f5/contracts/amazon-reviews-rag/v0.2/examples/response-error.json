@@ -1,0 +1,14 @@
+{
+  "request_id": "REQ-LINUX-001",
+  "status": "error",
+  "dataset_version": null,
+  "applied_filters": {},
+  "unverified_conditions": [],
+  "items": [],
+  "error_code": "index_not_ready",
+  "supported_categories": [
+    "Appliances",
+    "Clothing_Shoes_and_Jewelry",
+    "Grocery_and_Gourmet_Food"
+  ]
+}

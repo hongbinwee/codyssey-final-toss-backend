@@ -1,0 +1,17 @@
+{
+  "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+  "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+  "category": "beauty",
+  "embedding_model": "BAAI/bge-m3",
+  "model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "total_chunk_count": 78595,
+  "preexisting_vector_count": 3360,
+  "embedded_chunk_count": 75235,
+  "document_embedding_seconds": 10720.950472,
+  "elapsed_seconds": 11339.386,
+  "chunks_per_second": 7.018,
+  "model_load_seconds": 4.051,
+  "cpu_thread_count": 8,
+  "max_rss_mb": 2452.04,
+  "status": "ready"
+}

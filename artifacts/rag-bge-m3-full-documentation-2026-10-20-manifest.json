@@ -1,0 +1,1431 @@
+{
+  "created_at": "2026-10-20T09:39:00.819908+00:00",
+  "status": "pass",
+  "archive": "rag-bge-m3-full-documentation-2026-10-20.zip",
+  "bytes": 3103082,
+  "sha256": "2894ec35d6ec0a67a03a9060fe36f6f2fcce53f478fcb043819d7c1717129871",
+  "zip_entries": 284,
+  "crc_checked": true,
+  "all_file_bytes_roundtrip_match": true,
+  "source_document_count": 239,
+  "runtime_model": "BAAI/bge-m3",
+  "bge_vectors": 114106,
+  "report_pdf_pages": 31,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1190,
+      "sha256": "91c95a0176e3b040685773d5f3c3ab080050de48013d6e9c2b66622262499b4b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1282,
+      "sha256": "9d3405489d8449df607df3e5ec4563a4e5a693bf3e62fc9667b14e37242cf6c0"
+    },
+    {
+      "path": "artifacts/rag-bge-m3-full-documentation-2026-10-20.pdf",
+      "bytes": 183712,
+      "sha256": "aaf7dc451cf7205409a6a3a0fd848f3353a7f7c0389af3bb522dfb6e5aeeceb4"
+    },
+    {
+      "path": "docs/rag/README.md",
+      "bytes": 4682,
+      "sha256": "f7ff3cf65019034164024a2960cf94a78d141a62a6ce9720ce7c6c50bdb45f94"
+    },
+    {
+      "path": "docs/rag/archive/backend/.superpowers/sdd/2026-10-15-rag-service-integration/progress.md",
+      "bytes": 3094,
+      "sha256": "810a05325247bd1feabc5b6da2f51dc1f6a4235994023957aba31929fada3c3b"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-dense-hybrid/progress.md",
+      "bytes": 4108,
+      "sha256": "63faa446ad2ab202e1614dbaa5f9ac86ba39567a515a5b377fa354a698ff572e"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-dense-hybrid/task-1-brief.md",
+      "bytes": 2602,
+      "sha256": "7b6deb6400da92ae72c4d50ec75de77c271af5ec615739419dc8a9d6497dba61"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-dense-hybrid/task-2-brief.md",
+      "bytes": 3844,
+      "sha256": "64f6982dfec43471a6cdf99555df330c604fd0778cb9c963c0e2aa75563047ef"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-dense-hybrid/task-3-brief.md",
+      "bytes": 2651,
+      "sha256": "bd7d50c8b2cf581c543158c10cf34eccd9ccce4b96e4778cc06ee81455b9d1df"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-dense-hybrid/task-4-brief.md",
+      "bytes": 1897,
+      "sha256": "0f4addee87a7ec8934efc87ae1364e8a54337042aa37fcc8b366657ef4cd1146"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-dense-hybrid/task-5-brief.md",
+      "bytes": 4969,
+      "sha256": "14a96f2efe4044f0458e29c6e6c0453f8c48368bb46583fc992f5e8579753c23"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/progress.md",
+      "bytes": 4236,
+      "sha256": "49f3ab4a8dbd124f0b031beefc85e391d84a64f46a825a4b31afe3ca83bcd670"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/task-1-brief.md",
+      "bytes": 3350,
+      "sha256": "7bb1a985ea8b3e01b010d765c2b1dce8077c4004d1bebad43749ee63babd729c"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/task-2-brief.md",
+      "bytes": 3238,
+      "sha256": "6ee251d752f391994130a0cdef60b93680876fa3fbb80145f48fef898b13a0f7"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/task-3-brief.md",
+      "bytes": 3949,
+      "sha256": "e545be8cf1d60e640990c183ee5fe5781ad9788dfb97d93b1d2bd965d25f70aa"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/README.md",
+      "bytes": 1209,
+      "sha256": "8185aedc307b23a4e85b82e88432ef8b4e274eacd5aa3755dcd0ce3cf7f3bf6a"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/deploy/product-rag-bge-m3-embeddings.sql",
+      "bytes": 1638,
+      "sha256": "132a7d4c2eb2c1bdfef70a5da22d0243d947e9ae8b1a5083ace86213a4783715"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/deploy/product-rag.sql",
+      "bytes": 4210,
+      "sha256": "5eae3b53955d322bac79a25b1c64a5e89bb74a6bf6eba1a7b657059ec069e798"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/common-work-rules.md",
+      "bytes": 4568,
+      "sha256": "c1c2c2dc71f9861d2696485f12eb55473f9fdf8648a13a9848f000f650f0af7f"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/product-rag-service.md",
+      "bytes": 1434,
+      "sha256": "51565677fd7908f9c8b14bd7e1968361599769918aea4ba30631be100f693c2b"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/rag-bge-m3-test-items2-beauty-2026-10-20.md",
+      "bytes": 7638,
+      "sha256": "2e1fa88764b4e29525b01039f54f9b2e673dabf8925f00d6e09ed04096a03492"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/rag-bge-m3-test-items2-beauty-2026-10-20.pdf",
+      "bytes": 268322,
+      "sha256": "475c7048987d8a2715531b42e4847853565fba12c4ba38a61c46cfdb30c186ba"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/rag-embedding-model-comparison-test-items-beauty-2026-10-19.md",
+      "bytes": 11205,
+      "sha256": "2f55b1249e2dcd8f372b76d3ba3c873b156e5541fe416c0da012a3bbdf8147bd"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/rag-embedding-model-comparison-test-items2-beauty-2026-10-19.md",
+      "bytes": 12293,
+      "sha256": "374391b4abc900786a24c22fcc77c04bee4bdeb4cae4737777fb88cf2ec0469e"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/rag-embedding-model-comparison-test-items2-beauty-2026-10-19.pdf",
+      "bytes": 330285,
+      "sha256": "73273c228ed0c15aad62ecaa86f4404a3545f811afb8c5f45f0e28bb0b235d63"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/rag-overall-direction.md",
+      "bytes": 1147,
+      "sha256": "dab59e8642c96a906bf8fe62aedf517f2387cbd9bf392c7a5b796a22df508e74"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/superpowers/plans/2026-10-20-rag-bge-m3-dense-hybrid.md",
+      "bytes": 19949,
+      "sha256": "e60f7267c7467350a857fceba64d95f59cc7f443d57ae8eb0ba2b4708c517fc4"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/superpowers/plans/2026-10-20-rag-bge-m3-full-dataset-activation.md",
+      "bytes": 18675,
+      "sha256": "b5a7831505ae4f9556ef1ade5500ecc02e32dd08b7181bfd8905187659d69124"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/superpowers/specs/2026-10-20-rag-bge-m3-dense-hybrid-design.md",
+      "bytes": 7098,
+      "sha256": "25b7696d714538f2d9a4260090e9a219f6de85e6861f9ee51d176e144128442e"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/docs/superpowers/specs/2026-10-20-rag-bge-m3-full-dataset-activation-design.md",
+      "bytes": 8984,
+      "sha256": "3b01b8fba670d5834158f94268acaa3ead45d96f2d0906e27fbc743672aef6f0"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/evals/fixtures/test_items2_beauty_bge_m3.json",
+      "bytes": 13312,
+      "sha256": "9cf78e283d192c1a98237353a2470687086e43654064236dc849633bfadd95ff"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/reports/rag-bge-m3-test-items2-beauty-2026-10-20-index.json",
+      "bytes": 596,
+      "sha256": "88dcdcd7afe44f1de36114b6dd5e3f32ccbbdca9e8127d7e70331c76264bf4bb"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3/reports/rag-bge-m3-test-items2-beauty-2026-10-20.json",
+      "bytes": 81960,
+      "sha256": "77a9d497352a8231a60f3ad8533a067a0942e41980f58f70ad430372f808bf1f"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/progress.md",
+      "bytes": 5375,
+      "sha256": "4a86946cc5b1d9cdbcfb78467d3aaa00a4b53e35e690d62c2ae33ccaf24a7237"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/task-4-brief.md",
+      "bytes": 1960,
+      "sha256": "c2431d36126c7d25304444a928cc7f3f73612010598a5fd99af324c9bdb40eaf"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/.superpowers/sdd/2026-10-20-rag-bge-m3-full-dataset-activation/task-5-brief.md",
+      "bytes": 3159,
+      "sha256": "b8d8f1a4e781373e6108775a194df72452c4209f1ddb69202750066311227b85"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/docs/product-rag-service.md",
+      "bytes": 3529,
+      "sha256": "2fd2ebc2d42ef3ba4cca819b05410c039c921ab1b163b19afe703d354e6d7f16"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/docs/rag-bge-m3-test-items2-full-operations.md",
+      "bytes": 1947,
+      "sha256": "a5b67897fa036a0d4aa5259c5f48c0d52c64012a5fff41f70747f857a3a569cb"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/docs/superpowers/plans/2026-10-20-rag-bge-m3-full-dataset-activation.md",
+      "bytes": 18792,
+      "sha256": "4053f7d70697ab90aa84e203b295ab852297f9af895fea567c8818265969f6bf"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/docs/superpowers/specs/2026-10-20-rag-bge-m3-dense-hybrid-design.md",
+      "bytes": 7097,
+      "sha256": "13ae74ae0c1a39a1f5c03891415ec8e605904b1099ed6bf1abbc3578d8826e5a"
+    },
+    {
+      "path": "docs/rag/archive/bge-m3-activated/reports/rag-bge-m3-test-items2-full-2026-10-20-index.json",
+      "bytes": 3335,
+      "sha256": "4ecac8875483dcd5d66b739283968a068268c5568d7f876d06ef8eb3d401b316"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/README.md",
+      "bytes": 496,
+      "sha256": "87e0217ef35796bc27577a51caca5e6cc1386acb634251363bf89b5eb3263eeb"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/deploy/commerce-rag-demo.compose.yaml",
+      "bytes": 1218,
+      "sha256": "f6d3b4649fc2040d265c90e51841193fa08e9b2c072e12fb224a70276b3bd345"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/docs/commerce-rag-demo.md",
+      "bytes": 5618,
+      "sha256": "4f00583cc08bc3aca0e7cf74c6cabd2558c3ab95aa66b8eb6407540c0993a8a4"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/docs/product-rag-service.md",
+      "bytes": 745,
+      "sha256": "f3a78b89b44b8357f2a8a01464d64b8b71e66446a6b65c797d834fba6855f383"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/docs/rag-overall-direction.md",
+      "bytes": 991,
+      "sha256": "146aa96c86478a07a9dbbc8f94dd97b00e609f3af3d4ba840c5b0e30008f0462"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/docs/superpowers/plans/2026-10-15-commerce-rag-full-flow.md",
+      "bytes": 27804,
+      "sha256": "9ce10189bc3e1a5c0972b2d0eb57273feab1005abc78d4e8ee9e0f34b72c6ceb"
+    },
+    {
+      "path": "docs/rag/archive/commerce-integration/docs/superpowers/specs/2026-10-15-commerce-rag-full-flow-design.md",
+      "bytes": 9966,
+      "sha256": "d9002033a5b19e6d37b0f7fa4ee07531ebbb7cdab0fcc6b78198d7c464b3ae73"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/.superpowers/sdd/2026-10-17-rag-required-intake/progress.md",
+      "bytes": 4223,
+      "sha256": "b51b309aace1640fc3a619dbc7796309af2394573746c924d8f8004d3c4842ee"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/.superpowers/sdd/2026-10-17-rag-required-intake/task-1-brief.md",
+      "bytes": 3961,
+      "sha256": "c3e52ebfe6b9926081e44fb46eda25d7d5ac510d93b79fcab5716fd61f6bc29f"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/.superpowers/sdd/2026-10-17-rag-required-intake/task-2-brief.md",
+      "bytes": 3160,
+      "sha256": "bbe30e01b4314a73a3ebb600d0b8dfc632894e1fb3656dc6c2387df7b8215186"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/.superpowers/sdd/2026-10-17-rag-required-intake/task-3-brief.md",
+      "bytes": 2802,
+      "sha256": "8390da0e3d9b26cec28ed7bdae19e1415b64cfa11772d1674ed1d6a9572763d1"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/CORE_TASK_SCOPE.md",
+      "bytes": 9958,
+      "sha256": "c759a844a4d8cc9bbdc60cac3e190cbe2609f027329627b8de242f7dc97248f9"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/DATA_TOOL_DESIGN.md",
+      "bytes": 36997,
+      "sha256": "018a2bb53e0fc94891120cc24f07903b1d11b741de9f3242159b75a7c1d53de6"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/IMPLEMENTATION_PLAN.md",
+      "bytes": 45324,
+      "sha256": "cbbf7505f282a1de5c76a815f394db8934bfd6146d19b6eb68d3918d5f4decef"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/MISSION_REQUIREMENTS.md",
+      "bytes": 3807,
+      "sha256": "0f7e88edbb45e7bf64db3a3734e7c05759a33494a37eca1804f85c9572e6bfc8"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/PROJECT_CONTEXT.md",
+      "bytes": 33093,
+      "sha256": "f6d3dac1a339e7d1421701506336924201df0562577061e7cbb4d0299aff3bc9"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/README.md",
+      "bytes": 9629,
+      "sha256": "d06bc0b56c36174592d8ed0cca73e8507f7b40cf647d95db585a69b6f3d7ccf8"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/WIREFRAME_PLAN.md",
+      "bytes": 23601,
+      "sha256": "105004212eb8da9c45cd09f99bbe94bfb163904f3ba6189db82a7eec6ddaae05"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/docs/COMMERCE_AUDIT.md",
+      "bytes": 24476,
+      "sha256": "75c500218cf62dcfd6b270eda8aa966e495affe5cc80e8fbfcf3289dc33a0068"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/docs/IMPLEMENTATION_DECISIONS.md",
+      "bytes": 58780,
+      "sha256": "e64dc33efe2109e71fb82279ddb4309048a37c3614a49432bb982cecb7f1e65e"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/docs/VERIFICATION_LOG.md",
+      "bytes": 373589,
+      "sha256": "1518a164ccb6f6d8ca0e9436c5a3f8bb1108cd134e5e3e63bf047b5de9efef4b"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/docs/commerce-rag-demo.md",
+      "bytes": 2599,
+      "sha256": "ca6e00a3945a60e0634191a29b151a8c145c402a9d0d8049a2631381dd60f46e"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/reference/toss-shopping/docs/AGENT_ACTION_MAP.md",
+      "bytes": 13051,
+      "sha256": "14eed54c45bc899aed4ed36913c28f157c8842e70e9d5af986943f71f207ac92"
+    },
+    {
+      "path": "docs/rag/archive/commerce-storefront/references/TOSS_AI_ENGINEER.md",
+      "bytes": 6246,
+      "sha256": "a2cfd1f67c87e452dcaa2568f366aaa4627f0a1283ed1299556c6025a55cc52e"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items2_chunked_full_2026-10-19/README_KO.md",
+      "bytes": 2710,
+      "sha256": "65a34cbcf3348d1c65ca626eeeb44fb29320ccecc050582906c786a17a5e059e"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items2_chunked_full_2026-10-19/SHA256SUMS.txt",
+      "bytes": 1990,
+      "sha256": "2ede5642b4a8f6443adcd6a72a5bacb287694ce0125650fb3445335221fde5bd"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items2_chunked_full_2026-10-19/database_exports/toss/test_items2/schema.sql",
+      "bytes": 5059,
+      "sha256": "1b183bead56a820ca59bb3ce23306623539803408621a48d889a16efebd07f38"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items2_chunked_full_2026-10-19/database_exports/toss_rag/rag/schema.sql",
+      "bytes": 9519,
+      "sha256": "1a29152118a7a312493eda5a08e7a851ed089f63ca325d40806febc1f3b83033"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items2_chunked_full_2026-10-19/metadata/export_manifest.json",
+      "bytes": 1428,
+      "sha256": "cd090ba64c4be543149d1542da61b5b1b13261cd10ef49760ea4fd53ff96580c"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/README_KO.md",
+      "bytes": 2673,
+      "sha256": "b0ccd5e498d88fad8da5eb60903d4cb370d1baa779afc9f95e9256425848f697"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/SHA256SUMS.txt",
+      "bytes": 4672,
+      "sha256": "7ca04a4638fe501c8e325c44a143702a1be8e1b4709afa7f0224cfbad8827d67"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/database_exports/toss/test_items/schema.sql",
+      "bytes": 4550,
+      "sha256": "8a9971adc250dc1677401382f837a57e773b4195802f8a28ac2a64de2b023fe5"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/database_exports/toss_rag/rag/schema.sql",
+      "bytes": 9519,
+      "sha256": "521b56a21facff133b4c71dc6526abda49f3dcde1ac71b9cd8619c2d4f184d2d"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/export_metadata.json",
+      "bytes": 1911,
+      "sha256": "6e93576653e563d4f02ba6a0d57c8029b9a8e8d24ccde182d887b23ee6809b43"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/shopping_brain_v4_demo_final/README.md",
+      "bytes": 3257,
+      "sha256": "c4608e60d94f30b8988ed670853089791e9fb82b62c59ef403d054ea9d5ea5af"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/shopping_brain_v4_demo_final/docs/DATA_CONTRACT.md",
+      "bytes": 1453,
+      "sha256": "8d7b1c8f6f1f0bcf051bb86e3527b45a45999130bf8c4301b714d83616c60d03"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/shopping_brain_v4_demo_final/docs/RELEASE_GATES.md",
+      "bytes": 1196,
+      "sha256": "886690ba96520a2471f67fa7b77168d550740570859b0df3b700fce9ea76e003"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/shopping_brain_v4_demo_final/eval/README.md",
+      "bytes": 336,
+      "sha256": "2a3103bfc3052ae0800aa80bb70e8faff7eab075c3c73a3308c72fea67b1e785"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/shopping_brain_v4_demo_final/qa/DATA_QUALITY_REPORT.md",
+      "bytes": 992,
+      "sha256": "ae46f542312a6376880c7e2fb371d54e4cffc0a0783d86c1ccad58390b9bb8ac"
+    },
+    {
+      "path": "docs/rag/archive/export-test_items_complete_2026-10-18/shopping_brain_v4_demo_final/qa/SHA256_MANIFEST.json",
+      "bytes": 2385,
+      "sha256": "d4c184c261f38b21f4343a4a8eb13b99e9aabad6c476fc5cbd974f774aa59a4f"
+    },
+    {
+      "path": "docs/rag/archive/git-history/0345be12ff/reports/rag-contracts/search-tuning-appliances-2026-10-15.json",
+      "bytes": 2099,
+      "sha256": "76679f1313b83dda9cf17bad79330bbb40e6b8e6243d981808953bc5721a7f90"
+    },
+    {
+      "path": "docs/rag/archive/git-history/04f04ff5b5/contracts/amazon-reviews-rag/v0.2/examples/response-unsupported-category.json",
+      "bytes": 388,
+      "sha256": "53e60824aed4886959835d58bc7c39a77ea73f1ef89bead50522fd76ab9a8469"
+    },
+    {
+      "path": "docs/rag/archive/git-history/07e42d2558/docs/amazon-reviews-rag-contracts.md",
+      "bytes": 5681,
+      "sha256": "0985e9b71416cb9ad77104d39a4a75f6c83aaacc1bdd9d053a59860c6061c870"
+    },
+    {
+      "path": "docs/rag/archive/git-history/0c6729b4e6/docs/superpowers/plans/2026-10-15-rag-service-integration.md",
+      "bytes": 7084,
+      "sha256": "f305e8b744b9c9ea3364b7b0ccb2911e8adbb093c8827883748e1da26b9aa1e8"
+    },
+    {
+      "path": "docs/rag/archive/git-history/0d3303110c/contracts/amazon-reviews-rag/v0.1/examples/response-error.json",
+      "bytes": 190,
+      "sha256": "dda77eca290a0d16909415460659c7af52b316763a8b17d1d6da1f1152bce2f3"
+    },
+    {
+      "path": "docs/rag/archive/git-history/16d6b175d7/contracts/amazon-reviews-rag/v0.2/examples/response-low-relevance.json",
+      "bytes": 378,
+      "sha256": "6e549ce036a915565a0358b84d3004f95b05396f0de22de371c614708137d7a9"
+    },
+    {
+      "path": "docs/rag/archive/git-history/17764ec271/docs/rag-progress-2026-10-15.md",
+      "bytes": 10409,
+      "sha256": "484509b2c3dd41405ede30723fd5987ebed03f74d861c569676bb06371b25387"
+    },
+    {
+      "path": "docs/rag/archive/git-history/19bb2322b1/contracts/amazon-reviews-rag/v0.1/examples/response-ok.json",
+      "bytes": 1429,
+      "sha256": "7654a069768fcdaac1114c8f95d8b8ecb0e300f2a54eb4bd891a5fdb6b0a19b6"
+    },
+    {
+      "path": "docs/rag/archive/git-history/1a3024aeb2/contracts/amazon-reviews-rag/v0.1/examples/response-low-relevance.json",
+      "bytes": 262,
+      "sha256": "19c6e9a679e80a0b6fbd8b034357e66b671033b327f7146e48552ee43f07c18b"
+    },
+    {
+      "path": "docs/rag/archive/git-history/1b6b558e68/contracts/amazon-reviews-rag/v0.2/examples/request-category.json",
+      "bytes": 388,
+      "sha256": "df24284468c5b0dcf1f79c8aef3018587d30d25dc8e981597addd8d400c59808"
+    },
+    {
+      "path": "docs/rag/archive/git-history/1e5c44c000/evals/amazon_reviews_rag_cases.json",
+      "bytes": 15823,
+      "sha256": "66ff31a7a7d59a8f55cad4fdd558f5460887a35f51dafb62fd2f97b4a21fa2e5"
+    },
+    {
+      "path": "docs/rag/archive/git-history/23bcb368f5/contracts/amazon-reviews-rag/v0.2/examples/response-error.json",
+      "bytes": 306,
+      "sha256": "a07fc5fd6e6dfc2a6e9795a78069adcebf81d19d5a071f403acfee4847437ae9"
+    },
+    {
+      "path": "docs/rag/archive/git-history/2954174a07/reports/rag-contracts/search-holdout-appliances-review-channels-2026-10-15.json",
+      "bytes": 1484,
+      "sha256": "72207333f374ce4ae1d1610ee20562d79dc24adbb106f217747a231e4cfc90c4"
+    },
+    {
+      "path": "docs/rag/archive/git-history/2cbd090e93/contracts/amazon-reviews-rag/v0.1/README.md",
+      "bytes": 3933,
+      "sha256": "bfe0d433257630962053df4c124c2edeb691a02014b79ef289aef7a880e95676"
+    },
+    {
+      "path": "docs/rag/archive/git-history/3217153c62/docs/rag-progress-share-2026-10-15.md",
+      "bytes": 8522,
+      "sha256": "a3d100bf3c865d89b0ba1b60b6bed8abd25a3c9bbae20156d52a5e626d266152"
+    },
+    {
+      "path": "docs/rag/archive/git-history/33a0a79344/contracts/amazon-reviews-rag/v0.1/response.schema.json",
+      "bytes": 5935,
+      "sha256": "1a6347e2aa7befa592289a5d92ddf2121d8957f4c848d8d40fd6dc1b29d6023d"
+    },
+    {
+      "path": "docs/rag/archive/git-history/395e2e4231/docs/superpowers/specs/2026-10-14-amazon-reviews-backend-integration-design.md",
+      "bytes": 3448,
+      "sha256": "0d50dd3683940dbe58117ef6434b6d1feaa675945e5e87667d0f0d37c3bf364a"
+    },
+    {
+      "path": "docs/rag/archive/git-history/3c7ab872bd/docs/common-work-rules.md",
+      "bytes": 3607,
+      "sha256": "ce3ab682bfb488f4a1605a29dac02f13a87499fe0fdea66c3818747ee93f08a6"
+    },
+    {
+      "path": "docs/rag/archive/git-history/44b23c7997/docs/rag-progress-2026-10-15.md",
+      "bytes": 8052,
+      "sha256": "bc57a5606c5da28337d979b882f944ca1007b596cc45224dcd14487db6e65ff2"
+    },
+    {
+      "path": "docs/rag/archive/git-history/465fdf9b4a/docs/superpowers/plans/2026-10-15-rag-evaluation-and-full-index.md",
+      "bytes": 8734,
+      "sha256": "9c86a2e1309a561a53034375023c6a8ced3e47838cdb7f887c19043153ce00ae"
+    },
+    {
+      "path": "docs/rag/archive/git-history/4ab2e38a13/contracts/amazon-reviews-rag/v0.1/source.schema.json",
+      "bytes": 1562,
+      "sha256": "f1903d5699bb2e16e5c8dfe6acc8edb90f00e356240d89911383ef4a8620053c"
+    },
+    {
+      "path": "docs/rag/archive/git-history/51afef7b6d/docs/amazon-reviews-rag-service.md",
+      "bytes": 7960,
+      "sha256": "065a3d7cf94f8c3906d99e82c56fa2561144ca13f55e3c2d190d2a8b983212fd"
+    },
+    {
+      "path": "docs/rag/archive/git-history/57d5a5b8c2/reports/rag-contracts/search-tuning-after-chunk-dedup.json",
+      "bytes": 3479,
+      "sha256": "973d225e8c7d8889f7f20a8183d30a149210275fe2ec99de0580baea85372abc"
+    },
+    {
+      "path": "docs/rag/archive/git-history/5c844d4d9e/docs/amazon-reviews-rag-contracts.md",
+      "bytes": 5024,
+      "sha256": "537aa2cdfda378ece344a15e7f149800cb6d8e21dbb40ae49d16fc035af77ddc"
+    },
+    {
+      "path": "docs/rag/archive/git-history/5f29a6c9af/contracts/amazon-reviews-rag/v0.2/README.md",
+      "bytes": 1548,
+      "sha256": "b155cd8512b3a5e9590be430b1bbcc1f96b72bc810d3d6d25c1beec34201c6f6"
+    },
+    {
+      "path": "docs/rag/archive/git-history/660169d177/reports/rag-contracts/examples-validation.json",
+      "bytes": 96,
+      "sha256": "1a13d81004db397a26b88c8dc6bc0faa87cf9d18373f8c942ea38b70effe3eed"
+    },
+    {
+      "path": "docs/rag/archive/git-history/66cf818bbb/reports/rag-contracts/full-index-2026-10-15.json",
+      "bytes": 4832,
+      "sha256": "272b2b5412c909d0857628b399bddfca18562df7b290ef4f5666d1e9bf5c48d7"
+    },
+    {
+      "path": "docs/rag/archive/git-history/6ad82de320/contracts/amazon-reviews-rag/v0.2/request.schema.json",
+      "bytes": 2223,
+      "sha256": "22e331430df00ffe2f9d774bb25168fafb682433ead739c17f75642021e0319a"
+    },
+    {
+      "path": "docs/rag/archive/git-history/6d610a0cfe/reports/rag-contracts/source-validation-2026-10-15.json",
+      "bytes": 318,
+      "sha256": "1d5ffb920a8c3f87e843ccc81f1020fd53aa1c225ac3c69802890e96656744cc"
+    },
+    {
+      "path": "docs/rag/archive/git-history/70dc17ff1e/evals/fixtures/amazon_reviews_rag_sources.json",
+      "bytes": 9559,
+      "sha256": "4e8967374b76a32a11f2c6ff244dc8169f75aebbd34b3d77c9cf3f6add157ad3"
+    },
+    {
+      "path": "docs/rag/archive/git-history/75e98aa6da/reports/rag-contracts/label-review-2026-10-15.json",
+      "bytes": 15090,
+      "sha256": "3d81f6151140168da610d03281617f62943472ae153b005a52acc1d12d5376da"
+    },
+    {
+      "path": "docs/rag/archive/git-history/78794f409d/docs/superpowers/plans/2026-10-15-commerce-rag-full-flow.md",
+      "bytes": 27680,
+      "sha256": "4c1dc195f1b398d366b05f9fb8e4e361c568301d342b71f03279c5ed6a5428fd"
+    },
+    {
+      "path": "docs/rag/archive/git-history/7ee376fd26/contracts/amazon-reviews-rag/v0.1/request.schema.json",
+      "bytes": 2006,
+      "sha256": "33551c9767b5515ada7af31d133bffd31ebbd759ab44fbffbbd176c1bf77ff45"
+    },
+    {
+      "path": "docs/rag/archive/git-history/8020ed1294/reports/rag-contracts/evaluation-manifest-2026-10-15.json",
+      "bytes": 8675,
+      "sha256": "1ae92db4beac12ddbe30ae98d31a8f1ac45b9a99158d6b803431f303e1732bf6"
+    },
+    {
+      "path": "docs/rag/archive/git-history/8135511f1c/contracts/amazon-reviews-rag/v0.1/README.md",
+      "bytes": 4048,
+      "sha256": "77417d3cea2f087e43e16e3e53b932ad92e6302efe5c93064cb678f155a9864e"
+    },
+    {
+      "path": "docs/rag/archive/git-history/8495f4d0ff/contracts/amazon-reviews-rag/v0.1/examples/request.json",
+      "bytes": 360,
+      "sha256": "f4f0538ca2809bf14fc84f6b96373fb25979bfbab10757f1c62441ec811d473c"
+    },
+    {
+      "path": "docs/rag/archive/git-history/870faa314d/docs/superpowers/specs/2026-10-15-commerce-rag-full-flow-design.md",
+      "bytes": 9975,
+      "sha256": "4a76335fa6e83ea71dd8f9b89857ef10d15983b24b0f624c05998743c754f74d"
+    },
+    {
+      "path": "docs/rag/archive/git-history/8a27f4ef0c/docs/superpowers/plans/2026-10-15-rag-contracts-and-evaluation.md",
+      "bytes": 5953,
+      "sha256": "229918a9751b3f4e7d8dbb141cbfc3cb0d38d8fe8d62bf5c93179da203b21532"
+    },
+    {
+      "path": "docs/rag/archive/git-history/8fde4ae586/reports/rag-contracts/source-validation-appliances-2026-10-15.json",
+      "bytes": 596,
+      "sha256": "33adbdd9c15185c09fd5bc60e476bce816868b2201c0311a11d8b4abc0f4ec04"
+    },
+    {
+      "path": "docs/rag/archive/git-history/93b5af7842/docs/rag-integration-decisions.md",
+      "bytes": 5267,
+      "sha256": "bd5c5e25af35934d6f112805a2b93ccfee2778001212e06d86fe960f4a2983d3"
+    },
+    {
+      "path": "docs/rag/archive/git-history/99e60bb01d/docs/superpowers/specs/2026-10-15-rag-category-quarantine-design.md",
+      "bytes": 2300,
+      "sha256": "4dcdd42e7254265d5a9cd75ac008c3a7fb9935c09cbd2733ed1a7b2695e10bbb"
+    },
+    {
+      "path": "docs/rag/archive/git-history/9c5ec5f569/contracts/amazon-reviews-rag/v0.2/source.schema.json",
+      "bytes": 1562,
+      "sha256": "11bb18bbe4001f887670adcdf91f092790a6cdf761930406188087ec1b4ba889"
+    },
+    {
+      "path": "docs/rag/archive/git-history/9cc654e1c6/evals/amazon_reviews_rag_negative_proposals.json",
+      "bytes": 700,
+      "sha256": "ab596d9fd4a42b47d01accba9bb24ee7e12a3cfcc13c2f2cf24bf2a60ec764f3"
+    },
+    {
+      "path": "docs/rag/archive/git-history/9db3c57812/contracts/amazon-reviews-rag/v0.2/examples/request-unsupported-category.json",
+      "bytes": 268,
+      "sha256": "a6aa7982638ff37aeb08c83436c43c895927a88eaf293604ddb2a6acafc1ccd2"
+    },
+    {
+      "path": "docs/rag/archive/git-history/a44991d664/docs/rag-overall-direction.md",
+      "bytes": 3767,
+      "sha256": "1ab395add4f693a735f7c68e1debe4f482fe2decb264946f3d4868c48be9b619"
+    },
+    {
+      "path": "docs/rag/archive/git-history/aa2eded1a0/evals/amazon_reviews_rag_cases.json",
+      "bytes": 15423,
+      "sha256": "e9aceb98e7ec8ba1a5df9452fdfe298a654f80ce4ccf6e8693649bdc712decca"
+    },
+    {
+      "path": "docs/rag/archive/git-history/afee1fc841/contracts/amazon-reviews-rag/v0.2/response.schema.json",
+      "bytes": 6502,
+      "sha256": "3f9c7e1771332b211c5f090052c4737d4a07fab7912fb2919667c2439645ffad"
+    },
+    {
+      "path": "docs/rag/archive/git-history/bc4bd056a3/docs/commerce-rag-demo.md",
+      "bytes": 5128,
+      "sha256": "c0ccec1a90a51f2c5e5924c508175c3b065fc985efc66df493512b3ee7226227"
+    },
+    {
+      "path": "docs/rag/archive/git-history/c521d422a5/contracts/amazon-reviews-rag/v0.1/examples/source.json",
+      "bytes": 2496,
+      "sha256": "fcf7e1d1ab6bf6491d5f06f7fecb31ea8a452fde860d6a9568c0bf7cdff93455"
+    },
+    {
+      "path": "docs/rag/archive/git-history/c6ec3e4038/docs/rag-improvement-collaboration-2026-10-15.md",
+      "bytes": 18831,
+      "sha256": "990ad3398a875357fb51931e4356e17befa8ffb65cb14f8707a7e1c74382d3d4"
+    },
+    {
+      "path": "docs/rag/archive/git-history/cd2aa762d6/reports/rag-contracts/search-holdout-appliances-retry-2026-10-15.json",
+      "bytes": 2085,
+      "sha256": "f6f3d0ad654524df9952a78d7ef2537b64130fabe6f635b15abbb8d73de8b5f4"
+    },
+    {
+      "path": "docs/rag/archive/git-history/d9103730db/reports/rag-contracts/source-privacy-audit-2026-10-15.json",
+      "bytes": 3961,
+      "sha256": "b9c20531219058b217a13a86df3f3cc5ffb0a033e28f98b011712b3a76a88886"
+    },
+    {
+      "path": "docs/rag/archive/git-history/deb0d2f57d/contracts/amazon-reviews-rag/v0.2/examples/response-ok.json",
+      "bytes": 1546,
+      "sha256": "aadc1322b1fcb82721994e2de6a2df32aa2a93215e0fa7ec43961558600365f9"
+    },
+    {
+      "path": "docs/rag/archive/git-history/e10c13dd15/contracts/amazon-reviews-rag/v0.2/examples/response-no-results.json",
+      "bytes": 375,
+      "sha256": "487ee5889a43c31772869e5da9d93d78b52dee7ff8b7ac7c6030975558850c8f"
+    },
+    {
+      "path": "docs/rag/archive/git-history/e790eaf2ac/contracts/amazon-reviews-rag/v0.2/examples/response-category-ok.json",
+      "bytes": 1578,
+      "sha256": "b1ea6ead3d437c7db69a4bb260189b0ab13dd33fe25d2a27b05666a02fe79fe7"
+    },
+    {
+      "path": "docs/rag/archive/git-history/e873d585f6/reports/rag-contracts/search-tuning-appliances-final-2026-10-15.json",
+      "bytes": 2537,
+      "sha256": "55be64a7bced56ada2720ba6145ab9545a0d4a905cd102f296143ae9487ef39d"
+    },
+    {
+      "path": "docs/rag/archive/git-history/f2115a2a55/docs/common-work-rules.md",
+      "bytes": 4277,
+      "sha256": "338b415670d94cfdde4013c59a85fdffda7e73e01f2a87f2e9a1bae2beefe013"
+    },
+    {
+      "path": "docs/rag/archive/git-history/f43b626227/contracts/amazon-reviews-rag/v0.1/examples/response-ok.json",
+      "bytes": 1430,
+      "sha256": "e08d94852daa93871a337e28a5fd819639cb2b42299b535c9a9ebe811652955f"
+    },
+    {
+      "path": "docs/rag/archive/git-history/f4ffb80217/contracts/amazon-reviews-rag/v0.1/examples/response-no-results.json",
+      "bytes": 259,
+      "sha256": "9cb8655b9507badb47cdaa5a305d70ba4a2d58bbb5dc08ecabb50bad655683e3"
+    },
+    {
+      "path": "docs/rag/archive/git-history/fe82d146cd/reports/rag-contracts/search-tuning-first-run.json",
+      "bytes": 3479,
+      "sha256": "7b1b34ce63300ff32847fbe77d4f70d4f895171a91cdfdc943aee082dcca9cf3"
+    },
+    {
+      "path": "docs/rag/archive/git-history/fef133aa71/reports/rag-contracts/search-holdout-appliances-final-2026-10-15.json",
+      "bytes": 2511,
+      "sha256": "af9440e368169929026ec505f4d4bc37b5616c55c2a2e96a1ccad592f9b1605b"
+    },
+    {
+      "path": "docs/rag/archive/langchain-http/README.md",
+      "bytes": 896,
+      "sha256": "21a2e2aed5c9d5325d4f8e84a3547ca44a7d303396c303ebfe3b1c5ec0c424a9"
+    },
+    {
+      "path": "docs/rag/archive/langchain-http/deploy/product-rag-runtime/README.md",
+      "bytes": 2119,
+      "sha256": "683062933dc95ce73f7239cc46d0aace1a5893754bf1acc5e5b88957b5bb1975"
+    },
+    {
+      "path": "docs/rag/archive/langchain-http/deploy/product-rag-runtime/docs/langchain-architecture.md",
+      "bytes": 3926,
+      "sha256": "c106c4ce4c69bf2484bd6cd12512c1e02c7ac575cd4ca3877720039a21e47f80"
+    },
+    {
+      "path": "docs/rag/archive/langchain-http/docs/common-work-rules.md",
+      "bytes": 635,
+      "sha256": "a83f6410d3870aeef3ff26957a51567967e0e651056b8839131ac1adaa34977d"
+    },
+    {
+      "path": "docs/rag/archive/langchain-http/reports/langchain-http-verification-2026-10-18.json",
+      "bytes": 3562,
+      "sha256": "391396cbfe11631668e39b529cf9febdf608ff5012795f8fe35a879329a51dea"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/README.md",
+      "bytes": 668,
+      "sha256": "ffe3743cf1208f5fa5d13d7b18600b283b718c802449ca88428108c760ed8a16"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/deploy/product-rag.sql",
+      "bytes": 4899,
+      "sha256": "7471ef3448ca3e23436abac9806b76d4d37f906a1e6fee578cf4716b101fbbf3"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/docs/common-work-rules.md",
+      "bytes": 4276,
+      "sha256": "9698541724f82ea6df71f621e670de263cfd3e74c01d8811dedfdcdcd1bce7c3"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/docs/product-rag-service.md",
+      "bytes": 472,
+      "sha256": "33a2dc1fed7fbef1607f9290dda1a9e8a2c2026b8590a4d1894237ed321b366f"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/docs/rag-overall-direction.md",
+      "bytes": 688,
+      "sha256": "2f49b394630747231965923633053d3e7fb09e928ea34222fe92293dbe64c204"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/docs/superpowers/plans/2026-10-17-rag-only-catalog-profiles.md",
+      "bytes": 6937,
+      "sha256": "91bdb11221106064b3b80c9a2b330f95fe478ba08432c41b38831f80053e3031"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/docs/superpowers/specs/2026-10-17-rag-catalog-profiles-design.md",
+      "bytes": 10666,
+      "sha256": "fa438bd99a69e2c11780c75c2f8f2afa0f4d28fbb1434457e32af461c3715224"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/catalog-profile-smoke-2026-10-17.json",
+      "bytes": 9480,
+      "sha256": "bbd075b7286a78044c606807197708b39f086924f37eb694ebdf062dd530914c"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-improvement-spike-2026-10-17.md",
+      "bytes": 4697,
+      "sha256": "f598dbf2eaa3122a74650f6b4ef3b10150df518e37b0d5b78ba062fe350be7aa"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-performance-evaluation-2026-10-17.json",
+      "bytes": 25195,
+      "sha256": "ac1605cb58bbe2678023ebe4bd3f6480dbe1a5e8a2f8e505fece317e08672088"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-performance-evaluation-2026-10-17.md",
+      "bytes": 5392,
+      "sha256": "e1d68f65cc6dfb62be95bbe8bfaffaa79c31381974ccfb5135fd4bedbb253e3d"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-performance-evaluation-rerun-2026-10-17.json",
+      "bytes": 21853,
+      "sha256": "018633c60bc30cb5aad949a8b34f760494364120f5695ab0a60da432ab375704"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-performance-evaluation-rerun-2026-10-17.md",
+      "bytes": 5397,
+      "sha256": "90d92deb468341b178f959a8a83f6f038a13bf5a306a55d1ae34798d71611ebb"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-review-policy-evaluation-2026-10-17.json",
+      "bytes": 2998,
+      "sha256": "2f7a813f1ba1adde4f8449bcb372c86e9487d13e10b732804163fc563a3ee724"
+    },
+    {
+      "path": "docs/rag/archive/multi-catalog/reports/rag-contracts/rag-review-policy-evaluation-2026-10-17.md",
+      "bytes": 1962,
+      "sha256": "ecb55d4ee71c8c702374d46eb6f76565c78daeb6d1e6bb9af90e0659dba8cd3e"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/README.md",
+      "bytes": 3210,
+      "sha256": "d6991a42e91b5fc303cb55f76e81f0e5a43b3f3b38e7f11e190a66c8bc9586a4"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/data/amzdata/README.md",
+      "bytes": 4353,
+      "sha256": "5080fe7807af0fc416d8fdb8842fe9adbba73b9d47ab464e14d1935488f4157d"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/data/amzdata/manifest.json",
+      "bytes": 3497,
+      "sha256": "e29de218d86598ba80b9b8a96dc0d95e4a22d9e1c0824a58de4ed48e317771d6"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/deploy/amazon-reviews-postgres.yml",
+      "bytes": 744,
+      "sha256": "5f3b5ea4e5845cfc26295949831b25954cfc01399966a84e22f9b9929996fc85"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/deploy/product-rag-runtime/README.md",
+      "bytes": 2043,
+      "sha256": "ea80c2b7bea2cfbe72f026fe703d985ae36312db1175476dedec0e2339a5c996"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/amazon-reviews-api.md",
+      "bytes": 7266,
+      "sha256": "72b1e1226929de38ee4f49110492918aa12c91267203700621a6e3c58256dc75"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/superpowers/plans/2026-10-14-amazon-reviews-api.md",
+      "bytes": 2765,
+      "sha256": "b75261ec99613c4d4df87d478707217aa75344851e5928f553f333c2943a6c8b"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/superpowers/plans/2026-10-14-amazon-reviews-postgresql-migration.md",
+      "bytes": 2557,
+      "sha256": "e77791f25ea062d797b524184bf0c45021d4037428b1582ce1be84456541d019"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/superpowers/plans/2026-10-15-amazon-reviews-rag-implementation.md",
+      "bytes": 16597,
+      "sha256": "13d98649e3cfba5c1eec83831b8eac1984724abad3ce80945d6e99435ce06bda"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/superpowers/specs/2026-10-14-amazon-reviews-api-design.md",
+      "bytes": 2813,
+      "sha256": "dd72c73f2d1ed36e99daf2deb50b2e09520cec75bc4bba7a089f9d1a8acfb21d"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/superpowers/specs/2026-10-14-amazon-reviews-postgresql-design.md",
+      "bytes": 2899,
+      "sha256": "c116d11ee0d5248c0a83fb868296195e3f878cd55ddf5627cb600ba7f28b1e82"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/superpowers/specs/2026-10-14-amazon-reviews-rag-design.md",
+      "bytes": 23421,
+      "sha256": "f536d617a4889b30040eaf55bcbcc670ebbf80a4488dca6d031008eb529b6238"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/docs/team-git-workflow.md",
+      "bytes": 601,
+      "sha256": "afe15c38b5507e30a72475ab79cb87e849a07b3ada0c20c5def7f0e9fd019417"
+    },
+    {
+      "path": "docs/rag/archive/old-project-worktree/reports/langchain-http-verification-2026-10-18.json",
+      "bytes": 3084,
+      "sha256": "abeb218e3285a23bb07c8c70c1902484aeab09b462c0e81f7042cd0ad2062117"
+    },
+    {
+      "path": "docs/rag/archive/project/README.md",
+      "bytes": 2022,
+      "sha256": "7775a036fec501a1a054d16fc076d067d03f3f67706cfe9af38b0b9b00bd5e1f"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/README.md",
+      "bytes": 1886,
+      "sha256": "4d5043e13aa1eef0ee3a99ca4791f4a57bf0c3329850e62f8e0befbee099eca4"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/index_report.json",
+      "bytes": 2960,
+      "sha256": "d497506ffbba1c45c3fdf48dbc55e2f9fbd18ab56179d3ed39568d07be108567"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/load_report.json",
+      "bytes": 1138,
+      "sha256": "5f1db179fc941c33c3400511fd6d097e67ef2cc7b9942f642075a80ca25cd827"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/run.json",
+      "bytes": 195,
+      "sha256": "a6688f2acde51aa3ebdf36f16e4e23203215afeb77528e2ec183e98bed7e9ba7"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/schema_validation_2026-10-19.json",
+      "bytes": 3591,
+      "sha256": "5999d88debe593c5a06c97db34eb6fec9c72e3a515210d2ab5c68207c0f87fa7"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/search_quality_2026-10-19.json",
+      "bytes": 982900,
+      "sha256": "e06495fe9a20280dbf67328ef5ac7036f7daff17670448db9c71c2a1a5348902"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/search_quality_2026-10-19.md",
+      "bytes": 5352,
+      "sha256": "a7b1a000cb84ed86fff1ede91996d73196a70c1463c685ee4fa3894221684167"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/search_quality_cases_2026-10-19.json",
+      "bytes": 23636,
+      "sha256": "c36ab8825e602140df7b617a360ad895738ebe5321a0a9666508a368ac1f4af8"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/source/shopping_brain_v6_1_common_dataset/README.md",
+      "bytes": 1424,
+      "sha256": "c762592e34848452175e827d8016226310f224c668c4f974b97e9386ed5011f6"
+    },
+    {
+      "path": "docs/rag/archive/project/data/test_items2/zip_export_report.json",
+      "bytes": 405,
+      "sha256": "7843b046f7ec142bd072c74f7204774ea50d1d7c6a35e737ba406a31424e3c3d"
+    },
+    {
+      "path": "docs/rag/archive/project/deploy/product-rag-postgres.yml",
+      "bytes": 1413,
+      "sha256": "f477e24670dcdb6f175b270e9034999362601ec40a56e4b130af1857273d1d7b"
+    },
+    {
+      "path": "docs/rag/archive/project/docs/rag-search-quality-test-items-beauty-2026-10-17.md",
+      "bytes": 4295,
+      "sha256": "8b90faed8582b2ce6199c7091fd958d76d8fede16340d6f32ef44e221030dd0f"
+    },
+    {
+      "path": "docs/rag/archive/project/docs/rag-system-prompt-share-2026-10-19.pdf",
+      "bytes": 387517,
+      "sha256": "272f3c39390bfc5f09ea519b23756a8d2e29f6b541cc454dc02a6e8e03d97e2d"
+    },
+    {
+      "path": "docs/rag/archive/project/docs/superpowers/plans/2026-10-17-rag-required-intake.md",
+      "bytes": 15479,
+      "sha256": "98aaf69987932e268c0f2232729416cc989a0cb35562b1d52d9c060d0df7752e"
+    },
+    {
+      "path": "docs/rag/archive/project/docs/superpowers/specs/2026-10-17-rag-required-intake-design.md",
+      "bytes": 7357,
+      "sha256": "9aa9e1641572cb679ba90804a776e7a4f28e53c1397576c3f575ddcdf25fa241"
+    },
+    {
+      "path": "docs/rag/archive/project/presentations/rag-data-source-context.md",
+      "bytes": 475,
+      "sha256": "311b04f855a5d0ce4ec7b6b2eac9a6fc1930a4915e7467902908b617fda3a2fd"
+    },
+    {
+      "path": "docs/rag/archive/project/presentations/rag-overview-2026-10-17.pdf",
+      "bytes": 115386,
+      "sha256": "19a78c9453dd13f954b33b0edefbc3afdc4556f4646442badd37d091d1d480b7"
+    },
+    {
+      "path": "docs/rag/archive/project/reports/rag-search-quality-test-items-beauty-2026-10-17.json",
+      "bytes": 23709,
+      "sha256": "c69c7c56db66b0beaf52c56a86271d2435e821b939d562d75b2c7cb26c01221a"
+    },
+    {
+      "path": "docs/rag/archive/quality/README.md",
+      "bytes": 825,
+      "sha256": "17f0bdc2cf1ea56661f4e991b0ef05b319e0ab2009a7c50b5cb77f71108cfa03"
+    },
+    {
+      "path": "docs/rag/archive/quality/contracts/product-rag/v0.3/request.schema.json",
+      "bytes": 3046,
+      "sha256": "612ebac475b3ececf4b0e783d7de3a3a26157aba38e322c901619e3d3772e172"
+    },
+    {
+      "path": "docs/rag/archive/quality/deploy/product-rag.sql",
+      "bytes": 5145,
+      "sha256": "a03eaa74c3e52a47b5ffd0f1cc20189715a2934acbef15450447baa0885d9b95"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/api/examples/rag-search.request.json",
+      "bytes": 271,
+      "sha256": "02e10cdd297d2efe517f546909be1893994a32e1971fe3692e94787bb2a9eeab"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/api/examples/rag-search.response.example.json",
+      "bytes": 2843,
+      "sha256": "47372801f9ba5f9e56765cceb2b244fddfcdcf33e06ba556973925f1e9779d05"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/api/rag-api-guide-2026-10-19.md",
+      "bytes": 25726,
+      "sha256": "ad7cb152d47ecf953f06228b034d1153e273aa5e2a4ccc00ffda7988436f8787"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/api/rag-api.postman_collection.json",
+      "bytes": 2063,
+      "sha256": "58efa9c46a811d290ba8cc1187d12d2df11876871438107f24e6cb9ae41b57b4"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/PDF_PAGE_INDEX.txt",
+      "bytes": 1075,
+      "sha256": "61bba86a49d84f783fffde3dcb6bbb746f01c266e312698caab02634416e3f3a"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/README.md",
+      "bytes": 996,
+      "sha256": "26f9784f9abe9d2fa31841e93eaf35f888829e248494d1cd52804b4d8d45acdc"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/data-archive-locator.json",
+      "bytes": 2018,
+      "sha256": "a935399f68cefb0025f6fa62c7743acfe7b55acac3ec3258e573dba65a78ac12"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/fastembed-supported-models-runtime.json",
+      "bytes": 20991,
+      "sha256": "9177b4637cb57d2dc1e150b1df50c9cb427c199b9b4ed924df3e894ce3919d2c"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/model-cache-manifest.json",
+      "bytes": 527,
+      "sha256": "2df0e908a225c8cf029e985f6372973b02328c95984dfb03d0e380523fbe9625"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/observed-inventory.json",
+      "bytes": 25290,
+      "sha256": "eb0fdb38738299033c86ee23f134e5d1e9afdc6ad9553a591c9be83fb2911dce"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/rag-api-tailscale.postman_collection.json",
+      "bytes": 2082,
+      "sha256": "0933f825e44799e094b157f8d7dd11592610d3ec2a59d343b75fda4e1abf4f83"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/rag-db-operations-handover-2026-10-19.md",
+      "bytes": 83845,
+      "sha256": "a281540c2174162cb9963aedf3e2e396b9fefd7b117613db7272631d6af118a5"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/requirements-runtime-snapshot.txt",
+      "bytes": 1483,
+      "sha256": "e1ad08aa4fc8c775cecb0e255f83f269a0200176527d482408d2f1ebe4cf1156"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/sql/01_toss_inventory.sql",
+      "bytes": 552,
+      "sha256": "35a402dea394eb37f8cbffbbe005323f3625ee47bae358ef222a3af20db24036"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/sql/02_test_items2_catalog.sql",
+      "bytes": 586,
+      "sha256": "03e6ba66d3323fe62986c8b557bfadd95e2ff62b05a5c88e7e2902cda712908e"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/sql/03_rag_active_profile.sql",
+      "bytes": 537,
+      "sha256": "bd4ce4cceaad2fe5d982cce3e530576d35161de0924495777732bd7551f5d943"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/sql/04_rag_product_chunks.sql",
+      "bytes": 470,
+      "sha256": "6348e42dc955fbd13f5b32b2fcefbc10a0eced0e8850822c05b0916e99b816ce"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/sql/05_toss_linkage_checks.sql",
+      "bytes": 758,
+      "sha256": "1e3227761657ff4d3917115f9bd94e0b08c038ad4d024e8da9acb2f8c8e935da"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/sql/06_rag_model_baseline.sql",
+      "bytes": 741,
+      "sha256": "a0333a03676397b6f10cc0e96e416843aea0c4acd5e259a085c436d88c2d16bb"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/toss.test_items2.schema.sql",
+      "bytes": 5059,
+      "sha256": "eb1cb602c653d172f88e60a3f0a211b3a103aacd524b312c0f0e9a8365079b93"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/handover/rag-db-operations-2026-10-19/toss_rag.rag.schema.sql",
+      "bytes": 9519,
+      "sha256": "539b33ab8e5dd000bf3464bf91e3194f438a8cd6a34a7e5a1420bcfb90ec49ee"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/rag-npm-lan-2026-10-19.md",
+      "bytes": 2314,
+      "sha256": "0b08401bf5c6c63123d147e9a6508ce6be1784e65341fa4749e3a66103db73d1"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/rag-recommendation-quality.md",
+      "bytes": 12694,
+      "sha256": "f2e3d82068a140036c3ac7d257aed834411eccf1701aa2f8e11484051b7b575d"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/rag-test-items2-api-activation-2026-10-19.md",
+      "bytes": 4241,
+      "sha256": "459bd50520ba2bba0438a41a1188fe9c48d2f11a21c033ee0fd1b038cc3c67cd"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-api-docs-2026-10-19.zip",
+      "bytes": 106961,
+      "sha256": "39eb95103835552aed2d0e29543baebfa87387c8928d0f195ca7a83c3ab18616"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-api-guide-2026-10-19.pdf",
+      "bytes": 109193,
+      "sha256": "d764e85a338501520e3e2fa990b099cf86c23b4714687e30c9d529b7bda16c9f"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.1.json",
+      "bytes": 20577,
+      "sha256": "b7939369dcea4c95586d9b088f1f8773c9b4b1a22af37e60b974645af9f4ea62"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.1.md",
+      "bytes": 23697,
+      "sha256": "c81378fe544c4c552c23463ca660b25c03c46306dd94b7f15f9fb6e0f6f63ea2"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.1.pdf",
+      "bytes": 122128,
+      "sha256": "653baecdd0500aa822e402382b3d2f9e28eb938c329668350213bb90ea0555f6"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.2.json",
+      "bytes": 22319,
+      "sha256": "58db8180e34983888d43b03b450ec41ed9949c9eec9de4ba32ac85481fef8c06"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.2.md",
+      "bytes": 27129,
+      "sha256": "1727b7a175fbdaf1c9ff338af59446dfc85a97b21f03871b514976d6ded9f069"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.2.pdf",
+      "bytes": 129000,
+      "sha256": "7a18bd380750910ed03af76a03debbe378d41e2b4fc9b80b2d5296b14127817a"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.3.json",
+      "bytes": 24551,
+      "sha256": "92578afedafcf95f0c230ac626a4810c4a11a00d4de6b9b6978298e6efa909d8"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.3.md",
+      "bytes": 32888,
+      "sha256": "6b9fe31dfa377bacf20a7acacdfe04d6682940e0f4dbd5f47bdefa5e7ec91759"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19-v1.3.pdf",
+      "bytes": 141620,
+      "sha256": "0d84b020995228051466cb844909d4247129a55aae38cb0ec41351d3d1345a81"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19.json",
+      "bytes": 18909,
+      "sha256": "093c8a5ddb139f2086af460eee54c45be54a1348741d7965b1a9b942562ff6e3"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19.md",
+      "bytes": 20452,
+      "sha256": "4c08bcd8d2a0fefaa057665da1117067d11f5540cccd76f643c28a5539d482de"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-change-requests-2026-10-19.pdf",
+      "bytes": 116080,
+      "sha256": "529ac3c2d0b956a1a51aae3eebe4eedee2474924b2e627dd4a0da95684af7c31"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-db-operations-handover-2026-10-19.pdf",
+      "bytes": 209270,
+      "sha256": "7c97deb2e8c148011d9759223b1624cfbf332c07414b360deefcd34c189dd95f"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-db-operations-handover-2026-10-19.zip",
+      "bytes": 223431,
+      "sha256": "92b0eee7e9e55e77a4003bfa84c9ce68fd521ad2e70cd801d564246a560f4a53"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/reports/rag-recommendation-quality-summary-2026-10-19.pdf",
+      "bytes": 92128,
+      "sha256": "36c8cc56717022b0ec7934f6ccd22a64241d57929be96738c3801f8bd8fe18e0"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/superpowers/plans/2026-10-19-rag-recommendation-quality.md",
+      "bytes": 2868,
+      "sha256": "807f6301c336725aa1c6b599d249e3fb798a02b707bbf34c9506f5064a971553"
+    },
+    {
+      "path": "docs/rag/archive/quality/docs/team-git-workflow.md",
+      "bytes": 1992,
+      "sha256": "aac2b1b36ac87debdb4309a76b9cd6ddac7fa84b6d7910087f9dbd540f98b8ca"
+    },
+    {
+      "path": "docs/rag/archive/user-attachments/agent-guidance-v0.6.txt",
+      "bytes": 27050,
+      "sha256": "96ea2be636a720b858038158ca5bffcee9bb24c152cd9e75e1eb85763a395d70"
+    },
+    {
+      "path": "docs/rag/archive/user-attachments/shopping-agent-user-stories.txt",
+      "bytes": 14671,
+      "sha256": "462033efbb71f9df907de36ae869341e52f312b02d2c3fd948e4dffefae81cc5"
+    },
+    {
+      "path": "docs/rag/chunking-and-embeddings.md",
+      "bytes": 5349,
+      "sha256": "dfcbeee048329bd8ecd1efd05af6e7d3ef700334c04816b32c5cd83b871ebf3e"
+    },
+    {
+      "path": "docs/rag/current-system.md",
+      "bytes": 7138,
+      "sha256": "6f2a83e30e2b375e72f973551590e31eb02fbae91b2712d04bcf6caa19c6193c"
+    },
+    {
+      "path": "docs/rag/datasets-and-storage.md",
+      "bytes": 11050,
+      "sha256": "e2e1ea6096e4cd265e4913f20a69148b05c85793807efd714d1e7abf882c1ee7"
+    },
+    {
+      "path": "docs/rag/document-catalog.md",
+      "bytes": 61455,
+      "sha256": "5c9178db9204e7382a45edbe22d8b542585d9d9f7b83608f52acf0f9753eaad1"
+    },
+    {
+      "path": "docs/rag/evidence/current-bge-request.schema.json",
+      "bytes": 2304,
+      "sha256": "78053cc1ad85671877250ab5e857331882ebe784ecc1e87203c95dcd18b9ae84"
+    },
+    {
+      "path": "docs/rag/evidence/documentation-checks-2026-10-20.json",
+      "bytes": 966,
+      "sha256": "a90218f2d74339f9d6f7e024e5c4bda4f180232de2487582847d0658f9614ee4"
+    },
+    {
+      "path": "docs/rag/evidence/runtime-snapshot-2026-10-20.json",
+      "bytes": 9253,
+      "sha256": "8b7ad56f14f7fb731ed7d3e1c7cb17ef19cf8a902aafd05641d1368e4d08b4e0"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/README.md",
+      "bytes": 597,
+      "sha256": "c1a6d68c410622d640dc2370c30f1e4d0bd12b173f92133a04d4de740ffd8997"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/chunking-and-embeddings.md",
+      "bytes": 7291,
+      "sha256": "4b6217fd5c66f63a8c0fe216d96e8e6b950868300c9dd382c190812a6ad13447"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/current-system.md",
+      "bytes": 8852,
+      "sha256": "3047187c2f8a68ffd2b967387ab763e3fd5da71d622f509d888024d5775e6c61"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/datasets-and-storage.md",
+      "bytes": 9780,
+      "sha256": "e0cc6220ec587c9a2c5ebbeb0059f8113383ce9b1694f985a1dee003785451b9"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/document-catalog.md",
+      "bytes": 59038,
+      "sha256": "19e8c6be7fa12025de64acfb8dfe981f73f035df6baca2bfb179b8e9488dcf76"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/documentation-checks-2026-10-20.json",
+      "bytes": 724,
+      "sha256": "c790eaa48e4effca760011c969c34e8fa7b2015de1c96f277c6731aa69797404"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/integration-and-gaps.md",
+      "bytes": 9082,
+      "sha256": "64335b95eef7c3aa7774460e48e9e4ceb34df894f826cc4a6e32a2674d7bd733"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/model-comparisons-and-evaluation.md",
+      "bytes": 12147,
+      "sha256": "5e280f49ddc1345417e978ba746321fa4bcdad4385fa781dbb858d9a2c521f9a"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/runtime-snapshot-2026-10-20.json",
+      "bytes": 6299,
+      "sha256": "6d6f05e40d3d0f73739b49a5b6aa321bb82dfbfc4fab53a0daf42be856a96e76"
+    },
+    {
+      "path": "docs/rag/history/minilm-2026-10-20-1447/source-manifest.json",
+      "bytes": 254172,
+      "sha256": "96276bfa49f1244eec99c09227b5e5b1fa46321f17018d5eb22dbfbf98fe2d77"
+    },
+    {
+      "path": "docs/rag/integration-and-gaps.md",
+      "bytes": 7957,
+      "sha256": "e738bbb2051d13d98f220738ce6f37e4fcdffb3131fd7a28ec68318875985626"
+    },
+    {
+      "path": "docs/rag/model-comparisons-and-evaluation.md",
+      "bytes": 14242,
+      "sha256": "8074960f012030d6eeb7442241f97d95a41115604ce31a72b8673bd27cfca865"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/source-metadata.json",
+      "bytes": 2581,
+      "sha256": "29599768a0a99f7f5dd82687ba31dde5591ec73204a7e5c226bafaa495155f78"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/__init__.py",
+      "bytes": 313,
+      "sha256": "21577b5a374f84136d110b6e21486b67a45ebb9489752d08a1d455725ee36cb2"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/__main__.py",
+      "bytes": 7425,
+      "sha256": "e21311a64a2b0924992b6215632355629014ad740dba7722f52daa6b71279264"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/api.py",
+      "bytes": 7334,
+      "sha256": "e5a9659ce889945840f7739f03b1245ae5992916e64a5e9a00b37336b4291be0"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/bge_m3.py",
+      "bytes": 3174,
+      "sha256": "ac53b4705756f2c3a797910bc96c12fd5b9e8a357200c096e9d8e37251e5159a"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/bootstrap.py",
+      "bytes": 3852,
+      "sha256": "72941a1bb06de2659d4d33cd09d40e1531b86e4ab2a68300ab1d3d6ff7ccf7b5"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/chunker.py",
+      "bytes": 9958,
+      "sha256": "a6d36aa340629be6a2d00ea65aa989b02d1ae3cd267b471154776b8b171582a7"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/classification.py",
+      "bytes": 3688,
+      "sha256": "e7a4a061824a6c5c586079a863e48d9e1b254035ba76ac3e063523558b4c119f"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/comparison.py",
+      "bytes": 3758,
+      "sha256": "72634b9ab63209f0677f65e7697b4e41e6c846bb225169a33b7dc79080f91bdd"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/config.py",
+      "bytes": 4344,
+      "sha256": "883e4a7f6106bdc4920248723ebf8aa00f170bfca201b2d5e61ad5f2dbf0f407"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/embedding_indexer.py",
+      "bytes": 8540,
+      "sha256": "e193c57a2926e486b226e5636d7d565812a2676819bd5deb775cdfced0f2b658"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/embeddings.py",
+      "bytes": 1277,
+      "sha256": "559bc1acccdf714299ddef8586a38b1f3ebddbf89a60f0dc6804cc996d042192"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/indexer.py",
+      "bytes": 11852,
+      "sha256": "2511ae9dd535ef778edfae3cc53d38b9d109f3da92ce559e89f8f728a4456b2e"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/privacy.py",
+      "bytes": 2311,
+      "sha256": "43d6224c1e45df227ea15211ca995b252da457d79314ab2666c91edb73821aa1"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/retriever.py",
+      "bytes": 12630,
+      "sha256": "1c2c6d2c1ff03a76ea11ce07ac3423a98435c0955ecbe5c772b449587fadf89c"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/schemas.py",
+      "bytes": 2826,
+      "sha256": "52c2be8d0213841d060a2a958253f3f28619d6f44c1d635aae60f891913e4bcd"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/source.py",
+      "bytes": 10760,
+      "sha256": "bd421ab53a1428a8c659a077452a3704ebc3e5c2204ae66dfc58bfd70d98ddb5"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/store.py",
+      "bytes": 32925,
+      "sha256": "26a2a4860199b82f137cec1f2291f6692ab0cc9897bc2531d9d85a6b3a1d942d"
+    },
+    {
+      "path": "docs/rag/reference-code/bge-m3/src/toss_ads/rag/types.py",
+      "bytes": 1959,
+      "sha256": "b1041d1c013b7464a9c9c6555403c1e18365291f89ce89018a75fa14c77a1519"
+    },
+    {
+      "path": "docs/rag/source-manifest.json",
+      "bytes": 271852,
+      "sha256": "580992016b799f33db86dc7f06e601e6eeb210afff69c676a8fb510a44428bbe"
+    },
+    {
+      "path": "docs/team-git-workflow.md",
+      "bytes": 1992,
+      "sha256": "aac2b1b36ac87debdb4309a76b9cd6ddac7fa84b6d7910087f9dbd540f98b8ca"
+    }
+  ]
+}

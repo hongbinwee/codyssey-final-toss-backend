@@ -1,0 +1,119 @@
+{
+  "branch": "feature/rag-langchain-http",
+  "database": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "name": "toss_rag"
+  },
+  "unit_tests": {
+    "passed": 11,
+    "failed": 0
+  },
+  "preview_health": {
+    "status": "ok",
+    "profile_name": "all_products",
+    "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+    "supported_categories": [
+      "beauty"
+    ]
+  },
+  "parity_checks": [
+    {
+      "case": "recommendation",
+      "http_status": 200,
+      "status": "ok",
+      "item_count": 5,
+      "matches_previous_response": true
+    },
+    {
+      "case": "structured-conditions",
+      "http_status": 200,
+      "status": "ok",
+      "item_count": 2,
+      "matches_previous_response": true
+    },
+    {
+      "case": "unsupported-category",
+      "http_status": 422,
+      "status": "error",
+      "item_count": 0,
+      "matches_previous_response": true
+    },
+    {
+      "case": "invalid-result-count",
+      "http_status": 422,
+      "status": "error",
+      "item_count": 0,
+      "matches_previous_response": true
+    }
+  ],
+  "langchain_events": [
+    {
+      "event": "start",
+      "request_id": "langchain-preview-recommendation",
+      "category": "beauty",
+      "top_k": 5
+    },
+    {
+      "event": "result",
+      "request_id": "langchain-preview-recommendation",
+      "status": "ok",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737"
+    },
+    {
+      "event": "start",
+      "request_id": "langchain-preview-structured-conditions",
+      "category": "beauty",
+      "top_k": 2
+    },
+    {
+      "event": "result",
+      "request_id": "langchain-preview-structured-conditions",
+      "status": "ok",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737"
+    },
+    {
+      "event": "start",
+      "request_id": "langchain-preview-unsupported-category",
+      "category": "food",
+      "top_k": 3
+    },
+    {
+      "event": "result",
+      "request_id": "langchain-preview-unsupported-category",
+      "status": "error",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737"
+    }
+  ],
+  "production_health": {
+    "status": "ok",
+    "profile_name": "all_products",
+    "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+    "supported_categories": [
+      "beauty"
+    ]
+  },
+  "production_search": {
+    "request_id": "langchain-live-final-check",
+    "http_status": 200,
+    "status": "ok",
+    "item_count": 3,
+    "all_items_have_evidence": true
+  },
+  "production_langchain_events": [
+    {
+      "event": "start",
+      "request_id": "langchain-live-final-check",
+      "category": "beauty",
+      "top_k": 3
+    },
+    {
+      "event": "result",
+      "request_id": "langchain-live-final-check",
+      "status": "ok",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737"
+    }
+  ],
+  "deployed_image": "toss-ads-product-rag-service:2026-10-18-langchain-http",
+  "rollback_container": "product-rag-api-before-langchain-20261018"
+}

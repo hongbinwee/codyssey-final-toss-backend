@@ -1,0 +1,117 @@
+{
+  "status": "ready",
+  "target": {
+    "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+    "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+    "product_count": 1500,
+    "review_count": 46100,
+    "expected_chunk_count": 114106,
+    "expected_category_chunk_counts": {
+      "beauty": 78595,
+      "fashion": 11566,
+      "food": 13409,
+      "living": 10536
+    }
+  },
+  "embedding": {
+    "model": "BAAI/bge-m3",
+    "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "dimension": 1024,
+    "max_input_tokens": 128,
+    "category_scope": "*",
+    "expected_preexisting_vectors": 78595,
+    "expected_new_vectors": 35511,
+    "actual_preexisting_vectors": 78595,
+    "actual_embedded_vectors": 35511,
+    "actual_stored_vectors": 114106,
+    "profile_status": "ready",
+    "document_embedding_seconds": 8473.861495,
+    "elapsed_seconds": 8954.353,
+    "chunks_per_second": 4.191,
+    "model_load_seconds": 22.921,
+    "cpu_thread_count": 20,
+    "max_rss_mb": 2541.86
+  },
+  "database_validation": {
+    "status": "passed",
+    "checks_passed": 9,
+    "checks_total": 9,
+    "bge_vector_counts_by_category": {
+      "beauty": 78595,
+      "fashion": 11566,
+      "food": 13409,
+      "living": 10536
+    },
+    "minilm_vectors_preserved": 114106
+  },
+  "retrieval": {
+    "bm25_enabled": true,
+    "bge_m3_dense_enabled": true,
+    "bge_m3_sparse_enabled": false,
+    "bge_m3_colbert_enabled": false,
+    "product_rrf_k": 60
+  },
+  "runtime": {
+    "status": "switched",
+    "validation_port": 8003,
+    "service_port": 8002,
+    "health": "ok",
+    "active_container": "product-rag-api",
+    "active_image": "toss-ads-product-rag-service:rag-bge-m3-full-test-items2-252bc90",
+    "active_model": "BAAI/bge-m3",
+    "active_dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+    "category_search_checks": [
+      {
+        "category": "beauty",
+        "http_status": 200,
+        "status": "ok",
+        "item_count": 5
+      },
+      {
+        "category": "fashion",
+        "http_status": 200,
+        "status": "ok",
+        "item_count": 5
+      },
+      {
+        "category": "food",
+        "http_status": 200,
+        "status": "ok",
+        "item_count": 5
+      },
+      {
+        "category": "living",
+        "http_status": 200,
+        "status": "ok",
+        "item_count": 5
+      },
+      {
+        "category": "*",
+        "http_status": 200,
+        "status": "ok",
+        "item_count": 5
+      }
+    ],
+    "rollback_container": "product-rag-api-minilm-rollback-20261020",
+    "rollback_container_preserved": true,
+    "rollback_container_status": "exited",
+    "validation_container_status": "exited",
+    "rollback_smoke_check": {
+      "status": "passed",
+      "minilm_image": "toss-ads-product-rag-service:24a1051-test-items2",
+      "health": "ok",
+      "beauty_search_http_status": 200,
+      "beauty_search_item_count": 3,
+      "bge_service_restored": "ok"
+    }
+  },
+  "evaluation": {
+    "status": "unmeasured_outside_beauty",
+    "beauty_positive_queries": 10,
+    "beauty_out_of_distribution_queries": 2,
+    "approved_labels_for_fashion_food_living": false,
+    "full_dataset_accuracy_measured": false
+  },
+  "contains_source_text": false,
+  "contains_credentials": false
+}

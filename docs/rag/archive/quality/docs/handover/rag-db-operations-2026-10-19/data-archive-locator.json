@@ -1,0 +1,83 @@
+{
+  "path": "/home/aiteam/projects/toss-ads-project/data/exports/test_items2_chunked_full_2026-10-19.zip",
+  "bytes": 273558559,
+  "entries": [
+    {
+      "file": "README_KO.md",
+      "bytes": 2710
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "bytes": 1990
+    },
+    {
+      "file": "database_exports/toss/test_items2/product_variants.jsonl",
+      "bytes": 473821
+    },
+    {
+      "file": "database_exports/toss/test_items2/products.jsonl",
+      "bytes": 3443866
+    },
+    {
+      "file": "database_exports/toss/test_items2/reviews.jsonl",
+      "bytes": 28878051
+    },
+    {
+      "file": "database_exports/toss/test_items2/schema.sql",
+      "bytes": 5059
+    },
+    {
+      "file": "database_exports/toss_rag/rag/evidence_chunks.jsonl",
+      "bytes": 713276797
+    },
+    {
+      "file": "database_exports/toss_rag/rag/index_profiles.jsonl",
+      "bytes": 139
+    },
+    {
+      "file": "database_exports/toss_rag/rag/index_runs.jsonl",
+      "bytes": 1286
+    },
+    {
+      "file": "database_exports/toss_rag/rag/indexed_products.jsonl",
+      "bytes": 5190671
+    },
+    {
+      "file": "database_exports/toss_rag/rag/quarantined_products.jsonl",
+      "bytes": 0
+    },
+    {
+      "file": "database_exports/toss_rag/rag/schema.sql",
+      "bytes": 9519
+    },
+    {
+      "file": "metadata/export_manifest.json",
+      "bytes": 1428
+    },
+    {
+      "file": "metadata/index_report.json",
+      "bytes": 2960
+    },
+    {
+      "file": "metadata/load_report.json",
+      "bytes": 1138
+    },
+    {
+      "file": "shopping_brain_v6_1_common_dataset/README.md",
+      "bytes": 1424
+    },
+    {
+      "file": "shopping_brain_v6_1_common_dataset/data/products.json",
+      "bytes": 4241049
+    },
+    {
+      "file": "shopping_brain_v6_1_common_dataset/data/reviews.json",
+      "bytes": 30709313
+    },
+    {
+      "file": "shopping_brain_v6_1_common_dataset/data/variants.json",
+      "bytes": 492085
+    }
+  ],
+  "sha256": "5cffff3e0a656cbbdf55a0b76c7493a0373c48a77d5d6770af9a65865e66b808"
+}

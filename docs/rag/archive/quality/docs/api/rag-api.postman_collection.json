@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Toss Product RAG API — test_items2",
+    "description": "2026-10-19 기준. 공개 HTTPS 도메인으로 호출. 요청 예시이며 검색 테스트 결과가 아닙니다. 별도 자동 테스트 스크립트는 포함하지 않습니다.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://rag.chanuk.theworkpc.com"
+    },
+    {
+      "key": "profile",
+      "value": "test_items2"
+    }
+  ],
+  "item": [
+    {
+      "name": "상태 확인",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/healthz"
+      }
+    },
+    {
+      "name": "니플패치 및 리뷰 검색",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/v1/rag/search",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"request_id\": \"other-pc-test-001\",\n  \"profile\": \"{{profile}}\",\n  \"original_question\": \"니플패치 찾아줘. 리뷰도 보여줘\",\n  \"query\": \"니플패치\",\n  \"category\": \"fashion\",\n  \"filters\": {},\n  \"required_conditions\": [],\n  \"preferences\": [],\n  \"top_k\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "카테고리 제한 없이 검색",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/v1/rag/search",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"profile\": \"{{profile}}\",\n  \"original_question\": \"파우치 찾아줘\",\n  \"query\": \"파우치\",\n  \"top_k\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

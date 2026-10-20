@@ -1,0 +1,228 @@
+{
+  "observed_at": "2026-10-20T05:47:57.852530+00:00",
+  "evidence_type": "read_only_state_snapshot_not_search_quality_test",
+  "database_endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "toss_rag"
+  },
+  "commerce_endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "toss"
+  },
+  "settings": {
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "chunk_max_tokens": 96,
+    "default_profile": "test_items2",
+    "allowed_profiles": [
+      "test_items2",
+      "all_products"
+    ],
+    "channel_depth": 20,
+    "rrf_k": 60,
+    "min_rrf_score": null,
+    "require_in_stock": true,
+    "candidate_depth": 50,
+    "chunks_per_product": 3,
+    "candidate_scan_limit": 2000
+  },
+  "module_chunker_version": "source-evidence-token-v3",
+  "model_max_tokens": 128,
+  "http_calls_hybrid_search_directly": true,
+  "retriever_has_structured_search_method": false,
+  "module_sha256": {
+    "toss_ads.rag.api": "8593d7884ddd448a3cfbe5b46753b088150487938163cd3113434ac72112e8c8",
+    "toss_ads.rag.chunker": "7450c7f496f5bc61f0fc8cb6fb87f2fcf59e6e2ce30fc489c176d208e9f7e59e",
+    "toss_ads.rag.embeddings": "940048a769cd6261b7745695104b86f146bec379be8e9bc044c5724d77e05bc2",
+    "toss_ads.rag.retriever": "5e9253f3592047fecdf5239440c1780e923c7e20467af8a362f7ec34543e7587",
+    "toss_ads.rag.config": "278af0ea38ab645444fc129dd929165c0eff0881b1a780ed1d0f2fe8d28308b2"
+  },
+  "healthz": {
+    "http_status": 200,
+    "body": {
+      "status": "ok",
+      "profile_name": "test_items2",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "supported_categories": [
+        "beauty",
+        "fashion",
+        "food",
+        "living"
+      ],
+      "allowed_profiles": [
+        "test_items2",
+        "all_products"
+      ],
+      "commerce_configured": true
+    }
+  },
+  "extensions": [
+    {
+      "extname": "pg_search",
+      "extversion": "0.26.0"
+    },
+    {
+      "extname": "vector",
+      "extversion": "0.8.7"
+    }
+  ],
+  "active_profiles": [
+    {
+      "profile_name": "all_products",
+      "active_run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689",
+      "status": "active",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "chunker_version": "source-evidence-token-v2:max_tokens=96",
+      "counts": {
+        "chunk_count": 6741,
+        "review_count": 4737,
+        "product_count": 180,
+        "category_counts": {
+          "beauty": {
+            "chunks": 6741,
+            "reviews": 4737,
+            "products": 180,
+            "source_reviews": 4737,
+            "source_products": 180,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          }
+        }
+      }
+    },
+    {
+      "profile_name": "test_items2",
+      "active_run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+      "status": "active",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "chunker_version": "source-evidence-token-v2:max_tokens=96",
+      "counts": {
+        "chunk_count": 114106,
+        "review_count": 46100,
+        "product_count": 1500,
+        "category_counts": {
+          "food": {
+            "chunks": 13409,
+            "reviews": 5682,
+            "products": 182,
+            "source_reviews": 5682,
+            "source_products": 182,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "beauty": {
+            "chunks": 78595,
+            "reviews": 34545,
+            "products": 781,
+            "source_reviews": 34545,
+            "source_products": 781,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "living": {
+            "chunks": 10536,
+            "reviews": 3112,
+            "products": 268,
+            "source_reviews": 3112,
+            "source_products": 268,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "fashion": {
+            "chunks": 11566,
+            "reviews": 2761,
+            "products": 269,
+            "source_reviews": 2761,
+            "source_products": 269,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          }
+        }
+      }
+    }
+  ],
+  "chunk_counts": [
+    {
+      "category": "beauty",
+      "source_type": "product",
+      "chunks": 19485
+    },
+    {
+      "category": "beauty",
+      "source_type": "review",
+      "chunks": 59110
+    },
+    {
+      "category": "fashion",
+      "source_type": "product",
+      "chunks": 8128
+    },
+    {
+      "category": "fashion",
+      "source_type": "review",
+      "chunks": 3438
+    },
+    {
+      "category": "food",
+      "source_type": "product",
+      "chunks": 4364
+    },
+    {
+      "category": "food",
+      "source_type": "review",
+      "chunks": 9045
+    },
+    {
+      "category": "living",
+      "source_type": "product",
+      "chunks": 5942
+    },
+    {
+      "category": "living",
+      "source_type": "review",
+      "chunks": 4594
+    }
+  ],
+  "embedding_profiles_available": [
+    {
+      "name": "rag.index_run_embedding_profiles"
+    }
+  ],
+  "additional_embedding_profiles": [
+    {
+      "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+      "embedding_model": "BAAI/bge-m3",
+      "model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "dimension": 1024,
+      "max_input_tokens": 128,
+      "category_scope": "beauty",
+      "status": "ready",
+      "chunk_count": 78595,
+      "created_at": "2026-10-19 17:09:30.737453+00:00",
+      "updated_at": "2026-10-19 20:32:58.945536+00:00"
+    }
+  ],
+  "source_counts": {
+    "products": 1500,
+    "product_variants": 1917,
+    "reviews": 46100
+  },
+  "source_reviews_by_kind": [
+    {
+      "source_kind": "REAL",
+      "reviews": 41523
+    },
+    {
+      "source_kind": "SYNTHETIC",
+      "reviews": 4577
+    }
+  ],
+  "container": {
+    "name": "product-rag-api",
+    "image": "toss-ads-product-rag-service:24a1051-test-items2",
+    "state": "running"
+  }
+}

@@ -1,0 +1,77 @@
+# AI Commerce Environment
+
+## 현재 로컬 화면·데이터 고정 — 2026-10-17 사용자 지정
+
+기존 `Shopping` 홈, 상단 탭·배너·하단 메뉴와 상품 상세·리뷰·검색 화면을 사용합니다. `/#/`와 `/#/test-items`는 모두 이 쇼핑 홈을 엽니다. 데이터 연결을 변경하면서 별도 디자인이나 별도 기본 화면으로 교체하지 않습니다.
+
+상품 조회와 Shopping Agent/RAG 조회는 `src/storefront-catalog.ts`를 통해 **test_items만** 사용합니다. 고정 데이터셋은 `test_items:sha256=4e9924492dcb536e:products=180:reviews=4737`이며, 버전이 다르거나 연결에 실패하면 오류를 표시합니다. 다른 데모 상품이나 `test_earphones`로 대체하지 않습니다. 아래 이어폰 데모 설명은 별도 과거 검증 흐름입니다.
+
+상품 가격·재고는 원본의 모의값으로 표시하고 조회 전용으로 제공합니다. 상품·리뷰 조회를 위해 Commerce DB를 재적재하지 않습니다. 세션·기존 카트·주문용 `DATABASE_URL`은 로컬 설정을 계속 사용하며, 상품과 리뷰 원본은 `RAG_API_BASE_URL`의 고정 색인에서 읽습니다. 이 로컬 Preview는 storefront 작업 디렉터리에서 `PORT=3112 npm start`로 실행합니다.
+
+가격 해석도 사용자 지정입니다. `10만원`은 목표 금액에 가까운 순서로 추천하며 상한으로 취급하지 않습니다. `10만원대`는 100,000~199,999원, `3만원대`는 30,000~39,999원입니다. `이하·이내·까지·최대`를 명시한 경우에만 상한을 적용합니다. 현재 화면의 상품 1개 배송비 포함 금액 기준으로 비교하며, 가격 구간에 맞는 후보가 없으면 저가 상품으로 대체하지 않습니다. `src/price-policy.ts`가 웹 입력·대화·서버 필터링의 공통 규칙입니다.
+
+구매자용 Commerce Environment를 먼저 완성하고, 이후 Shopping Brain / CS Agent를 결합하는 프로젝트입니다. 이 문서는 RAG·시스템 프롬프트 팀을 위한 **WIP 맥락 공유**이며 Brain 통합이나 Commerce Freeze 완료를 뜻하지 않습니다. AI stub/scaffolding과 화면의 `준비중` 상태를 유지합니다. 현재 범위는 [CORE_TASK_SCOPE.md](CORE_TASK_SCOPE.md), 최상위 방향은 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)를 참고하세요.
+
+## 개발자별 로컬 실행 체크리스트
+
+요구 환경: Node.js 24+, npm, Docker.
+
+1. `.env.example`을 `.env`로 복사합니다.
+2. 개인별 새 임의 비밀번호를 `.secrets/pg-password`에 저장하고 파일 접근을 본인 계정으로 제한합니다. 비밀 값을 출력·공유·커밋하지 마세요. Compose PostgreSQL role과 앱은 같은 파일을 사용합니다. 기존 DB volume은 파일 교체만으로 role 암호가 바뀌지 않습니다.
+3. 본인이 소유한 새 loopback 로컬 DB와 Compose volume만 사용합니다. 금지 대상은 **현재 오케스트레이션 호스트/volume의 보호 DB와 보존 scratch**입니다. 팀원이 별도 호스트와 새 volume에 만든 DB가 같은 이름 `commerce`를 쓰는 것은 별개입니다. scratch 2/2는 현재 오케스트레이션 환경의 할당 상태이지 팀 전체 상한이 아닙니다. 같은 호스트에서 `5432`가 이미 사용 중이면 기존 프로세스/DB를 재사용·종료하거나 자격을 바꾸지 말고 준비를 멈춰 별도 로컬 환경을 조율하세요.
+4. 아래 기본 명령은 `compose.yaml`의 PostgreSQL 17 (`127.0.0.1:5432`)을 사용합니다. 본인이 소유한 새 DB/volume에서 최초 한 번 실행합니다.
+
+```powershell
+docker compose -p codyssey-yourname up -d
+npm ci
+npm run db:migrate -- --phase=6
+npm run db:seed -- --phase=4
+npm run dev
+```
+
+Full Commerce는 migration phase 6(`001`–`004`), 상품·카트만의 schema 범위는 phase 1입니다. Base fixture seed는 개발 DB 최초 적재용입니다. 재실행하면 상품 재고/version과 시드 주문·취소·결제/환불 상태가 초기값으로 되돌아갈 수 있습니다. 선택적 `db:seed:demo`도 본인의 새 개발 DB임을 먼저 확인하세요. 앱 주소는 `http://localhost:3000`이며 접근 코드는 로컬 `.env`에서 관리합니다.
+
+### PostgreSQL 18.6 병렬 개발 환경
+
+PostgreSQL 18.6은 현재 기본 DB 전환이 아니라 별도 loopback 환경입니다. `compose.yaml`, PG17의 `5432` 포트와 volume은 그대로 둡니다. PG18 설정은 확인된 image digest, `127.0.0.1:5433`, PG18 전용 `codyssey_pg18_verify_data` volume 및 `PGDATA=/var/lib/postgresql/18/docker`를 사용하는 [`compose.pg18.yaml`](compose.pg18.yaml)입니다. 이 파일은 고정 `container_name`과 volume 이름을 쓰는 단일 인스턴스이므로 `-p`만 바꿔도 같은 Docker host에서 분리되지 않습니다. 각 팀원은 자기 Docker host와 새 volume에서만 실행하고, 같은 host에서 이름이 겹치면 멈춰 별도 PC/구성을 조율하세요. 기존 container/volume은 재사용하지 마세요.
+
+자기 소유의 새 PG18 volume을 처음 만들 때만 다음을 실행합니다. Compose는 관리 DB `postgres`를 먼저 만들므로, 앱용 `commerce` DB도 이 새 PG18 인스턴스에만 생성합니다.
+
+```powershell
+docker compose -f compose.pg18.yaml up -d
+docker compose -f compose.pg18.yaml exec -T db18 createdb -U commerce -O commerce commerce
+```
+
+앱과 migration/seed CLI를 실행하는 프로세스 환경(로컬 `.env`)에 두 값을 명시하고, 이 새 DB에만 초기 migration/fixture를 적용합니다. `.env.example`은 PG17 `5432` 기본값으로 유지됩니다. 비밀번호는 개인 `.secrets/pg-password` 파일에서 읽으며 값을 기록하거나 공유하지 않습니다.
+
+```dotenv
+DATABASE_URL=postgres://commerce@127.0.0.1:5433/commerce
+DATABASE_PASSWORD_FILE=.secrets/pg-password
+```
+
+```powershell
+npm run db:migrate -- --phase=6
+npm run db:seed -- --phase=4
+npm run dev
+```
+
+복원된 검증 DB와 보호 DB는 팀원 개발용 대상이 아닙니다. 여기에 migration·seed·테스트 쓰기를 하지 마세요. `SCRATCH_DB_TARGET=pg18`에 쓰이는 cluster system identifier pin은 현재 오케스트레이션 호스트의 안전 검증값이며 팀별 기본 설정이 아닙니다. 5433, container 이름 또는 volume 이름이 이미 사용 중이면 기존 대상을 종료·재사용하지 말고 멈춰 별도 로컬 구성을 조율하세요.
+
+현재 `npm run verify`와 legacy Playwright 진입점은 `NOT_READY` fail-closed guard로 실행이 제한됩니다. 우회하거나 전체 PASS 경로로 안내하지 말고 최신 판정은 [VERIFICATION_LOG.md](docs/VERIFICATION_LOG.md)를 확인하세요.
+
+## 기존 구조와 팀 handoff
+
+- `src/catalog.ts`, `src/cart.ts`, `src/checkout.ts`, `src/orders.ts`, `src/cancellation.ts`가 Commerce 데이터·정책의 서버 정본입니다. 화면과 Agent Tool은 같은 Backend 규칙을 사용합니다.
+- Product–Variant–Review ID/FK 연결을 보존합니다. 가격은 정수 KRW, 평점은 1–5이며 Review는 `source_kind`와 `source_ref`로 REAL/SYNTHETIC 및 출처를 구분합니다. 근거 없는 실리뷰를 만들지 않습니다.
+- 세션에서 검증한 actor만 신뢰합니다. `GET /api/cart`는 카트를 upsert할 수 있고, 변경 요청은 예상 cart/variant version과 idempotency key를 사용합니다.
+- 기본 경로는 `POST /api/session`(세션 쿠키 발급) → `GET /api/products` → `GET /api/products/:id`(variants 포함) / `GET /api/products/:id/reviews` → `GET /api/cart` → `POST /api/cart/items`, `PATCH`·`DELETE /api/cart/items/:cart_item_id`입니다.
+- RAG 문서는 Commerce `product_id`, 선택된 `variant_id`, 근거 `review_id`의 원본 매핑을 유지합니다. Vector DB는 검색용이며 Commerce ID와 관계의 정본을 대체하지 않습니다.
+- 기존 deterministic fixture `p-a/p-b/p-c`와 Demo namespace를 외부 catalog와 분리합니다. 새 catalog 연동은 이용 권한, source/ID namespace, 독립 적재 계획을 확인한 뒤 별도 검토하며 현재 importer나 데이터 수집은 없습니다. 직접 scraping하거나 기존 seed를 덮어쓰지 마세요.
+
+## 현재 WIP
+
+### Commerce RAG 데모
+
+기존 `test_earphones` RAG 색인과 RAG → 상품 상세 → variant → 장바구니 흐름은 [Commerce RAG 데모 runbook](docs/commerce-rag-demo.md)을 따르세요. Commerce 카탈로그에는 동일한 합성 이어폰 fixture를 별도 테스트 DB에 적재합니다. 이 흐름은 전용 `npm run test:rag-demo` runner로만 실행합니다.
+
+PG18 작업 착수 전에 확인한 `main` 기준은 `0a81c8ae9e5857764a25853a99ded15678ec7422`이며, 그 시점에 PM이 local/origin SHA 일치를 확인했습니다. 이 값은 이번 문서·PG18 변경 이후의 현재 HEAD를 뜻하지 않습니다. PG17은 기본 `5432` 환경으로 유지되고, PG18.6은 별도 `5433` 병렬 환경으로 복원 정합성 및 실제 Preview를 확인했습니다. 기본 연결 cutover는 수행하지 않았습니다. 최신 check/build와 전체 Unit 727/727은 PASS이며, 실제 E2E는 58 PASS / 1 FAIL / 14 NOT_RUN, Integration은 NOT_RUN입니다. 실패 후 리뷰 탭 안내 assertion을 로컬에서 한 줄 보완했으나 E2E로 재검증하지 않았습니다. Preview는 이 오케스트레이션 host 전용 `http://127.0.0.1:3105/`이며 팀 공통 서비스 주소가 아닙니다. Commerce Freeze와 Visual 승인은 미완료입니다. 최신 상태는 [IMPLEMENTATION_PROGRESS.md](docs/IMPLEMENTATION_PROGRESS.md)와 [VERIFICATION_LOG.md](docs/VERIFICATION_LOG.md)를 확인하세요.

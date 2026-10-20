@@ -1,0 +1,291 @@
+{
+  "created_at": "2026-10-17",
+  "endpoint": "http://127.0.0.1:8002/v1/rag/search",
+  "profile_name": "all_products",
+  "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+  "supported_categories": [
+    "beauty"
+  ],
+  "checks": {
+    "all_http_200": true,
+    "all_status_ok": true,
+    "all_unfiltered": true,
+    "all_results_match_supported_categories": true,
+    "all_items_have_product_and_evidence": true,
+    "all_returned_prices_marked_simulated": true
+  },
+  "interpretation": "Connectivity and response-shape smoke only. No human relevance labels were supplied; this does not measure recommendation precision or recall.",
+  "results": [
+    {
+      "case_id": "beauty_sensitive_skin_moisturizer",
+      "query": "민감한 피부용 보습 로션 추천",
+      "http_status": 200,
+      "status": "ok",
+      "error_code": null,
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "applied_filters": {},
+      "item_count": 5,
+      "categories": [
+        "beauty"
+      ],
+      "top_3": [
+        {
+          "product_id": "p-v4-oy-a000000130138",
+          "title": "에스트라 아토베리어365 크림미스트 120ml",
+          "brand": "에스트라",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000258834",
+          "title": "에스트라 아토베리어365 하이드로 수딩크림 80ml 기획 (+수딩크림 10ml+클렌징폼 30g)",
+          "brand": "에스트라",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000211402",
+          "title": "[슬로우에이징/탄력크림] 닥터자르트 프리쥬비네이션 퍼밍 바쿠치올 크림 50ml",
+          "brand": "닥터자르트",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product",
+            "review"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "beauty_barrier_hydrating_cream",
+      "query": "피부 장벽에 도움 되는 수분 크림",
+      "http_status": 200,
+      "status": "ok",
+      "error_code": null,
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "applied_filters": {},
+      "item_count": 5,
+      "categories": [
+        "beauty"
+      ],
+      "top_3": [
+        {
+          "product_id": "p-v4-oy-a000000258834",
+          "title": "에스트라 아토베리어365 하이드로 수딩크림 80ml 기획 (+수딩크림 10ml+클렌징폼 30g)",
+          "brand": "에스트라",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000255244",
+          "title": "[총200ml/미니어처증정] 라운드랩 자작나무 수분 크림 80ml+80ml 더블 기획 (+40ml)",
+          "brand": "라운드랩",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000260585",
+          "title": "[트러블 피부 추천/붉은기 진정 앰플] 제로이드 핌프로브 카밍 앰플 30ml 기획 (+크림 10ml)",
+          "brand": "제로이드",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "beauty_spf50_sunscreen",
+      "query": "자외선 차단제 SPF 50 선크림",
+      "http_status": 200,
+      "status": "ok",
+      "error_code": null,
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "applied_filters": {},
+      "item_count": 5,
+      "categories": [
+        "beauty"
+      ],
+      "top_3": [
+        {
+          "product_id": "p-v4-oy-a000000253243",
+          "title": "[파데프리/더마비비] 에스쁘아 더마커버 블레미쉬 밤 40g 3colors SPF 50 PA++++ 비비크림",
+          "brand": "에스쁘아",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000211402",
+          "title": "[슬로우에이징/탄력크림] 닥터자르트 프리쥬비네이션 퍼밍 바쿠치올 크림 50ml",
+          "brand": "닥터자르트",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000214168",
+          "title": "[8월올영픽/NO.1 국민수분크림] 키엘 울트라 훼이셜 크림 28ml/50ml/150ml (기획/단품)",
+          "brand": "키엘",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "beauty_acne_toner",
+      "query": "여드름 피부에 가벼운 토너",
+      "http_status": 200,
+      "status": "ok",
+      "error_code": null,
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "applied_filters": {},
+      "item_count": 5,
+      "categories": [
+        "beauty"
+      ],
+      "top_3": [
+        {
+          "product_id": "p-v4-oy-a000000212749",
+          "title": "[1등품절템/웜쿨대통합] 프레시안 에그라이크 크림 블러쉬 (단독 기획)",
+          "brand": "프레시안",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000258834",
+          "title": "에스트라 아토베리어365 하이드로 수딩크림 80ml 기획 (+수딩크림 10ml+클렌징폼 30g)",
+          "brand": "에스트라",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000263655",
+          "title": "[효블리PICK/멀멀메이크업] 키스미 잉크 베일 라이너 2 colors",
+          "brand": "키스미",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "beauty_cleansing_oil",
+      "query": "메이크업 지우는 클렌징 오일",
+      "http_status": 200,
+      "status": "ok",
+      "error_code": null,
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "applied_filters": {},
+      "item_count": 5,
+      "categories": [
+        "beauty"
+      ],
+      "top_3": [
+        {
+          "product_id": "p-v4-oy-a000000254730",
+          "title": "[8월올영픽/NEW립앤치크] 바닐라코 쉬어 블러 팟 7종 (단품/기획)",
+          "brand": "바닐라코",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000162114",
+          "title": "[1위픽서]쏘내추럴 올 데이 타이트 메이크업 세팅 픽서 120ml 더블기획 (120ml+120ml)",
+          "brand": "쏘내추럴",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000181223",
+          "title": "[리뉴얼] 엔트로피 브로우 블리치/애쉬브라운/베이지브라운/원유즈 3종",
+          "brand": "엔트로피 메이크업",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "beauty_lip_balm",
+      "query": "보습이 오래가는 립밤",
+      "http_status": 200,
+      "status": "ok",
+      "error_code": null,
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "applied_filters": {},
+      "item_count": 5,
+      "categories": [
+        "beauty"
+      ],
+      "top_3": [
+        {
+          "product_id": "p-v4-oy-a000000201055",
+          "title": "[NEW산리오캐릭터즈] 롬앤 베러 댄 컨투어 (쿠로미)",
+          "brand": "롬앤",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000258834",
+          "title": "에스트라 아토베리어365 하이드로 수딩크림 80ml 기획 (+수딩크림 10ml+클렌징폼 30g)",
+          "brand": "에스트라",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000182700",
+          "title": "[24시간 깃털컬링] 뮤드 스키니컬링/멀티픽서 마스카라 (단품/ 1+1 기획)",
+          "brand": "뮤드",
+          "price_is_simulated": true,
+          "image_count": 1,
+          "evidence_types": [
+            "product"
+          ]
+        }
+      ]
+    }
+  ]
+}

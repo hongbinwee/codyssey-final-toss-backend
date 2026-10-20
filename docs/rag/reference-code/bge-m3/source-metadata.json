@@ -1,0 +1,80 @@
+{
+  "captured_at": "2026-10-20T09:25:51.950392+00:00",
+  "origin": "running product-rag-api /app/src/toss_ads/rag",
+  "container_image": "toss-ads-product-rag-service:rag-bge-m3-full-test-items2-252bc90",
+  "purpose": "Read-only reference snapshot; not installed over the documentation branch application code.",
+  "files": [
+    {
+      "path": "__init__.py",
+      "sha256": "21577b5a374f84136d110b6e21486b67a45ebb9489752d08a1d455725ee36cb2"
+    },
+    {
+      "path": "__main__.py",
+      "sha256": "e21311a64a2b0924992b6215632355629014ad740dba7722f52daa6b71279264"
+    },
+    {
+      "path": "api.py",
+      "sha256": "e5a9659ce889945840f7739f03b1245ae5992916e64a5e9a00b37336b4291be0"
+    },
+    {
+      "path": "bge_m3.py",
+      "sha256": "ac53b4705756f2c3a797910bc96c12fd5b9e8a357200c096e9d8e37251e5159a"
+    },
+    {
+      "path": "bootstrap.py",
+      "sha256": "72941a1bb06de2659d4d33cd09d40e1531b86e4ab2a68300ab1d3d6ff7ccf7b5"
+    },
+    {
+      "path": "chunker.py",
+      "sha256": "a6d36aa340629be6a2d00ea65aa989b02d1ae3cd267b471154776b8b171582a7"
+    },
+    {
+      "path": "classification.py",
+      "sha256": "e7a4a061824a6c5c586079a863e48d9e1b254035ba76ac3e063523558b4c119f"
+    },
+    {
+      "path": "comparison.py",
+      "sha256": "72634b9ab63209f0677f65e7697b4e41e6c846bb225169a33b7dc79080f91bdd"
+    },
+    {
+      "path": "config.py",
+      "sha256": "883e4a7f6106bdc4920248723ebf8aa00f170bfca201b2d5e61ad5f2dbf0f407"
+    },
+    {
+      "path": "embedding_indexer.py",
+      "sha256": "e193c57a2926e486b226e5636d7d565812a2676819bd5deb775cdfced0f2b658"
+    },
+    {
+      "path": "embeddings.py",
+      "sha256": "559bc1acccdf714299ddef8586a38b1f3ebddbf89a60f0dc6804cc996d042192"
+    },
+    {
+      "path": "indexer.py",
+      "sha256": "2511ae9dd535ef778edfae3cc53d38b9d109f3da92ce559e89f8f728a4456b2e"
+    },
+    {
+      "path": "privacy.py",
+      "sha256": "43d6224c1e45df227ea15211ca995b252da457d79314ab2666c91edb73821aa1"
+    },
+    {
+      "path": "retriever.py",
+      "sha256": "1c2c6d2c1ff03a76ea11ce07ac3423a98435c0955ecbe5c772b449587fadf89c"
+    },
+    {
+      "path": "schemas.py",
+      "sha256": "52c2be8d0213841d060a2a958253f3f28619d6f44c1d635aae60f891913e4bcd"
+    },
+    {
+      "path": "source.py",
+      "sha256": "bd421ab53a1428a8c659a077452a3704ebc3e5c2204ae66dfc58bfd70d98ddb5"
+    },
+    {
+      "path": "store.py",
+      "sha256": "26a2a4860199b82f137cec1f2291f6692ab0cc9897bc2531d9d85a6b3a1d942d"
+    },
+    {
+      "path": "types.py",
+      "sha256": "b1041d1c013b7464a9c9c6555403c1e18365291f89ce89018a75fa14c77a1519"
+    }
+  ]
+}

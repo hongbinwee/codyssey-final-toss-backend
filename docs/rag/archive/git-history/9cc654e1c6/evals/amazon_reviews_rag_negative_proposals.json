@@ -1,0 +1,27 @@
+{
+  "annotation_status": "pending_source_scope_and_threshold_review",
+  "description": "Not counted as gold negatives before team review and baseline retrieval.",
+  "cases": [
+    {
+      "query": "RTX 5090과 64GB 메모리를 갖춘 최신 게이밍 노트북",
+      "accepted_statuses": [
+        "no_results",
+        "low_relevance"
+      ]
+    },
+    {
+      "query": "2035년형 반중력 스니커즈의 실제 구매 후기",
+      "accepted_statuses": [
+        "no_results",
+        "low_relevance"
+      ]
+    },
+    {
+      "query": "이번 주 서울 매장의 재고 수량을 알려줘",
+      "accepted_statuses": [
+        "no_results",
+        "low_relevance"
+      ]
+    }
+  ]
+}

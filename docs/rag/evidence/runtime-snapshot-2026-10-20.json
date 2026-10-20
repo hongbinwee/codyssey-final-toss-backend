@@ -1,0 +1,328 @@
+{
+  "module_sha256": {
+    "bootstrap.py": "72941a1bb06de2659d4d33cd09d40e1531b86e4ab2a68300ab1d3d6ff7ccf7b5",
+    "indexer.py": "2511ae9dd535ef778edfae3cc53d38b9d109f3da92ce559e89f8f728a4456b2e",
+    "source.py": "703eca25f62bedf17c3474b794832cec1beb9466acf49e79603f7a4b7bd8e1b3",
+    "privacy.py": "43d6224c1e45df227ea15211ca995b252da457d79314ab2666c91edb73821aa1",
+    "chunker.py": "7450c7f496f5bc61f0fc8cb6fb87f2fcf59e6e2ce30fc489c176d208e9f7e59e",
+    "retriever.py": "a36a081639d03dfad5ae43755b36fc2b4de8da84d53fa1d20dc2fffb93eb4da1",
+    "config.py": "0691746ca9efdb99eb37d6a961c8543fe1e716983a6821d15ad0e60936427d97",
+    "embeddings.py": "559bc1acccdf714299ddef8586a38b1f3ebddbf89a60f0dc6804cc996d042192",
+    "schemas.py": "2e84eab61dacc27c483d75df1ee040da0f305ef3ab0577e35e3f8d25b91318b2",
+    "__init__.py": "ecb9b6d62d82e9751c2e1fdc18efff8033fa8e6bd64966205c89a3e614e11a9e",
+    "__main__.py": "bac628ea941a84c09c36c164cd30935e7b4014fa84a89b50c4c96c257b5ed93b",
+    "comparison.py": "72634b9ab63209f0677f65e7697b4e41e6c846bb225169a33b7dc79080f91bdd",
+    "bge_m3.py": "ac53b4705756f2c3a797910bc96c12fd5b9e8a357200c096e9d8e37251e5159a",
+    "types.py": "b1041d1c013b7464a9c9c6555403c1e18365291f89ce89018a75fa14c77a1519",
+    "classification.py": "e7a4a061824a6c5c586079a863e48d9e1b254035ba76ac3e063523558b4c119f",
+    "embedding_indexer.py": "e193c57a2926e486b226e5636d7d565812a2676819bd5deb775cdfced0f2b658",
+    "store.py": "0eb74c53a6834308744e86800b4bc88684f549ce417c457928482969f2cc2af7",
+    "api.py": "04da79bb99c3eba5ca1dd8cfafd177935c396509087069b9ed23283806d5e548",
+    "commerce.py": "267f5abb59ac251d5062e47e91e3b0a6ac9860c07e944fcfc6286c732c50a267",
+    "intent.py": "983a7ef7faa61a940065975722c3c2a8d24cd9781f7841b66351dad9d852b5ac"
+  },
+  "request_schema": {
+    "$defs": {
+      "PriceFilters": {
+        "additionalProperties": false,
+        "properties": {
+          "price_min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Price Min"
+          },
+          "price_max": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Price Max"
+          },
+          "currency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Currency"
+          },
+          "in_stock": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "In Stock"
+          }
+        },
+        "title": "PriceFilters",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "request_id": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Request Id"
+      },
+      "original_question": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "title": "Original Question",
+        "type": "string"
+      },
+      "query": {
+        "maxLength": 1000,
+        "minLength": 1,
+        "title": "Query",
+        "type": "string"
+      },
+      "category": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Category"
+      },
+      "profile": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Profile"
+      },
+      "product_type": {
+        "anyOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Product Type"
+      },
+      "filters": {
+        "$ref": "#/$defs/PriceFilters"
+      },
+      "required_conditions": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Required Conditions",
+        "type": "array"
+      },
+      "preferences": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Preferences",
+        "type": "array"
+      },
+      "top_k": {
+        "default": 10,
+        "maximum": 20,
+        "minimum": 1,
+        "title": "Top K",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "original_question",
+      "query"
+    ],
+    "title": "RagSearchRequest",
+    "type": "object"
+  },
+  "settings": {
+    "embedding_model": "BAAI/bge-m3",
+    "default_profile": "test_items2",
+    "allowed_profiles": [
+      "test_items2",
+      "all_products"
+    ],
+    "chunk_max_tokens": 96,
+    "channel_depth": 20,
+    "rrf_k": 60,
+    "candidate_depth": 50,
+    "candidate_scan_limit": 2000,
+    "chunks_per_product": 3,
+    "require_in_stock": true
+  },
+  "observed_at_kst": "2026-10-20T20:49:47.383309+09:00",
+  "evidence_type": "BGE_API_compatibility_recovery_not_new_accuracy_evaluation",
+  "database_endpoints": [
+    "5432/toss_rag",
+    "5432/toss"
+  ],
+  "deployment": {
+    "switched_at_utc": "2026-10-20T11:48:27.831555+00:00",
+    "image": "toss-ads-product-rag-service:bge-api-compat-20261020",
+    "image_id": "sha256:a7116ae9f55047b8ee5c32e4e5c3398c60df2a8c2f9abc2a4ceba0e55a8a15b9",
+    "container_id": "4a66c8b57ce05c04713844cd7c5d81cd018a31083143fc4e6aefec38611548e9",
+    "rollback_container": "product-rag-api-before-compat-20261020-114819",
+    "port": 8002,
+    "health": {
+      "status": "ok",
+      "profile_name": "test_items2",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "supported_categories": [
+        "beauty",
+        "fashion",
+        "food",
+        "living"
+      ],
+      "allowed_profiles": [
+        "test_items2",
+        "all_products"
+      ],
+      "commerce_configured": true,
+      "embedding_model": "BAAI/bge-m3",
+      "embedding_dimension": 1024
+    },
+    "database_targets": [
+      "5432/toss_rag",
+      "5432/toss"
+    ]
+  },
+  "health": {
+    "status": "ok",
+    "profile_name": "test_items2",
+    "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+    "supported_categories": [
+      "beauty",
+      "fashion",
+      "food",
+      "living"
+    ],
+    "allowed_profiles": [
+      "test_items2",
+      "all_products"
+    ],
+    "commerce_configured": true,
+    "embedding_model": "BAAI/bge-m3",
+    "embedding_dimension": 1024
+  },
+  "bge_database_comparison": {
+    "passed": true,
+    "variant_row_comparisons": 15,
+    "chunk_provenance_comparisons": 43,
+    "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+    "bge_chunk_count": 114106,
+    "expected_and_stored_counts": [
+      114106,
+      114106
+    ],
+    "database_targets": [
+      "5432/toss_rag",
+      "5432/toss"
+    ],
+    "read_only": true
+  },
+  "http_calls_hybrid_search_directly": true,
+  "api_version": "0.3.1",
+  "active_run_selected_by_runtime": {
+    "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+    "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+    "chunker_version": "source-evidence-token-v2:max_tokens=96",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  },
+  "chunk_counts": [
+    {
+      "category": "beauty",
+      "source_type": "product",
+      "chunks": 19485
+    },
+    {
+      "category": "beauty",
+      "source_type": "review",
+      "chunks": 59110
+    },
+    {
+      "category": "fashion",
+      "source_type": "product",
+      "chunks": 8128
+    },
+    {
+      "category": "fashion",
+      "source_type": "review",
+      "chunks": 3438
+    },
+    {
+      "category": "food",
+      "source_type": "product",
+      "chunks": 4364
+    },
+    {
+      "category": "food",
+      "source_type": "review",
+      "chunks": 9045
+    },
+    {
+      "category": "living",
+      "source_type": "product",
+      "chunks": 5942
+    },
+    {
+      "category": "living",
+      "source_type": "review",
+      "chunks": 4594
+    }
+  ],
+  "module_chunker_version": "source-evidence-token-v3",
+  "bge_model_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "model_max_tokens": 128,
+  "database_endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "database": "toss_rag"
+  }
+}

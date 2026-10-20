@@ -1,0 +1,42 @@
+{
+  "exported_at": "2026-10-19T17:35:25.938688+09:00",
+  "database_port": 5432,
+  "profile_name": "test_items2",
+  "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+  "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_dimensions": 384,
+  "full_embeddings_included": true,
+  "exported_rows": {
+    "source_products": 1500,
+    "source_product_variants": 1917,
+    "source_reviews": 46100,
+    "index_runs": 1,
+    "index_profiles": 1,
+    "indexed_products": 1500,
+    "evidence_chunks": 114106,
+    "quarantined_products": 0
+  },
+  "chunk_counts_by_source_type": {
+    "review": 76187,
+    "product": 37919
+  },
+  "chunk_counts_by_category": {
+    "beauty": 78595,
+    "living": 10536,
+    "fashion": 11566,
+    "food": 13409
+  },
+  "original_archive_filename": "shopping_brain_v6_1_review_refined_CANDIDATE.zip",
+  "original_archive_sha256": "94681a28271ca9b1a6039c98bef10d23cd87beb33004555b9a74d0ca93ccfd8e",
+  "original_files_preserved": 4,
+  "validation": {
+    "product_id_sets_match": true,
+    "review_id_sets_match": true,
+    "source_foreign_keys_valid": true,
+    "all_chunks_have_full_finite_384d_vectors": true,
+    "all_evidence_offsets_match_source": true,
+    "real_synthetic_provenance_preserved": true,
+    "current_source_snapshot_matches_index": true
+  }
+}

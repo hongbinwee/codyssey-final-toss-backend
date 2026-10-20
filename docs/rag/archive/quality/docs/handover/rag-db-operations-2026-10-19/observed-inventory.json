@@ -1,0 +1,1035 @@
+{
+  "databases": [
+    {
+      "database": "postgres",
+      "owner": "rag_admin",
+      "size_bytes": 7861951
+    },
+    {
+      "database": "toss",
+      "owner": "zheltpdl",
+      "size_bytes": 45176511
+    },
+    {
+      "database": "toss_rag",
+      "owner": "rag_admin",
+      "size_bytes": 420918975
+    }
+  ],
+  "toss_tables": [
+    {
+      "schema": "public",
+      "table": "_migrations"
+    },
+    {
+      "schema": "public",
+      "table": "_scratch_owner"
+    },
+    {
+      "schema": "public",
+      "table": "action_requests"
+    },
+    {
+      "schema": "public",
+      "table": "cancel_requests"
+    },
+    {
+      "schema": "public",
+      "table": "cart_items"
+    },
+    {
+      "schema": "public",
+      "table": "carts"
+    },
+    {
+      "schema": "public",
+      "table": "order_items"
+    },
+    {
+      "schema": "public",
+      "table": "orders"
+    },
+    {
+      "schema": "public",
+      "table": "payments"
+    },
+    {
+      "schema": "public",
+      "table": "product_variants"
+    },
+    {
+      "schema": "public",
+      "table": "products"
+    },
+    {
+      "schema": "public",
+      "table": "reviews"
+    },
+    {
+      "schema": "public",
+      "table": "shipments"
+    },
+    {
+      "schema": "public",
+      "table": "users"
+    },
+    {
+      "schema": "public",
+      "table": "wishlist_items"
+    },
+    {
+      "schema": "test_earphones",
+      "table": "product_variants"
+    },
+    {
+      "schema": "test_earphones",
+      "table": "products"
+    },
+    {
+      "schema": "test_earphones",
+      "table": "reviews"
+    },
+    {
+      "schema": "test_items",
+      "table": "product_variants"
+    },
+    {
+      "schema": "test_items",
+      "table": "products"
+    },
+    {
+      "schema": "test_items",
+      "table": "reviews"
+    },
+    {
+      "schema": "test_items2",
+      "table": "product_variants"
+    },
+    {
+      "schema": "test_items2",
+      "table": "products"
+    },
+    {
+      "schema": "test_items2",
+      "table": "reviews"
+    }
+  ],
+  "source_columns": [
+    {
+      "table": "product_variants",
+      "column": "id",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "product_variants",
+      "column": "product_id",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "product_variants",
+      "column": "option_values_json",
+      "type": "jsonb",
+      "nullable": "NO",
+      "default": "'{}'::jsonb"
+    },
+    {
+      "table": "product_variants",
+      "column": "spec_overrides_json",
+      "type": "jsonb",
+      "nullable": "NO",
+      "default": "'{}'::jsonb"
+    },
+    {
+      "table": "product_variants",
+      "column": "unit_price_won",
+      "type": "integer",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "product_variants",
+      "column": "stock_qty",
+      "type": "integer",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "product_variants",
+      "column": "active",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": "true"
+    },
+    {
+      "table": "product_variants",
+      "column": "version",
+      "type": "integer",
+      "nullable": "NO",
+      "default": "1"
+    },
+    {
+      "table": "products",
+      "column": "id",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "products",
+      "column": "name",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "products",
+      "column": "brand",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "products",
+      "column": "category",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "products",
+      "column": "description",
+      "type": "text",
+      "nullable": "NO",
+      "default": "''::text"
+    },
+    {
+      "table": "products",
+      "column": "image_urls",
+      "type": "jsonb",
+      "nullable": "NO",
+      "default": "'[]'::jsonb"
+    },
+    {
+      "table": "products",
+      "column": "specs_json",
+      "type": "jsonb",
+      "nullable": "NO",
+      "default": "'{}'::jsonb"
+    },
+    {
+      "table": "products",
+      "column": "active",
+      "type": "boolean",
+      "nullable": "NO",
+      "default": "true"
+    },
+    {
+      "table": "products",
+      "column": "version",
+      "type": "integer",
+      "nullable": "NO",
+      "default": "1"
+    },
+    {
+      "table": "reviews",
+      "column": "id",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "product_id",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "variant_id",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "rating",
+      "type": "integer",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "body",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "source_kind",
+      "type": "text",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "source_ref",
+      "type": "text",
+      "nullable": "NO",
+      "default": "''::text"
+    },
+    {
+      "table": "reviews",
+      "column": "written_at",
+      "type": "timestamp with time zone",
+      "nullable": "NO",
+      "default": null
+    },
+    {
+      "table": "reviews",
+      "column": "source_option_label",
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    }
+  ],
+  "source_constraints": [
+    {
+      "table": "test_items2.products",
+      "constraint": "products_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table": "test_items2.products",
+      "constraint": "products_version_check",
+      "definition": "CHECK ((version >= 1))"
+    },
+    {
+      "table": "test_items2.product_variants",
+      "constraint": "product_variants_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table": "test_items2.product_variants",
+      "constraint": "product_variants_product_id_fkey",
+      "definition": "FOREIGN KEY (product_id) REFERENCES test_items2.products(id)"
+    },
+    {
+      "table": "test_items2.product_variants",
+      "constraint": "product_variants_stock_qty_check",
+      "definition": "CHECK ((stock_qty >= 0))"
+    },
+    {
+      "table": "test_items2.product_variants",
+      "constraint": "product_variants_unit_price_won_check",
+      "definition": "CHECK ((unit_price_won >= 0))"
+    },
+    {
+      "table": "test_items2.product_variants",
+      "constraint": "product_variants_version_check",
+      "definition": "CHECK ((version >= 1))"
+    },
+    {
+      "table": "test_items2.reviews",
+      "constraint": "reviews_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table": "test_items2.reviews",
+      "constraint": "reviews_product_id_fkey",
+      "definition": "FOREIGN KEY (product_id) REFERENCES test_items2.products(id)"
+    },
+    {
+      "table": "test_items2.reviews",
+      "constraint": "reviews_product_id_variant_id_fkey",
+      "definition": "FOREIGN KEY (product_id, variant_id) REFERENCES test_items2.product_variants(product_id, id)"
+    },
+    {
+      "table": "test_items2.reviews",
+      "constraint": "reviews_rating_check",
+      "definition": "CHECK (((rating >= 1) AND (rating <= 5)))"
+    },
+    {
+      "table": "test_items2.reviews",
+      "constraint": "reviews_source_kind_check",
+      "definition": "CHECK ((source_kind = ANY (ARRAY['REAL'::text, 'SYNTHETIC'::text])))"
+    }
+  ],
+  "source_counts": [
+    {
+      "schema": "public",
+      "products": 28,
+      "variants": 61,
+      "reviews": 89
+    },
+    {
+      "schema": "test_earphones",
+      "products": 50,
+      "variants": 50,
+      "reviews": 1000
+    },
+    {
+      "schema": "test_items",
+      "products": 180,
+      "variants": 180,
+      "reviews": 4737
+    },
+    {
+      "schema": "test_items2",
+      "products": 1500,
+      "variants": 1917,
+      "reviews": 46100
+    }
+  ],
+  "categories": [
+    {
+      "category": "beauty",
+      "products": 781,
+      "reviews": 34545
+    },
+    {
+      "category": "fashion",
+      "products": 269,
+      "reviews": 2761
+    },
+    {
+      "category": "food",
+      "products": 182,
+      "reviews": 5682
+    },
+    {
+      "category": "living",
+      "products": 268,
+      "reviews": 3112
+    }
+  ],
+  "review_sources": [
+    {
+      "source_kind": "REAL",
+      "reviews": 41523,
+      "null_variant_id": 0
+    },
+    {
+      "source_kind": "SYNTHETIC",
+      "reviews": 4577,
+      "null_variant_id": 938
+    }
+  ],
+  "rag_columns": [
+    {
+      "table": "evidence_chunks",
+      "column": "run_id",
+      "type": "uuid",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "chunk_key",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "chunk_id",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "dataset_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "category",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "product_id",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "source_type",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "source_id",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "source_field",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "start_offset",
+      "type": "integer",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "end_offset",
+      "type": "integer",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "evidence_text",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "embedding_text",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "source_metadata",
+      "type": "jsonb",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "embedding",
+      "type": "vector(384)",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "embedding_model",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "evidence_chunks",
+      "column": "chunker_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_profiles",
+      "column": "profile_name",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_profiles",
+      "column": "active_run_id",
+      "type": "uuid",
+      "not_null": true
+    },
+    {
+      "table": "index_profiles",
+      "column": "updated_at",
+      "type": "timestamp with time zone",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "run_id",
+      "type": "uuid",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "dataset_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "embedding_model",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "chunker_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "category_policy_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "status",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "counts",
+      "type": "jsonb",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "error_code",
+      "type": "text",
+      "not_null": false
+    },
+    {
+      "table": "index_runs",
+      "column": "started_at",
+      "type": "timestamp with time zone",
+      "not_null": true
+    },
+    {
+      "table": "index_runs",
+      "column": "completed_at",
+      "type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table": "index_runs",
+      "column": "profile_name",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "indexed_products",
+      "column": "run_id",
+      "type": "uuid",
+      "not_null": true
+    },
+    {
+      "table": "indexed_products",
+      "column": "dataset_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "indexed_products",
+      "column": "category",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "indexed_products",
+      "column": "product_id",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "indexed_products",
+      "column": "product_payload",
+      "type": "jsonb",
+      "not_null": true
+    },
+    {
+      "table": "indexed_products",
+      "column": "price_amount",
+      "type": "numeric",
+      "not_null": false
+    },
+    {
+      "table": "indexed_products",
+      "column": "price_currency",
+      "type": "text",
+      "not_null": false
+    },
+    {
+      "table": "quarantined_products",
+      "column": "run_id",
+      "type": "uuid",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "dataset_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "category",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "product_id",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "reason_code",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "policy_version",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "product_title",
+      "type": "text",
+      "not_null": false
+    },
+    {
+      "table": "quarantined_products",
+      "column": "main_category",
+      "type": "text",
+      "not_null": false
+    },
+    {
+      "table": "quarantined_products",
+      "column": "categories",
+      "type": "jsonb",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "type_signals",
+      "type": "jsonb",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "review_status",
+      "type": "text",
+      "not_null": true
+    },
+    {
+      "table": "quarantined_products",
+      "column": "created_at",
+      "type": "timestamp with time zone",
+      "not_null": true
+    }
+  ],
+  "rag_indexes": [
+    {
+      "table": "evidence_chunks",
+      "index": "evidence_chunks_chunk_key_key",
+      "definition": "CREATE UNIQUE INDEX evidence_chunks_chunk_key_key ON rag.evidence_chunks USING btree (chunk_key)"
+    },
+    {
+      "table": "evidence_chunks",
+      "index": "evidence_chunks_pkey",
+      "definition": "CREATE UNIQUE INDEX evidence_chunks_pkey ON rag.evidence_chunks USING btree (run_id, chunk_id)"
+    },
+    {
+      "table": "evidence_chunks",
+      "index": "evidence_chunks_run_source_idx",
+      "definition": "CREATE INDEX evidence_chunks_run_source_idx ON rag.evidence_chunks USING btree (run_id, category, product_id, source_type)"
+    },
+    {
+      "table": "evidence_chunks",
+      "index": "evidence_chunks_search_idx",
+      "definition": "CREATE INDEX evidence_chunks_search_idx ON rag.evidence_chunks USING paradedb (chunk_key, run_id, embedding_text)"
+    },
+    {
+      "table": "index_profiles",
+      "index": "index_profiles_pkey",
+      "definition": "CREATE UNIQUE INDEX index_profiles_pkey ON rag.index_profiles USING btree (profile_name)"
+    },
+    {
+      "table": "index_runs",
+      "index": "index_runs_dataset_status_idx",
+      "definition": "CREATE INDEX index_runs_dataset_status_idx ON rag.index_runs USING btree (dataset_version, status)"
+    },
+    {
+      "table": "index_runs",
+      "index": "index_runs_one_active_per_profile_idx",
+      "definition": "CREATE UNIQUE INDEX index_runs_one_active_per_profile_idx ON rag.index_runs USING btree (profile_name) WHERE (status = 'active'::text)"
+    },
+    {
+      "table": "index_runs",
+      "index": "index_runs_pkey",
+      "definition": "CREATE UNIQUE INDEX index_runs_pkey ON rag.index_runs USING btree (run_id)"
+    },
+    {
+      "table": "index_runs",
+      "index": "index_runs_profile_run_idx",
+      "definition": "CREATE UNIQUE INDEX index_runs_profile_run_idx ON rag.index_runs USING btree (profile_name, run_id)"
+    },
+    {
+      "table": "index_runs",
+      "index": "index_runs_run_id_dataset_version_key",
+      "definition": "CREATE UNIQUE INDEX index_runs_run_id_dataset_version_key ON rag.index_runs USING btree (run_id, dataset_version)"
+    },
+    {
+      "table": "indexed_products",
+      "index": "indexed_products_pkey",
+      "definition": "CREATE UNIQUE INDEX indexed_products_pkey ON rag.indexed_products USING btree (run_id, category, product_id)"
+    },
+    {
+      "table": "indexed_products",
+      "index": "indexed_products_run_category_idx",
+      "definition": "CREATE INDEX indexed_products_run_category_idx ON rag.indexed_products USING btree (run_id, category, product_id)"
+    },
+    {
+      "table": "indexed_products",
+      "index": "indexed_products_run_id_dataset_version_category_product_id_key",
+      "definition": "CREATE UNIQUE INDEX indexed_products_run_id_dataset_version_category_product_id_key ON rag.indexed_products USING btree (run_id, dataset_version, category, product_id)"
+    },
+    {
+      "table": "quarantined_products",
+      "index": "quarantined_products_pkey",
+      "definition": "CREATE UNIQUE INDEX quarantined_products_pkey ON rag.quarantined_products USING btree (run_id, category, product_id)"
+    },
+    {
+      "table": "quarantined_products",
+      "index": "quarantined_products_review_idx",
+      "definition": "CREATE INDEX quarantined_products_review_idx ON rag.quarantined_products USING btree (review_status, category, product_id)"
+    }
+  ],
+  "profiles": [
+    {
+      "profile": "all_products",
+      "run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689",
+      "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "chunker_version": "source-evidence-token-v2:max_tokens=96",
+      "category_policy_version": "commerce-test-items-v1",
+      "status": "active",
+      "counts": {
+        "chunk_count": 6741,
+        "review_count": 4737,
+        "product_count": 180,
+        "category_counts": {
+          "beauty": {
+            "chunks": 6741,
+            "reviews": 4737,
+            "products": 180,
+            "source_reviews": 4737,
+            "source_products": 180,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          }
+        }
+      }
+    },
+    {
+      "profile": "test_items2",
+      "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "chunker_version": "source-evidence-token-v2:max_tokens=96",
+      "category_policy_version": "source-declared-v6.1-v1",
+      "status": "active",
+      "counts": {
+        "chunk_count": 114106,
+        "review_count": 46100,
+        "product_count": 1500,
+        "category_counts": {
+          "food": {
+            "chunks": 13409,
+            "reviews": 5682,
+            "products": 182,
+            "source_reviews": 5682,
+            "source_products": 182,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "beauty": {
+            "chunks": 78595,
+            "reviews": 34545,
+            "products": 781,
+            "source_reviews": 34545,
+            "source_products": 781,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "living": {
+            "chunks": 10536,
+            "reviews": 3112,
+            "products": 268,
+            "source_reviews": 3112,
+            "source_products": 268,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          },
+          "fashion": {
+            "chunks": 11566,
+            "reviews": 2761,
+            "products": 269,
+            "source_reviews": 2761,
+            "source_products": 269,
+            "quarantined_reviews": 0,
+            "quarantined_products": 0
+          }
+        }
+      }
+    }
+  ],
+  "chunk_counts": [
+    {
+      "source_type": "product",
+      "chunks": 37919,
+      "embedded": 37919
+    },
+    {
+      "source_type": "review",
+      "chunks": 76187,
+      "embedded": 76187
+    }
+  ],
+  "extensions": [
+    {
+      "name": "pg_search",
+      "version": "0.26.0"
+    },
+    {
+      "name": "plpgsql",
+      "version": "1.0"
+    },
+    {
+      "name": "vector",
+      "version": "0.8.7"
+    }
+  ],
+  "runtime": {
+    "container": "product-rag-api",
+    "image": "toss-ads-product-rag-service:24a1051-test-items2",
+    "image_id": "sha256:1127ee6fe39de749b38bdabf309a85508a093409f13c2bccde7c137caba7e335",
+    "source_commit": "24a1051fff84bb4cf5441e90824e9e9be20e18ec",
+    "command": [
+      "serve",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8002"
+    ],
+    "network": "host",
+    "restart_policy": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/aiteam/.cache/codex-rag-fastembed",
+        "Destination": "/home/aiteam/.cache/codex-rag-fastembed",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "settings": {
+      "FASTEMBED_CACHE_PATH": "/home/aiteam/.cache/codex-rag-fastembed",
+      "RAG_EMBEDDING_MODEL": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "RAG_HTTP_RETRIES": "2",
+      "RAG_MAX_RESPONSE_BYTES": "10485760",
+      "RAG_CHANNEL_DEPTH": "20",
+      "RAG_RRF_K": "60",
+      "RAG_HTTP_TIMEOUT_SECONDS": "20",
+      "RAG_EMBEDDING_BATCH_SIZE": "64",
+      "RAG_DEFAULT_PROFILE": "test_items2",
+      "RAG_ALLOWED_PROFILES": "test_items2,all_products",
+      "RAG_REQUIRE_IN_STOCK": "true",
+      "RAG_CANDIDATE_DEPTH": "50",
+      "RAG_CHUNKS_PER_PRODUCT": "3",
+      "RAG_CANDIDATE_SCAN_LIMIT": "2000",
+      "COMMERCE_SCHEMA_MAP": "test_items2:test_items2,test_items:test_items,test_earphones:test_earphones,commerce:public"
+    }
+  },
+  "data_archive": {
+    "path": "/home/aiteam/projects/toss-ads-project/data/exports/test_items2_chunked_full_2026-10-19.zip",
+    "bytes": 273558559,
+    "entries": [
+      {
+        "file": "README_KO.md",
+        "bytes": 2710
+      },
+      {
+        "file": "SHA256SUMS.txt",
+        "bytes": 1990
+      },
+      {
+        "file": "database_exports/toss/test_items2/product_variants.jsonl",
+        "bytes": 473821
+      },
+      {
+        "file": "database_exports/toss/test_items2/products.jsonl",
+        "bytes": 3443866
+      },
+      {
+        "file": "database_exports/toss/test_items2/reviews.jsonl",
+        "bytes": 28878051
+      },
+      {
+        "file": "database_exports/toss/test_items2/schema.sql",
+        "bytes": 5059
+      },
+      {
+        "file": "database_exports/toss_rag/rag/evidence_chunks.jsonl",
+        "bytes": 713276797
+      },
+      {
+        "file": "database_exports/toss_rag/rag/index_profiles.jsonl",
+        "bytes": 139
+      },
+      {
+        "file": "database_exports/toss_rag/rag/index_runs.jsonl",
+        "bytes": 1286
+      },
+      {
+        "file": "database_exports/toss_rag/rag/indexed_products.jsonl",
+        "bytes": 5190671
+      },
+      {
+        "file": "database_exports/toss_rag/rag/quarantined_products.jsonl",
+        "bytes": 0
+      },
+      {
+        "file": "database_exports/toss_rag/rag/schema.sql",
+        "bytes": 9519
+      },
+      {
+        "file": "metadata/export_manifest.json",
+        "bytes": 1428
+      },
+      {
+        "file": "metadata/index_report.json",
+        "bytes": 2960
+      },
+      {
+        "file": "metadata/load_report.json",
+        "bytes": 1138
+      },
+      {
+        "file": "shopping_brain_v6_1_common_dataset/README.md",
+        "bytes": 1424
+      },
+      {
+        "file": "shopping_brain_v6_1_common_dataset/data/products.json",
+        "bytes": 4241049
+      },
+      {
+        "file": "shopping_brain_v6_1_common_dataset/data/reviews.json",
+        "bytes": 30709313
+      },
+      {
+        "file": "shopping_brain_v6_1_common_dataset/data/variants.json",
+        "bytes": 492085
+      }
+    ],
+    "sha256": "5cffff3e0a656cbbdf55a0b76c7493a0373c48a77d5d6770af9a65865e66b808"
+  }
+}

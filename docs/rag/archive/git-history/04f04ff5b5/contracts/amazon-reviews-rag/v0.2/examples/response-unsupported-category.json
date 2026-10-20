@@ -1,0 +1,14 @@
+{
+  "request_id": "REQ-BOOKS-001",
+  "status": "error",
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "applied_filters": {},
+  "supported_categories": [
+    "Appliances",
+    "Clothing_Shoes_and_Jewelry",
+    "Grocery_and_Gourmet_Food"
+  ],
+  "unverified_conditions": [],
+  "items": [],
+  "error_code": "unsupported_category"
+}

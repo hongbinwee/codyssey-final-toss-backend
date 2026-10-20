@@ -1,0 +1,2171 @@
+{
+  "verified_at_kst": "2026-10-20T20:49:47.383309+09:00",
+  "cause": "BGE deployment used older API 0.2.0, rejecting API 0.3 fields and removing Commerce validation/catalog routes; port 8002 itself was reachable.",
+  "regression_suite": {
+    "passed": 9,
+    "failed": 0,
+    "red_green_observed": true
+  },
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor_fixed": "HybridRagRetriever now accepts the BGE embedder; constructor regression test observed failing then passing."
+  },
+  "candidate": {
+    "observed_at_utc": "2026-10-20T11:47:39.106609+00:00",
+    "port": 8003,
+    "all_passed": true,
+    "checks": [
+      {
+        "name": "health",
+        "http": 200,
+        "elapsed_ms": 283,
+        "body": {
+          "status": "ok",
+          "profile_name": "test_items2",
+          "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+          "supported_categories": [
+            "beauty",
+            "fashion",
+            "food",
+            "living"
+          ],
+          "allowed_profiles": [
+            "test_items2",
+            "all_products"
+          ],
+          "commerce_configured": true,
+          "embedding_model": "BAAI/bge-m3",
+          "embedding_dimension": 1024
+        },
+        "passed": true
+      },
+      {
+        "name": "former_422_backpack",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 571,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v57-m-0133",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0133-01",
+            "unit_price_won": 49900,
+            "stock_qty": 19,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "d481d0134c69edc452869b4690aa1e87dd548553afdcc04eefd994365298ca68",
+                "source_id": "r-v59-m-4271270-003",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "39ecff5d5db4269be50481337d0ca1361bd4cc9fe95ae50a2fce4b9c37f2d478",
+                "source_id": "r-v59-m-4271270-001",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "6ee6c14f7e318bf05e8b77a138d00b149d8fc4201f5907e7cf17b56f504ebd3a",
+                "source_id": "r-v59-m-4271270-005",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v4-m-0018",
+            "category": "fashion",
+            "variant_id": "v-v4-m-0018-01",
+            "unit_price_won": 38200,
+            "stock_qty": 18,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "2aca909ba6bbbdc29adb1ed0274a3351c893336cc59e6377e7aff7e8b811d6eb",
+                "source_id": "r-v59-m-1740936-010",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "acd6a974de86d9ce59d469d1a267d406914d22a763d0f14b00d6a0740b9892b6",
+                "source_id": "r-v59-m-1740936-015",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "4802eaca69194debba2a65b30e5f2a6bfe05e31eb32567f696c5b7d76cf133ab",
+                "source_id": "r-v59-m-1740936-014",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-m-0061",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0061-01",
+            "unit_price_won": 48600,
+            "stock_qty": 31,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "6760187ead6330b727f6c79d2acf64fdbd59ea6a434f5d159f284de5b22a1015",
+                "source_id": "p-v57-m-0061",
+                "source_type": "product"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "fashion",
+          "product_type": "backpack",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "backpack",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "backpack"
+          ],
+          "eligible_catalog_products": 3,
+          "retrieved_products": 3,
+          "commerce_eligible_products": 3,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "beauty",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 1543,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v4-o-0028",
+            "category": "beauty",
+            "variant_id": "v-v4-o-0028-01",
+            "unit_price_won": 23900,
+            "stock_qty": 73,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "c94c7da69ddd4ade3e8b1bc79a006706306a99943772fb66fd32ee797a4018f7",
+                "source_id": "r-v57-real-090596aa42827530c7d1",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "18ec205fbf7c7e90cbeed105d31e4c0ac9867f19ad7338e12004982bd7e24b8b",
+                "source_id": "r-v57-real-35bf20e8f1d25709ae57",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "180a38649e04c21f72415e2607664c32b195e6dde5df613b29c7dd133183761a",
+                "source_id": "r-v57-real-13a9befb9e8fa64a32c0",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-o-0100",
+            "category": "beauty",
+            "variant_id": "v-v57-o-0100-01",
+            "unit_price_won": 27300,
+            "stock_qty": 34,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "087758c064dd376fb35ca1256f844c34d0d9e62e5f673f20c76e669534e1068e",
+                "source_id": "r-v57-real-7360440f0f8a12262485",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "543e4c0db0484fa95eb84159596b493f29011bb88c129a7cccbfa4b5625a8b68",
+                "source_id": "r-v57-real-0a31a20b4ce8c3d2b980",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "53271199542d18e534fdcc961dcc98bcd1b57db1c3a16ccbdf589559522956e0",
+                "source_id": "r-v57-real-1d55cd7100bc9a72b897",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v4-o-0007",
+            "category": "beauty",
+            "variant_id": "v-v4-o-0007-01",
+            "unit_price_won": 23500,
+            "stock_qty": 18,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "314301aaf7209d327e2ad66d50eccf7cc0b01da40df8b22d8608cd0e7fa5feae",
+                "source_id": "r-v57-real-cd7f75ce412c0020398b",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "b3eea843e553a62472212ec8d01a9ce73bccca05f2939f14b12e73f4d1bc45d3",
+                "source_id": "r-v57-real-27791a6c10e17f4466d9",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "52d14501cefca958b0b1b8b4edcd27c1ca849dc22da0307e4e155992d720154b",
+                "source_id": "r-v57-real-7e5d596a1950e4f47664",
+                "source_type": "review"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "beauty",
+          "product_type": "face_cream",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "face_cream",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "face_cream"
+          ],
+          "eligible_catalog_products": 110,
+          "retrieved_products": 69,
+          "commerce_eligible_products": 69,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "food",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 1409,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v41-o-0363",
+            "category": "food",
+            "variant_id": "v-v41-o-0363-01",
+            "unit_price_won": 3900,
+            "stock_qty": 14,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "2c6d6430e2c6693a0d745165a2ca65346332aa9bc6946a47b9591080d6acccdd",
+                "source_id": "r-v57-real-d3cf743aa51e1541185e",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "6b1cd8ec130c0a5c69637fe211096f5272234f456fdfb460a2cbfb0d65bf969a",
+                "source_id": "r-v57-real-dcbad0b5707f72f0b2b1",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "88bbca39e210adb8d1fc5e577d69e4fcde52376310d8ce7f02a400b4d99ca35d",
+                "source_id": "r-v57-real-c4f868622fe793758d00",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v41-o-0364",
+            "category": "food",
+            "variant_id": "v-v41-o-0364-01",
+            "unit_price_won": 3900,
+            "stock_qty": 12,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "50e8748dc9b16246d8252704000b110b51b2e304c22447f96cb8f79745b52441",
+                "source_id": "r-v57-real-c1194f31305a4f677029",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "a15089cb29374ba77dbd8a565bc4347aa6f7661fe8de81fe65e5157e8e836867",
+                "source_id": "r-v57-real-080ccf8c7057a03244e6",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "bf38dcb7a6b2c5b102807d486a07f445fc59c900efd35667988237a43cd02a6e",
+                "source_id": "p-v41-o-0364",
+                "source_type": "product"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-o-0402",
+            "category": "food",
+            "variant_id": "v-v57-o-0402-01",
+            "unit_price_won": 13500,
+            "stock_qty": 40,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "449bc2cf7fe4ca991bf91ad74553717259777836e83b74ba34cc3cc686df2661",
+                "source_id": "r-v57-real-56e2a8b89df0b3d19ffa",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "9c2001881df546a7d0097c321d08283d75c6dd74332263d4af9bf1dd07b773f0",
+                "source_id": "r-v57-real-23ba6aa41649d3e93e5f",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "3ebe06d4107fb98c17f94b55f39c102ca314a7b66d5934f9a7859f20ccc6e8b2",
+                "source_id": "r-v57-real-92009bfdfe0773cd1d9d",
+                "source_type": "review"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "food",
+          "product_type": "protein_shake",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "protein_shake",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "protein_shake"
+          ],
+          "eligible_catalog_products": 20,
+          "retrieved_products": 20,
+          "commerce_eligible_products": 20,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "living",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 685,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v41-o-0346",
+            "category": "living",
+            "variant_id": "v-v41-o-0346-01",
+            "unit_price_won": 12150,
+            "stock_qty": 4,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "c324176187bf72ef9cac6dd90a87fa339147b34bcb99b5e2b7f0a82446ecbcd1",
+                "source_id": "r-v57-real-73b60c518150b74c7230",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "9b872b14652d89bc5543c7224f14e3dbedea422580bda4360ef5f72be22d611e",
+                "source_id": "r-v57-real-901592360a77899c1737",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "cd0ae322ba35d53cabd6fd318e1f704c7acba2a182211b854f611d7e8ceb5708",
+                "source_id": "r-v57-real-5d9c9140d33924727d94",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v41-o-0330",
+            "category": "living",
+            "variant_id": "v-v41-o-0330-01",
+            "unit_price_won": 31790,
+            "stock_qty": 41,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "62e0e4485a01a6fe96f2f87e447ea05c8d91bdf5ca1c933e065b8e23392e07d9",
+                "source_id": "r-v57-real-c40767ffa3a224c6727a",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "b06fd2fc30d05952a83ff896f898ee30dc3945dc2a2aefb0745788e1a2caddbf",
+                "source_id": "r-v57-real-0a3ac51dc9a2e4eb4ef7",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "21c6d11e205a4d6e46a101bd9d50ee04bcc90fe56eb3ef27a0ec6c4f91268225",
+                "source_id": "r-v57-real-c0a124abbb7d8d640e5e",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-o-0275",
+            "category": "living",
+            "variant_id": "v-v57-o-0275-01",
+            "unit_price_won": 10710,
+            "stock_qty": 16,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "33d2208aa7abac46c75b54089822fd8c1ba56eed6c2c2407d0a08c3db4d129a4",
+                "source_id": "r-v57-real-04a5a0370b6f6251874f",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "0620ca5e1ea518a082d4a5c97d5f2f38fb66194c3ddd5c13cb827c1baa5bcf32",
+                "source_id": "p-v57-o-0275",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "b9b8701282677047ebbb8a5749c04803d79e77df9b7a1dbe9913097ffe0d7438",
+                "source_id": "p-v57-o-0275",
+                "source_type": "product"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "living",
+          "product_type": "laundry_detergent",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "laundry_detergent",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "laundry_detergent"
+          ],
+          "eligible_catalog_products": 10,
+          "retrieved_products": 10,
+          "commerce_eligible_products": 10,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "zero_budget",
+        "http": 200,
+        "status": "no_results",
+        "error_code": null,
+        "elapsed_ms": 300,
+        "count": 0,
+        "items": [],
+        "applied_filters": {
+          "category": "fashion",
+          "product_type": "backpack",
+          "in_stock": true,
+          "price_max": 0.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "backpack",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "backpack"
+          ],
+          "reason": "no_commerce_eligible_products"
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "minimal_02_request",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 583,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v57-m-0133",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0133-01",
+            "unit_price_won": 49900,
+            "stock_qty": 19,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "d310c8bd20bc6f0e1e39eaa2846af2fce4cbf38b05fa8fa87877b7efc05b07b9",
+                "source_id": "p-v57-m-0133",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "20820956506371242a6ab7d625198c73d7c148d27a99f64f5aaa2c1940e6df9d",
+                "source_id": "p-v57-m-0133",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "384b134e8e96f5f86fb957d68bb8de3d2dd8daebede7c71fb8ddb372edffe0e9",
+                "source_id": "p-v57-m-0133",
+                "source_type": "product"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-m-0037",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0037-01",
+            "unit_price_won": 258000,
+            "stock_qty": 22,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "e80de400202d43a59d7cdce720e72114a9ec8683c952a797fb8f3f930e36e9e6",
+                "source_id": "p-v57-m-0037",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "6e776691b3123c73a5dd687e2e9b2f59ce3ed1509be0363de4523485be24a1c8",
+                "source_id": "p-v57-m-0037",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "d89268d95b5c9d8a2afc7f73bc4c7f80a0352ebb6d8add3d6627c956d434844f",
+                "source_id": "p-v57-m-0037",
+                "source_type": "product"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v4-m-0018",
+            "category": "fashion",
+            "variant_id": "v-v4-m-0018-01",
+            "unit_price_won": 38200,
+            "stock_qty": 18,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "5d99c6a34b5ff31b6b9fa58a91fe751e95fe7a9231e240eaf76a22741ce1f96e",
+                "source_id": "p-v4-m-0018",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "bd969a41370dce943d8daaeec626c3b8901cccb995d556aaa7c9254cc3ff775c",
+                "source_id": "p-v4-m-0018",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "a4e4eab0b294f11de0d33228a80cac3f5a3bc1678635999c748c754abfc43d59",
+                "source_id": "p-v4-m-0018",
+                "source_type": "product"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "product_type": "backpack",
+          "in_stock": true
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "backpack",
+          "type_origin": "query",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "backpack"
+          ],
+          "eligible_catalog_products": 7,
+          "retrieved_products": 7,
+          "commerce_eligible_products": 7,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "legacy_catalog",
+        "http": 200,
+        "status": "ok",
+        "elapsed_ms": 9,
+        "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+        "total": 180,
+        "passed": true
+      },
+      {
+        "name": "legacy_reviews",
+        "http": 200,
+        "status": "ok",
+        "elapsed_ms": 2,
+        "passed": true
+      },
+      {
+        "name": "openapi",
+        "http": 200,
+        "version": "0.3.1",
+        "passed": true
+      }
+    ],
+    "database_items": [
+      {
+        "product_id": "p-v57-m-0133",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0133-01",
+        "unit_price_won": 49900,
+        "stock_qty": 19,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "d481d0134c69edc452869b4690aa1e87dd548553afdcc04eefd994365298ca68",
+            "source_id": "r-v59-m-4271270-003",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "39ecff5d5db4269be50481337d0ca1361bd4cc9fe95ae50a2fce4b9c37f2d478",
+            "source_id": "r-v59-m-4271270-001",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "6ee6c14f7e318bf05e8b77a138d00b149d8fc4201f5907e7cf17b56f504ebd3a",
+            "source_id": "r-v59-m-4271270-005",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-m-0018",
+        "category": "fashion",
+        "variant_id": "v-v4-m-0018-01",
+        "unit_price_won": 38200,
+        "stock_qty": 18,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "2aca909ba6bbbdc29adb1ed0274a3351c893336cc59e6377e7aff7e8b811d6eb",
+            "source_id": "r-v59-m-1740936-010",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "acd6a974de86d9ce59d469d1a267d406914d22a763d0f14b00d6a0740b9892b6",
+            "source_id": "r-v59-m-1740936-015",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "4802eaca69194debba2a65b30e5f2a6bfe05e31eb32567f696c5b7d76cf133ab",
+            "source_id": "r-v59-m-1740936-014",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-m-0061",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0061-01",
+        "unit_price_won": 48600,
+        "stock_qty": 31,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "6760187ead6330b727f6c79d2acf64fdbd59ea6a434f5d159f284de5b22a1015",
+            "source_id": "p-v57-m-0061",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-o-0028",
+        "category": "beauty",
+        "variant_id": "v-v4-o-0028-01",
+        "unit_price_won": 23900,
+        "stock_qty": 73,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "c94c7da69ddd4ade3e8b1bc79a006706306a99943772fb66fd32ee797a4018f7",
+            "source_id": "r-v57-real-090596aa42827530c7d1",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "18ec205fbf7c7e90cbeed105d31e4c0ac9867f19ad7338e12004982bd7e24b8b",
+            "source_id": "r-v57-real-35bf20e8f1d25709ae57",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "180a38649e04c21f72415e2607664c32b195e6dde5df613b29c7dd133183761a",
+            "source_id": "r-v57-real-13a9befb9e8fa64a32c0",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-o-0100",
+        "category": "beauty",
+        "variant_id": "v-v57-o-0100-01",
+        "unit_price_won": 27300,
+        "stock_qty": 34,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "087758c064dd376fb35ca1256f844c34d0d9e62e5f673f20c76e669534e1068e",
+            "source_id": "r-v57-real-7360440f0f8a12262485",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "543e4c0db0484fa95eb84159596b493f29011bb88c129a7cccbfa4b5625a8b68",
+            "source_id": "r-v57-real-0a31a20b4ce8c3d2b980",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "53271199542d18e534fdcc961dcc98bcd1b57db1c3a16ccbdf589559522956e0",
+            "source_id": "r-v57-real-1d55cd7100bc9a72b897",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-o-0007",
+        "category": "beauty",
+        "variant_id": "v-v4-o-0007-01",
+        "unit_price_won": 23500,
+        "stock_qty": 18,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "314301aaf7209d327e2ad66d50eccf7cc0b01da40df8b22d8608cd0e7fa5feae",
+            "source_id": "r-v57-real-cd7f75ce412c0020398b",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "b3eea843e553a62472212ec8d01a9ce73bccca05f2939f14b12e73f4d1bc45d3",
+            "source_id": "r-v57-real-27791a6c10e17f4466d9",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "52d14501cefca958b0b1b8b4edcd27c1ca849dc22da0307e4e155992d720154b",
+            "source_id": "r-v57-real-7e5d596a1950e4f47664",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0363",
+        "category": "food",
+        "variant_id": "v-v41-o-0363-01",
+        "unit_price_won": 3900,
+        "stock_qty": 14,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "2c6d6430e2c6693a0d745165a2ca65346332aa9bc6946a47b9591080d6acccdd",
+            "source_id": "r-v57-real-d3cf743aa51e1541185e",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "6b1cd8ec130c0a5c69637fe211096f5272234f456fdfb460a2cbfb0d65bf969a",
+            "source_id": "r-v57-real-dcbad0b5707f72f0b2b1",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "88bbca39e210adb8d1fc5e577d69e4fcde52376310d8ce7f02a400b4d99ca35d",
+            "source_id": "r-v57-real-c4f868622fe793758d00",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0364",
+        "category": "food",
+        "variant_id": "v-v41-o-0364-01",
+        "unit_price_won": 3900,
+        "stock_qty": 12,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "50e8748dc9b16246d8252704000b110b51b2e304c22447f96cb8f79745b52441",
+            "source_id": "r-v57-real-c1194f31305a4f677029",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "a15089cb29374ba77dbd8a565bc4347aa6f7661fe8de81fe65e5157e8e836867",
+            "source_id": "r-v57-real-080ccf8c7057a03244e6",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "bf38dcb7a6b2c5b102807d486a07f445fc59c900efd35667988237a43cd02a6e",
+            "source_id": "p-v41-o-0364",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-o-0402",
+        "category": "food",
+        "variant_id": "v-v57-o-0402-01",
+        "unit_price_won": 13500,
+        "stock_qty": 40,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "449bc2cf7fe4ca991bf91ad74553717259777836e83b74ba34cc3cc686df2661",
+            "source_id": "r-v57-real-56e2a8b89df0b3d19ffa",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "9c2001881df546a7d0097c321d08283d75c6dd74332263d4af9bf1dd07b773f0",
+            "source_id": "r-v57-real-23ba6aa41649d3e93e5f",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "3ebe06d4107fb98c17f94b55f39c102ca314a7b66d5934f9a7859f20ccc6e8b2",
+            "source_id": "r-v57-real-92009bfdfe0773cd1d9d",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0346",
+        "category": "living",
+        "variant_id": "v-v41-o-0346-01",
+        "unit_price_won": 12150,
+        "stock_qty": 4,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "c324176187bf72ef9cac6dd90a87fa339147b34bcb99b5e2b7f0a82446ecbcd1",
+            "source_id": "r-v57-real-73b60c518150b74c7230",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "9b872b14652d89bc5543c7224f14e3dbedea422580bda4360ef5f72be22d611e",
+            "source_id": "r-v57-real-901592360a77899c1737",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "cd0ae322ba35d53cabd6fd318e1f704c7acba2a182211b854f611d7e8ceb5708",
+            "source_id": "r-v57-real-5d9c9140d33924727d94",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0330",
+        "category": "living",
+        "variant_id": "v-v41-o-0330-01",
+        "unit_price_won": 31790,
+        "stock_qty": 41,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "62e0e4485a01a6fe96f2f87e447ea05c8d91bdf5ca1c933e065b8e23392e07d9",
+            "source_id": "r-v57-real-c40767ffa3a224c6727a",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "b06fd2fc30d05952a83ff896f898ee30dc3945dc2a2aefb0745788e1a2caddbf",
+            "source_id": "r-v57-real-0a3ac51dc9a2e4eb4ef7",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "21c6d11e205a4d6e46a101bd9d50ee04bcc90fe56eb3ef27a0ec6c4f91268225",
+            "source_id": "r-v57-real-c0a124abbb7d8d640e5e",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-o-0275",
+        "category": "living",
+        "variant_id": "v-v57-o-0275-01",
+        "unit_price_won": 10710,
+        "stock_qty": 16,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "33d2208aa7abac46c75b54089822fd8c1ba56eed6c2c2407d0a08c3db4d129a4",
+            "source_id": "r-v57-real-04a5a0370b6f6251874f",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "0620ca5e1ea518a082d4a5c97d5f2f38fb66194c3ddd5c13cb827c1baa5bcf32",
+            "source_id": "p-v57-o-0275",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "b9b8701282677047ebbb8a5749c04803d79e77df9b7a1dbe9913097ffe0d7438",
+            "source_id": "p-v57-o-0275",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-m-0133",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0133-01",
+        "unit_price_won": 49900,
+        "stock_qty": 19,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "d310c8bd20bc6f0e1e39eaa2846af2fce4cbf38b05fa8fa87877b7efc05b07b9",
+            "source_id": "p-v57-m-0133",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "20820956506371242a6ab7d625198c73d7c148d27a99f64f5aaa2c1940e6df9d",
+            "source_id": "p-v57-m-0133",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "384b134e8e96f5f86fb957d68bb8de3d2dd8daebede7c71fb8ddb372edffe0e9",
+            "source_id": "p-v57-m-0133",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-m-0037",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0037-01",
+        "unit_price_won": 258000,
+        "stock_qty": 22,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "e80de400202d43a59d7cdce720e72114a9ec8683c952a797fb8f3f930e36e9e6",
+            "source_id": "p-v57-m-0037",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "6e776691b3123c73a5dd687e2e9b2f59ce3ed1509be0363de4523485be24a1c8",
+            "source_id": "p-v57-m-0037",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "d89268d95b5c9d8a2afc7f73bc4c7f80a0352ebb6d8add3d6627c956d434844f",
+            "source_id": "p-v57-m-0037",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-m-0018",
+        "category": "fashion",
+        "variant_id": "v-v4-m-0018-01",
+        "unit_price_won": 38200,
+        "stock_qty": 18,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "5d99c6a34b5ff31b6b9fa58a91fe751e95fe7a9231e240eaf76a22741ce1f96e",
+            "source_id": "p-v4-m-0018",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "bd969a41370dce943d8daaeec626c3b8901cccb995d556aaa7c9254cc3ff775c",
+            "source_id": "p-v4-m-0018",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "a4e4eab0b294f11de0d33228a80cac3f5a3bc1678635999c748c754abfc43d59",
+            "source_id": "p-v4-m-0018",
+            "source_type": "product"
+          }
+        ]
+      }
+    ],
+    "scope": "HTTP compatibility and Commerce constraints, not recommendation accuracy or browser E2E"
+  },
+  "deployment": {
+    "switched_at_utc": "2026-10-20T11:48:27.831555+00:00",
+    "image": "toss-ads-product-rag-service:bge-api-compat-20261020",
+    "image_id": "sha256:a7116ae9f55047b8ee5c32e4e5c3398c60df2a8c2f9abc2a4ceba0e55a8a15b9",
+    "container_id": "4a66c8b57ce05c04713844cd7c5d81cd018a31083143fc4e6aefec38611548e9",
+    "rollback_container": "product-rag-api-before-compat-20261020-114819",
+    "port": 8002,
+    "health": {
+      "status": "ok",
+      "profile_name": "test_items2",
+      "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+      "supported_categories": [
+        "beauty",
+        "fashion",
+        "food",
+        "living"
+      ],
+      "allowed_profiles": [
+        "test_items2",
+        "all_products"
+      ],
+      "commerce_configured": true,
+      "embedding_model": "BAAI/bge-m3",
+      "embedding_dimension": 1024
+    },
+    "database_targets": [
+      "5432/toss_rag",
+      "5432/toss"
+    ]
+  },
+  "production": {
+    "observed_at_utc": "2026-10-20T11:48:48.921546+00:00",
+    "port": 8002,
+    "all_passed": true,
+    "checks": [
+      {
+        "name": "health",
+        "http": 200,
+        "elapsed_ms": 285,
+        "body": {
+          "status": "ok",
+          "profile_name": "test_items2",
+          "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+          "supported_categories": [
+            "beauty",
+            "fashion",
+            "food",
+            "living"
+          ],
+          "allowed_profiles": [
+            "test_items2",
+            "all_products"
+          ],
+          "commerce_configured": true,
+          "embedding_model": "BAAI/bge-m3",
+          "embedding_dimension": 1024
+        },
+        "passed": true
+      },
+      {
+        "name": "former_422_backpack",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 1682,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v57-m-0133",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0133-01",
+            "unit_price_won": 49900,
+            "stock_qty": 19,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "d481d0134c69edc452869b4690aa1e87dd548553afdcc04eefd994365298ca68",
+                "source_id": "r-v59-m-4271270-003",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "39ecff5d5db4269be50481337d0ca1361bd4cc9fe95ae50a2fce4b9c37f2d478",
+                "source_id": "r-v59-m-4271270-001",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "6ee6c14f7e318bf05e8b77a138d00b149d8fc4201f5907e7cf17b56f504ebd3a",
+                "source_id": "r-v59-m-4271270-005",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v4-m-0018",
+            "category": "fashion",
+            "variant_id": "v-v4-m-0018-01",
+            "unit_price_won": 38200,
+            "stock_qty": 18,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "2aca909ba6bbbdc29adb1ed0274a3351c893336cc59e6377e7aff7e8b811d6eb",
+                "source_id": "r-v59-m-1740936-010",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "acd6a974de86d9ce59d469d1a267d406914d22a763d0f14b00d6a0740b9892b6",
+                "source_id": "r-v59-m-1740936-015",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "4802eaca69194debba2a65b30e5f2a6bfe05e31eb32567f696c5b7d76cf133ab",
+                "source_id": "r-v59-m-1740936-014",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-m-0061",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0061-01",
+            "unit_price_won": 48600,
+            "stock_qty": 31,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "6760187ead6330b727f6c79d2acf64fdbd59ea6a434f5d159f284de5b22a1015",
+                "source_id": "p-v57-m-0061",
+                "source_type": "product"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "fashion",
+          "product_type": "backpack",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "backpack",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "backpack"
+          ],
+          "eligible_catalog_products": 3,
+          "retrieved_products": 3,
+          "commerce_eligible_products": 3,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "beauty",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 1920,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v4-o-0028",
+            "category": "beauty",
+            "variant_id": "v-v4-o-0028-01",
+            "unit_price_won": 23900,
+            "stock_qty": 73,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "c94c7da69ddd4ade3e8b1bc79a006706306a99943772fb66fd32ee797a4018f7",
+                "source_id": "r-v57-real-090596aa42827530c7d1",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "18ec205fbf7c7e90cbeed105d31e4c0ac9867f19ad7338e12004982bd7e24b8b",
+                "source_id": "r-v57-real-35bf20e8f1d25709ae57",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "180a38649e04c21f72415e2607664c32b195e6dde5df613b29c7dd133183761a",
+                "source_id": "r-v57-real-13a9befb9e8fa64a32c0",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-o-0100",
+            "category": "beauty",
+            "variant_id": "v-v57-o-0100-01",
+            "unit_price_won": 27300,
+            "stock_qty": 34,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "087758c064dd376fb35ca1256f844c34d0d9e62e5f673f20c76e669534e1068e",
+                "source_id": "r-v57-real-7360440f0f8a12262485",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "543e4c0db0484fa95eb84159596b493f29011bb88c129a7cccbfa4b5625a8b68",
+                "source_id": "r-v57-real-0a31a20b4ce8c3d2b980",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "53271199542d18e534fdcc961dcc98bcd1b57db1c3a16ccbdf589559522956e0",
+                "source_id": "r-v57-real-1d55cd7100bc9a72b897",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v4-o-0007",
+            "category": "beauty",
+            "variant_id": "v-v4-o-0007-01",
+            "unit_price_won": 23500,
+            "stock_qty": 18,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "314301aaf7209d327e2ad66d50eccf7cc0b01da40df8b22d8608cd0e7fa5feae",
+                "source_id": "r-v57-real-cd7f75ce412c0020398b",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "b3eea843e553a62472212ec8d01a9ce73bccca05f2939f14b12e73f4d1bc45d3",
+                "source_id": "r-v57-real-27791a6c10e17f4466d9",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "52d14501cefca958b0b1b8b4edcd27c1ca849dc22da0307e4e155992d720154b",
+                "source_id": "r-v57-real-7e5d596a1950e4f47664",
+                "source_type": "review"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "beauty",
+          "product_type": "face_cream",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "face_cream",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "face_cream"
+          ],
+          "eligible_catalog_products": 110,
+          "retrieved_products": 69,
+          "commerce_eligible_products": 69,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "food",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 1592,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v41-o-0363",
+            "category": "food",
+            "variant_id": "v-v41-o-0363-01",
+            "unit_price_won": 3900,
+            "stock_qty": 14,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "2c6d6430e2c6693a0d745165a2ca65346332aa9bc6946a47b9591080d6acccdd",
+                "source_id": "r-v57-real-d3cf743aa51e1541185e",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "6b1cd8ec130c0a5c69637fe211096f5272234f456fdfb460a2cbfb0d65bf969a",
+                "source_id": "r-v57-real-dcbad0b5707f72f0b2b1",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "88bbca39e210adb8d1fc5e577d69e4fcde52376310d8ce7f02a400b4d99ca35d",
+                "source_id": "r-v57-real-c4f868622fe793758d00",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v41-o-0364",
+            "category": "food",
+            "variant_id": "v-v41-o-0364-01",
+            "unit_price_won": 3900,
+            "stock_qty": 12,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "50e8748dc9b16246d8252704000b110b51b2e304c22447f96cb8f79745b52441",
+                "source_id": "r-v57-real-c1194f31305a4f677029",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "a15089cb29374ba77dbd8a565bc4347aa6f7661fe8de81fe65e5157e8e836867",
+                "source_id": "r-v57-real-080ccf8c7057a03244e6",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "bf38dcb7a6b2c5b102807d486a07f445fc59c900efd35667988237a43cd02a6e",
+                "source_id": "p-v41-o-0364",
+                "source_type": "product"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-o-0402",
+            "category": "food",
+            "variant_id": "v-v57-o-0402-01",
+            "unit_price_won": 13500,
+            "stock_qty": 40,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "449bc2cf7fe4ca991bf91ad74553717259777836e83b74ba34cc3cc686df2661",
+                "source_id": "r-v57-real-56e2a8b89df0b3d19ffa",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "9c2001881df546a7d0097c321d08283d75c6dd74332263d4af9bf1dd07b773f0",
+                "source_id": "r-v57-real-23ba6aa41649d3e93e5f",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "3ebe06d4107fb98c17f94b55f39c102ca314a7b66d5934f9a7859f20ccc6e8b2",
+                "source_id": "r-v57-real-92009bfdfe0773cd1d9d",
+                "source_type": "review"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "food",
+          "product_type": "protein_shake",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "protein_shake",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "protein_shake"
+          ],
+          "eligible_catalog_products": 20,
+          "retrieved_products": 20,
+          "commerce_eligible_products": 20,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "living",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 684,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v41-o-0346",
+            "category": "living",
+            "variant_id": "v-v41-o-0346-01",
+            "unit_price_won": 12150,
+            "stock_qty": 4,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "c324176187bf72ef9cac6dd90a87fa339147b34bcb99b5e2b7f0a82446ecbcd1",
+                "source_id": "r-v57-real-73b60c518150b74c7230",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "9b872b14652d89bc5543c7224f14e3dbedea422580bda4360ef5f72be22d611e",
+                "source_id": "r-v57-real-901592360a77899c1737",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "cd0ae322ba35d53cabd6fd318e1f704c7acba2a182211b854f611d7e8ceb5708",
+                "source_id": "r-v57-real-5d9c9140d33924727d94",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v41-o-0330",
+            "category": "living",
+            "variant_id": "v-v41-o-0330-01",
+            "unit_price_won": 31790,
+            "stock_qty": 41,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "62e0e4485a01a6fe96f2f87e447ea05c8d91bdf5ca1c933e065b8e23392e07d9",
+                "source_id": "r-v57-real-c40767ffa3a224c6727a",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "b06fd2fc30d05952a83ff896f898ee30dc3945dc2a2aefb0745788e1a2caddbf",
+                "source_id": "r-v57-real-0a3ac51dc9a2e4eb4ef7",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "21c6d11e205a4d6e46a101bd9d50ee04bcc90fe56eb3ef27a0ec6c4f91268225",
+                "source_id": "r-v57-real-c0a124abbb7d8d640e5e",
+                "source_type": "review"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-o-0275",
+            "category": "living",
+            "variant_id": "v-v57-o-0275-01",
+            "unit_price_won": 10710,
+            "stock_qty": 16,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "33d2208aa7abac46c75b54089822fd8c1ba56eed6c2c2407d0a08c3db4d129a4",
+                "source_id": "r-v57-real-04a5a0370b6f6251874f",
+                "source_type": "review"
+              },
+              {
+                "chunk_id": "0620ca5e1ea518a082d4a5c97d5f2f38fb66194c3ddd5c13cb827c1baa5bcf32",
+                "source_id": "p-v57-o-0275",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "b9b8701282677047ebbb8a5749c04803d79e77df9b7a1dbe9913097ffe0d7438",
+                "source_id": "p-v57-o-0275",
+                "source_type": "product"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "category": "living",
+          "product_type": "laundry_detergent",
+          "in_stock": true,
+          "price_max": 50000.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "laundry_detergent",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "laundry_detergent"
+          ],
+          "eligible_catalog_products": 10,
+          "retrieved_products": 10,
+          "commerce_eligible_products": 10,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "zero_budget",
+        "http": 200,
+        "status": "no_results",
+        "error_code": null,
+        "elapsed_ms": 256,
+        "count": 0,
+        "items": [],
+        "applied_filters": {
+          "category": "fashion",
+          "product_type": "backpack",
+          "in_stock": true,
+          "price_max": 0.0,
+          "currency": "KRW"
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "backpack",
+          "type_origin": "brain",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "backpack"
+          ],
+          "reason": "no_commerce_eligible_products"
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "minimal_02_request",
+        "http": 200,
+        "status": "ok",
+        "error_code": null,
+        "elapsed_ms": 596,
+        "count": 3,
+        "items": [
+          {
+            "product_id": "p-v57-m-0133",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0133-01",
+            "unit_price_won": 49900,
+            "stock_qty": 19,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "d310c8bd20bc6f0e1e39eaa2846af2fce4cbf38b05fa8fa87877b7efc05b07b9",
+                "source_id": "p-v57-m-0133",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "20820956506371242a6ab7d625198c73d7c148d27a99f64f5aaa2c1940e6df9d",
+                "source_id": "p-v57-m-0133",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "384b134e8e96f5f86fb957d68bb8de3d2dd8daebede7c71fb8ddb372edffe0e9",
+                "source_id": "p-v57-m-0133",
+                "source_type": "product"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v57-m-0037",
+            "category": "fashion",
+            "variant_id": "v-v57-m-0037-01",
+            "unit_price_won": 258000,
+            "stock_qty": 22,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "e80de400202d43a59d7cdce720e72114a9ec8683c952a797fb8f3f930e36e9e6",
+                "source_id": "p-v57-m-0037",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "6e776691b3123c73a5dd687e2e9b2f59ce3ed1509be0363de4523485be24a1c8",
+                "source_id": "p-v57-m-0037",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "d89268d95b5c9d8a2afc7f73bc4c7f80a0352ebb6d8add3d6627c956d434844f",
+                "source_id": "p-v57-m-0037",
+                "source_type": "product"
+              }
+            ]
+          },
+          {
+            "product_id": "p-v4-m-0018",
+            "category": "fashion",
+            "variant_id": "v-v4-m-0018-01",
+            "unit_price_won": 38200,
+            "stock_qty": 18,
+            "source_schema": "test_items2",
+            "is_simulated": null,
+            "evidence": [
+              {
+                "chunk_id": "5d99c6a34b5ff31b6b9fa58a91fe751e95fe7a9231e240eaf76a22741ce1f96e",
+                "source_id": "p-v4-m-0018",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "bd969a41370dce943d8daaeec626c3b8901cccb995d556aaa7c9254cc3ff775c",
+                "source_id": "p-v4-m-0018",
+                "source_type": "product"
+              },
+              {
+                "chunk_id": "a4e4eab0b294f11de0d33228a80cac3f5a3bc1678635999c748c754abfc43d59",
+                "source_id": "p-v4-m-0018",
+                "source_type": "product"
+              }
+            ]
+          }
+        ],
+        "applied_filters": {
+          "product_type": "backpack",
+          "in_stock": true
+        },
+        "search_context": {
+          "ranking_version": "product-hybrid-v2",
+          "relevance_gate": "product_identity_v2",
+          "product_type": "backpack",
+          "type_origin": "query",
+          "type_registry_version": "product-types-v2",
+          "accepted_product_types": [
+            "backpack"
+          ],
+          "eligible_catalog_products": 7,
+          "retrieved_products": 7,
+          "commerce_eligible_products": 7,
+          "relevance_rejected_products": 0
+        },
+        "passed": true,
+        "issues": []
+      },
+      {
+        "name": "legacy_catalog",
+        "http": 200,
+        "status": "ok",
+        "elapsed_ms": 8,
+        "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+        "total": 180,
+        "passed": true
+      },
+      {
+        "name": "legacy_reviews",
+        "http": 200,
+        "status": "ok",
+        "elapsed_ms": 5,
+        "passed": true
+      },
+      {
+        "name": "openapi",
+        "http": 200,
+        "version": "0.3.1",
+        "passed": true
+      }
+    ],
+    "database_items": [
+      {
+        "product_id": "p-v57-m-0133",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0133-01",
+        "unit_price_won": 49900,
+        "stock_qty": 19,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "d481d0134c69edc452869b4690aa1e87dd548553afdcc04eefd994365298ca68",
+            "source_id": "r-v59-m-4271270-003",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "39ecff5d5db4269be50481337d0ca1361bd4cc9fe95ae50a2fce4b9c37f2d478",
+            "source_id": "r-v59-m-4271270-001",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "6ee6c14f7e318bf05e8b77a138d00b149d8fc4201f5907e7cf17b56f504ebd3a",
+            "source_id": "r-v59-m-4271270-005",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-m-0018",
+        "category": "fashion",
+        "variant_id": "v-v4-m-0018-01",
+        "unit_price_won": 38200,
+        "stock_qty": 18,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "2aca909ba6bbbdc29adb1ed0274a3351c893336cc59e6377e7aff7e8b811d6eb",
+            "source_id": "r-v59-m-1740936-010",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "acd6a974de86d9ce59d469d1a267d406914d22a763d0f14b00d6a0740b9892b6",
+            "source_id": "r-v59-m-1740936-015",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "4802eaca69194debba2a65b30e5f2a6bfe05e31eb32567f696c5b7d76cf133ab",
+            "source_id": "r-v59-m-1740936-014",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-m-0061",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0061-01",
+        "unit_price_won": 48600,
+        "stock_qty": 31,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "6760187ead6330b727f6c79d2acf64fdbd59ea6a434f5d159f284de5b22a1015",
+            "source_id": "p-v57-m-0061",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-o-0028",
+        "category": "beauty",
+        "variant_id": "v-v4-o-0028-01",
+        "unit_price_won": 23900,
+        "stock_qty": 73,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "c94c7da69ddd4ade3e8b1bc79a006706306a99943772fb66fd32ee797a4018f7",
+            "source_id": "r-v57-real-090596aa42827530c7d1",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "18ec205fbf7c7e90cbeed105d31e4c0ac9867f19ad7338e12004982bd7e24b8b",
+            "source_id": "r-v57-real-35bf20e8f1d25709ae57",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "180a38649e04c21f72415e2607664c32b195e6dde5df613b29c7dd133183761a",
+            "source_id": "r-v57-real-13a9befb9e8fa64a32c0",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-o-0100",
+        "category": "beauty",
+        "variant_id": "v-v57-o-0100-01",
+        "unit_price_won": 27300,
+        "stock_qty": 34,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "087758c064dd376fb35ca1256f844c34d0d9e62e5f673f20c76e669534e1068e",
+            "source_id": "r-v57-real-7360440f0f8a12262485",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "543e4c0db0484fa95eb84159596b493f29011bb88c129a7cccbfa4b5625a8b68",
+            "source_id": "r-v57-real-0a31a20b4ce8c3d2b980",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "53271199542d18e534fdcc961dcc98bcd1b57db1c3a16ccbdf589559522956e0",
+            "source_id": "r-v57-real-1d55cd7100bc9a72b897",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-o-0007",
+        "category": "beauty",
+        "variant_id": "v-v4-o-0007-01",
+        "unit_price_won": 23500,
+        "stock_qty": 18,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "314301aaf7209d327e2ad66d50eccf7cc0b01da40df8b22d8608cd0e7fa5feae",
+            "source_id": "r-v57-real-cd7f75ce412c0020398b",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "b3eea843e553a62472212ec8d01a9ce73bccca05f2939f14b12e73f4d1bc45d3",
+            "source_id": "r-v57-real-27791a6c10e17f4466d9",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "52d14501cefca958b0b1b8b4edcd27c1ca849dc22da0307e4e155992d720154b",
+            "source_id": "r-v57-real-7e5d596a1950e4f47664",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0363",
+        "category": "food",
+        "variant_id": "v-v41-o-0363-01",
+        "unit_price_won": 3900,
+        "stock_qty": 14,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "2c6d6430e2c6693a0d745165a2ca65346332aa9bc6946a47b9591080d6acccdd",
+            "source_id": "r-v57-real-d3cf743aa51e1541185e",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "6b1cd8ec130c0a5c69637fe211096f5272234f456fdfb460a2cbfb0d65bf969a",
+            "source_id": "r-v57-real-dcbad0b5707f72f0b2b1",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "88bbca39e210adb8d1fc5e577d69e4fcde52376310d8ce7f02a400b4d99ca35d",
+            "source_id": "r-v57-real-c4f868622fe793758d00",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0364",
+        "category": "food",
+        "variant_id": "v-v41-o-0364-01",
+        "unit_price_won": 3900,
+        "stock_qty": 12,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "50e8748dc9b16246d8252704000b110b51b2e304c22447f96cb8f79745b52441",
+            "source_id": "r-v57-real-c1194f31305a4f677029",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "a15089cb29374ba77dbd8a565bc4347aa6f7661fe8de81fe65e5157e8e836867",
+            "source_id": "r-v57-real-080ccf8c7057a03244e6",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "bf38dcb7a6b2c5b102807d486a07f445fc59c900efd35667988237a43cd02a6e",
+            "source_id": "p-v41-o-0364",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-o-0402",
+        "category": "food",
+        "variant_id": "v-v57-o-0402-01",
+        "unit_price_won": 13500,
+        "stock_qty": 40,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "449bc2cf7fe4ca991bf91ad74553717259777836e83b74ba34cc3cc686df2661",
+            "source_id": "r-v57-real-56e2a8b89df0b3d19ffa",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "9c2001881df546a7d0097c321d08283d75c6dd74332263d4af9bf1dd07b773f0",
+            "source_id": "r-v57-real-23ba6aa41649d3e93e5f",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "3ebe06d4107fb98c17f94b55f39c102ca314a7b66d5934f9a7859f20ccc6e8b2",
+            "source_id": "r-v57-real-92009bfdfe0773cd1d9d",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0346",
+        "category": "living",
+        "variant_id": "v-v41-o-0346-01",
+        "unit_price_won": 12150,
+        "stock_qty": 4,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "c324176187bf72ef9cac6dd90a87fa339147b34bcb99b5e2b7f0a82446ecbcd1",
+            "source_id": "r-v57-real-73b60c518150b74c7230",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "9b872b14652d89bc5543c7224f14e3dbedea422580bda4360ef5f72be22d611e",
+            "source_id": "r-v57-real-901592360a77899c1737",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "cd0ae322ba35d53cabd6fd318e1f704c7acba2a182211b854f611d7e8ceb5708",
+            "source_id": "r-v57-real-5d9c9140d33924727d94",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v41-o-0330",
+        "category": "living",
+        "variant_id": "v-v41-o-0330-01",
+        "unit_price_won": 31790,
+        "stock_qty": 41,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "62e0e4485a01a6fe96f2f87e447ea05c8d91bdf5ca1c933e065b8e23392e07d9",
+            "source_id": "r-v57-real-c40767ffa3a224c6727a",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "b06fd2fc30d05952a83ff896f898ee30dc3945dc2a2aefb0745788e1a2caddbf",
+            "source_id": "r-v57-real-0a3ac51dc9a2e4eb4ef7",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "21c6d11e205a4d6e46a101bd9d50ee04bcc90fe56eb3ef27a0ec6c4f91268225",
+            "source_id": "r-v57-real-c0a124abbb7d8d640e5e",
+            "source_type": "review"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-o-0275",
+        "category": "living",
+        "variant_id": "v-v57-o-0275-01",
+        "unit_price_won": 10710,
+        "stock_qty": 16,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "33d2208aa7abac46c75b54089822fd8c1ba56eed6c2c2407d0a08c3db4d129a4",
+            "source_id": "r-v57-real-04a5a0370b6f6251874f",
+            "source_type": "review"
+          },
+          {
+            "chunk_id": "0620ca5e1ea518a082d4a5c97d5f2f38fb66194c3ddd5c13cb827c1baa5bcf32",
+            "source_id": "p-v57-o-0275",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "b9b8701282677047ebbb8a5749c04803d79e77df9b7a1dbe9913097ffe0d7438",
+            "source_id": "p-v57-o-0275",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-m-0133",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0133-01",
+        "unit_price_won": 49900,
+        "stock_qty": 19,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "d310c8bd20bc6f0e1e39eaa2846af2fce4cbf38b05fa8fa87877b7efc05b07b9",
+            "source_id": "p-v57-m-0133",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "20820956506371242a6ab7d625198c73d7c148d27a99f64f5aaa2c1940e6df9d",
+            "source_id": "p-v57-m-0133",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "384b134e8e96f5f86fb957d68bb8de3d2dd8daebede7c71fb8ddb372edffe0e9",
+            "source_id": "p-v57-m-0133",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v57-m-0037",
+        "category": "fashion",
+        "variant_id": "v-v57-m-0037-01",
+        "unit_price_won": 258000,
+        "stock_qty": 22,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "e80de400202d43a59d7cdce720e72114a9ec8683c952a797fb8f3f930e36e9e6",
+            "source_id": "p-v57-m-0037",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "6e776691b3123c73a5dd687e2e9b2f59ce3ed1509be0363de4523485be24a1c8",
+            "source_id": "p-v57-m-0037",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "d89268d95b5c9d8a2afc7f73bc4c7f80a0352ebb6d8add3d6627c956d434844f",
+            "source_id": "p-v57-m-0037",
+            "source_type": "product"
+          }
+        ]
+      },
+      {
+        "product_id": "p-v4-m-0018",
+        "category": "fashion",
+        "variant_id": "v-v4-m-0018-01",
+        "unit_price_won": 38200,
+        "stock_qty": 18,
+        "source_schema": "test_items2",
+        "is_simulated": null,
+        "evidence": [
+          {
+            "chunk_id": "5d99c6a34b5ff31b6b9fa58a91fe751e95fe7a9231e240eaf76a22741ce1f96e",
+            "source_id": "p-v4-m-0018",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "bd969a41370dce943d8daaeec626c3b8901cccb995d556aaa7c9254cc3ff775c",
+            "source_id": "p-v4-m-0018",
+            "source_type": "product"
+          },
+          {
+            "chunk_id": "a4e4eab0b294f11de0d33228a80cac3f5a3bc1678635999c748c754abfc43d59",
+            "source_id": "p-v4-m-0018",
+            "source_type": "product"
+          }
+        ]
+      }
+    ],
+    "scope": "HTTP compatibility and Commerce constraints, not recommendation accuracy or browser E2E"
+  },
+  "external": {
+    "checks": [
+      {
+        "base_url": "http://172.30.1.53:8002",
+        "health_http": 200,
+        "health": {
+          "status": "ok",
+          "profile_name": "test_items2",
+          "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+          "supported_categories": [
+            "beauty",
+            "fashion",
+            "food",
+            "living"
+          ],
+          "allowed_profiles": [
+            "test_items2",
+            "all_products"
+          ],
+          "commerce_configured": true,
+          "embedding_model": "BAAI/bge-m3",
+          "embedding_dimension": 1024
+        },
+        "search_http": 200,
+        "search_status": "ok",
+        "item_count": 3,
+        "passed": true
+      },
+      {
+        "base_url": "https://rag.chanuk.theworkpc.com",
+        "health_http": 200,
+        "health": {
+          "status": "ok",
+          "profile_name": "test_items2",
+          "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+          "supported_categories": [
+            "beauty",
+            "fashion",
+            "food",
+            "living"
+          ],
+          "allowed_profiles": [
+            "test_items2",
+            "all_products"
+          ],
+          "commerce_configured": true,
+          "embedding_model": "BAAI/bge-m3",
+          "embedding_dimension": 1024
+        },
+        "search_http": 200,
+        "search_status": "ok",
+        "item_count": 3,
+        "passed": true
+      },
+      {
+        "base_url": "https://chancelab-spark.tailbc019f.ts.net:8002",
+        "health_http": 200,
+        "health": {
+          "status": "ok",
+          "profile_name": "test_items2",
+          "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+          "supported_categories": [
+            "beauty",
+            "fashion",
+            "food",
+            "living"
+          ],
+          "allowed_profiles": [
+            "test_items2",
+            "all_products"
+          ],
+          "commerce_configured": true,
+          "embedding_model": "BAAI/bge-m3",
+          "embedding_dimension": 1024
+        },
+        "search_http": 200,
+        "search_status": "ok",
+        "item_count": 3,
+        "passed": true
+      }
+    ],
+    "all_passed": true
+  },
+  "database_comparison": {
+    "passed": true,
+    "variant_row_comparisons": 15,
+    "chunk_provenance_comparisons": 43,
+    "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+    "bge_chunk_count": 114106,
+    "expected_and_stored_counts": [
+      114106,
+      114106
+    ],
+    "database_targets": [
+      "5432/toss_rag",
+      "5432/toss"
+    ],
+    "read_only": true
+  },
+  "limitations": [
+    "No browser/Brain/LLM end-to-end verification; no local storefront process was listening.",
+    "API 0.2 strict response validators must accept restored 0.3 fields.",
+    "Arbitrary required_conditions and preferences remain unverified, not automatically enforced hard specs.",
+    "Legacy catalog routes remain pinned to test_items 180 products, not test_items2 1500.",
+    "all_products without its own BGE profile fails closed; default and verified BGE search profile is test_items2.",
+    "Sample HTTP durations are smoke observations, not load/performance or relevance evaluation.",
+    "HTTP uses hybrid_search directly; LangChain adapter construction is compatible but HTTP does not call Retriever.invoke."
+  ],
+  "changes_excluded": [
+    "source DB/index/vector writes",
+    "re-embedding/rechunking",
+    "main commit/push/merge"
+  ]
+}

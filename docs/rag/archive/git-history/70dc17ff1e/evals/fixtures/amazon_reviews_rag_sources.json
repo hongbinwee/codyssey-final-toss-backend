@@ -1,0 +1,170 @@
+{
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "source": "Minimal source snapshot for the labeled fields; author profiles and image/video media omitted; user_id absent.",
+  "records": [
+    {
+      "category": "Appliances",
+      "product": {
+        "average_rating": 3.2,
+        "features": [
+          "-20 to 70 degree C Measurement Range"
+        ],
+        "parent_asin": "9792284354",
+        "price": 86.49,
+        "rating_number": 5,
+        "title": "Lascar EL-USB-RT Temperature Humidity and Dew Point USB Sensor"
+      },
+      "reviews": [
+        {
+          "review_key": "130ad24f3c248563b32bf13b490f9ab692d30358a52457173be5a921ee7e886d",
+          "parent_asin": "9792284354",
+          "rating": 4.0,
+          "text": "I can't believe a freaking temperature/humidity monitor costs this much.  But it does work.  There's code on github to make it work with linux, and that works pretty well."
+        }
+      ]
+    },
+    {
+      "category": "Appliances",
+      "product": {
+        "parent_asin": "B00DM8JECC",
+        "title": "Whirlpool 285671 Washer"
+      },
+      "reviews": [
+        {
+          "review_key": "40f29bb3a85997e02588970c0b3c9a2129c28576892ce30b4bb4b1e2901fe325",
+          "parent_asin": "B00DM8JECC",
+          "rating": 2.0,
+          "text": "It has been only 4 months since I installed this lid switch in my washing machine.  It demonstrated the same problem today--the water won't drain and the basket won't spin.  I suspect the part has failed.  Maybe it's a bad switch??  I don't want to give a one-star rating, but I am extremely unhappy!!  This part did not expectations."
+        }
+      ]
+    },
+    {
+      "category": "Appliances",
+      "product": {
+        "parent_asin": "B00DYS970O",
+        "title": "XtremeAir PX04-I42, 42\" wide, LED lights, Both Side accessible Control, Swing-able Flat Filters, 1.0mm Non-Magnetic Stainless Steel Seamless Body, Island Mount Range Hood"
+      },
+      "reviews": [
+        {
+          "review_key": "2a127d6777ca895a8a6f72a7b8e2653cf01a2ca5148c5491b1379580eb881a03",
+          "parent_asin": "B00DYS970O",
+          "rating": 1.0,
+          "text": "Really disappointed with my hood. I picked this hood because of the baffle filters which are suppose to provide superior oil catchment while looking the best.<br /><br />After my first month i took out the filters to clean and noticed my oil catchment tray was empty i thought it odd since there would normally be something in there after a month of use. The filters were dirty though so i cleaned them and replaced them. Well after a few more months my vent hood is now leaking oil from the edges. The oil tray continues to be empty every time i check but now there's small puddles of oil on my counter top every few days. I contacted extreme air but they were no help saying that i need to switch it on before i cook and leave it on after (which i was already doing using the auto-shutoff feature)<br /><br />In addition to the leaking oil i find the LED lights not as bright as the regular halogen lights i had on my old hood. The speed setting needs more range.<br /><br />On the bright side it does look nice and i've had a few people comment on it."
+        }
+      ]
+    },
+    {
+      "category": "Appliances",
+      "product": {
+        "features": [
+          "[Hinged Door Design] The hinge angle of our freezer door is between 45 ° and 90 °. It facilitates the storage of food. The removable storage basket is convenient for storing, sliding and moving small items. You can quickly see the items under the meat freezer. The vertical freezer has adjustable leveling legs to balance the device on an uneven surface.",
+          "[Temperature Adjustable Control & Manual Defrost] There is adjustable 7-level temperature control at the front of deep freezer. It can be controlled from - 7.6 ° F to 6.8 ° F (- 14 ° C to - 22 ° C). The higher the water level, the lower the temperature. Features with the Manual Defrost design, our chest freezer keeps your food fresher."
+        ],
+        "parent_asin": "B0CBTRRLJC"
+      },
+      "reviews": [
+        {
+          "review_key": "1ba2085370ca515589afaaa0319038c419236e88bc4943515e5699ca1d32e92d",
+          "parent_asin": "B0CBTRRLJC",
+          "rating": 5.0,
+          "text": "This freezer works well for me so far. I bought it primarily because it would fit in the only space we had available. The only slight negative is that we have to set the temperature pretty near the max in order to get the temperature below freezing. It is relatively quiet-although I can tell it is running if the house is quiet.<br />So far there has been very little ice build up."
+        }
+      ]
+    },
+    {
+      "category": "Clothing_Shoes_and_Jewelry",
+      "product": {
+        "features": [
+          "50% Polyester, 50% Cotton"
+        ],
+        "parent_asin": "B08PDVF576"
+      },
+      "reviews": [
+        {
+          "review_key": "a0220fea2f909bd29c09ef51e5ee547c932b74b5779dd20d1e69faef23a22021",
+          "parent_asin": "B08PDVF576",
+          "rating": 5.0,
+          "text": "I LOVE my new NOW Stop Injustice sweatshirt! The message is positive and powerful! The fabric is so SOFT. The fit is PERFECT. I love it so much! The customer service was also very excellent! Thanks so much ladies! I can’t wait to purchase more from the NOW collection."
+        }
+      ]
+    },
+    {
+      "category": "Clothing_Shoes_and_Jewelry",
+      "product": {
+        "parent_asin": "B01ESKXPPY",
+        "title": "Simpleyourstyle Ice Blue Anime Cosplay Wigs Short Heat Resistant Synthetic Full Wigs for Men 30cm 11.8inch 160g"
+      },
+      "reviews": [
+        {
+          "review_key": "24f7e4e803b28967fc1c4f2dcca1bc5c0d09a1e698e5b71772a3d820b5b293a3",
+          "parent_asin": "B01ESKXPPY",
+          "rating": 2.0,
+          "text": "I was a bit disappointed with this product. I purchased this wig for everyday wear. It would be great for cosplay, because it doesn't need to look real. The wig is well constructed, but very bulky. You can adjust it, and it comes with a net hair cover{most wigs don't]. The wig is comfortable. but I can;t wear it as a hair style, I tried trimming it, [epic fail], but didn't know what I was doing,so I wasted my money. In fairness to the product, it isn't advertised as everyday wear,but for cosplay. In that case it would be great."
+        }
+      ]
+    },
+    {
+      "category": "Grocery_and_Gourmet_Food",
+      "product": {
+        "features": [
+          "Freeze Dried Mango Fruit Powder, 5.3oz(150g)",
+          "100% Pure, Non-GMO, Gluten-Free, Vegan."
+        ],
+        "parent_asin": "B085FQGY6V"
+      },
+      "reviews": [
+        {
+          "review_key": "0311c186852f3e66a2d1083992fa3f4ca9ad7d09302eb41774de032c5bcafcae",
+          "parent_asin": "B085FQGY6V",
+          "rating": 1.0,
+          "text": "This white powder has NO flavor, NO smell and when mixed with water some of it gummies up on the bottom of the cup.<br />THEY BAIT YOU WITH NICE LABLE -<br />AND SEND YOU TASTELESS POWDER."
+        }
+      ]
+    },
+    {
+      "category": "Grocery_and_Gourmet_Food",
+      "product": {
+        "parent_asin": "B01H640HSC",
+        "title": "Broadway Licorice Wheels - 4.4lb"
+      },
+      "reviews": [
+        {
+          "review_key": "030d3ff61a5c523c797ce38a232e4a1a24b3e1aa47353149ff66e2bb4c5494b4",
+          "parent_asin": "B01H640HSC",
+          "rating": 3.0,
+          "text": "A little hard but taste good."
+        }
+      ]
+    },
+    {
+      "category": "Clothing_Shoes_and_Jewelry",
+      "product": {
+        "parent_asin": "1942191537",
+        "title": "The Would Be Queen"
+      },
+      "reviews": [
+        {
+          "review_key": "f7b0263c2e79d6dbcb7754eec2205cf5d645194974faf930cbef223f4d505250",
+          "parent_asin": "1942191537",
+          "rating": 5.0,
+          "text": "The Would be Queen.<br /><br />20/8/22<br />This book had me so engrossed and so angry . Then I realized, it’s just a book. Such is the masterful storytelling skills of Debra. You get so hooked and forget it’s makebelieve.<br /><br />I’ll try not to give any spoilers but this is Dreya’s story. Full of Magic , mayhem, romance ,but compulsively addictive.<br />Why was I angry. Because it s a story of how a family can manipulate someone’s life and future and it’s all for the right reasons, of course. It also shows the courage that is sometimes required just to cope with life.<br />But there comes a point when enough is enough.<br />There is one chapter describing a love scene but , for once, it was done tastefully and with tenderness. I do hate it when an author feels that they have to be so graphic. So well done Debra.<br />There is plenty of action and it’s one of those books that you can’t read quick enough but you try to slow down at the end because it’s so good.<br />I could gush all day. It was SO worth a read. I thoroughly enjoyed it and recommend for anyone else to enjoy."
+        }
+      ]
+    },
+    {
+      "category": "Grocery_and_Gourmet_Food",
+      "product": {
+        "parent_asin": "5480451073",
+        "title": "Tesco Decaffeinated 80 Teabags 250G"
+      },
+      "reviews": [
+        {
+          "review_key": "0b288b296f0b6f1f396a527ee2b1c480e0f5f48836246cfe5a95d2fea706b1db",
+          "parent_asin": "5480451073",
+          "rating": 5.0,
+          "text": "Tastes like regular black tea, I finally found a decaf tea that tastes like TEA."
+        }
+      ]
+    }
+  ]
+}

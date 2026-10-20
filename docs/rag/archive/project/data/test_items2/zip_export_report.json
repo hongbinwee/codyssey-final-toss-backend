@@ -1,0 +1,14 @@
+{
+  "zip_path": "/home/aiteam/projects/toss-ads-project/data/exports/test_items2_chunked_full_2026-10-19.zip",
+  "bytes": 273558559,
+  "MB": 273.56,
+  "MiB": 260.89,
+  "files": 19,
+  "products": 1500,
+  "variants": 1917,
+  "reviews": 46100,
+  "chunks": 114106,
+  "embedding_dimensions": 384,
+  "zip_sha256": "5cffff3e0a656cbbdf55a0b76c7493a0373c48a77d5d6770af9a65865e66b808",
+  "verification": "passed"
+}

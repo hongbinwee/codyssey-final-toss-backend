@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Toss RAG — Tailscale 운영 인수인계",
+    "description": "Tailscale 접근 권한 필요. 기본 profile=test_items2. 자동 테스트 스크립트 없음. 예시 요청의 실제 검색 성공을 보장하는 결과 자료가 아닙니다.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://chancelab-spark.tailbc019f.ts.net:8002"
+    },
+    {
+      "key": "profile",
+      "value": "test_items2"
+    }
+  ],
+  "item": [
+    {
+      "name": "상태 확인",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/healthz"
+      }
+    },
+    {
+      "name": "니플패치 및 리뷰 검색",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/v1/rag/search",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"request_id\": \"other-pc-test-001\",\n  \"profile\": \"{{profile}}\",\n  \"original_question\": \"니플패치 찾아줘. 리뷰도 보여줘\",\n  \"query\": \"니플패치\",\n  \"category\": \"fashion\",\n  \"filters\": {},\n  \"required_conditions\": [],\n  \"preferences\": [],\n  \"top_k\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "카테고리 제한 없이 검색",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/v1/rag/search",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"profile\": \"{{profile}}\",\n  \"original_question\": \"파우치 찾아줘\",\n  \"query\": \"파우치\",\n  \"top_k\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

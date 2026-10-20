@@ -1,0 +1,96 @@
+{
+  "checked_at_utc": "2026-10-15T10:27:17.148488+00:00",
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "source_snapshot_stable": true,
+  "products_scanned": 30000,
+  "reviews_scanned": 178335,
+  "personal_field_records": 45,
+  "email_pattern_records": 10,
+  "phone_pattern_records": 10607,
+  "ssn_pattern_records": 1,
+  "method": "approved source API; scan record keys and text values without printing or retaining matched values",
+  "audit_status": "candidate_patterns_only_not_privacy_clearance",
+  "values_retained_or_printed": false,
+  "full_index_started": true,
+  "interpretation": {
+    "email_candidates": {
+      "records": 10,
+      "product_records": 1,
+      "review_records": 9,
+      "classification": "potential contact data; exact values intentionally not retained"
+    },
+    "ssn_format_candidates": {
+      "records": 1,
+      "source_area": "Clothing_Shoes_and_Jewelry product data",
+      "classification": "unconfirmed pattern candidate"
+    },
+    "broad_phone_pattern": {
+      "matched_values": 11387,
+      "records": 10607,
+      "review_key_hash_matches": 9024,
+      "review_text_field_records": 42,
+      "weak_generic_contact_word_nearby_matches": 14,
+      "classification": "not a PII count; includes hashes, URLs, model/part numbers and ambiguous prose"
+    },
+    "personal_key_candidates": {
+      "author": 45,
+      "classification": "public product author metadata candidate; not treated as reviewer identity"
+    }
+  },
+  "decision_needed": null,
+  "source_database_mutated": false,
+  "rag_source_rows_written": true,
+  "approved_handling": "Recursively remove explicit private identity fields; same-length mask email and SSN-format values; mask phone-shaped values only when a strong contact label precedes within 60 characters and no digits intervene. Broad phone pattern alone does not trigger redaction.",
+  "preapproval_partial_run_cleanup": {
+    "database": "toss_rag, separate from the source application database toss",
+    "incomplete_runs_removed": 2,
+    "product_rows_removed": 19501,
+    "evidence_chunk_rows_removed": 415508,
+    "active_run_present_before_cleanup": false,
+    "source_database_mutated": false,
+    "raw_values_in_audit_or_log": false,
+    "partial_run_rows_logically_deleted": true,
+    "physical_wal_or_backup_erasure_verified": false,
+    "assessment": "The incomplete rows may have contained unredacted source strings. They were not active and were logically deleted after discovery; physical erasure from database WAL or backups was not verified."
+  },
+  "approved_index_scope": {
+    "categories": [
+      "Appliances"
+    ],
+    "source_products": 10000,
+    "source_reviews": 65618,
+    "scope_change": "User narrowed the index from all three source categories to Appliances only while the first category was being indexed.",
+    "other_categories_written_to_staging": false,
+    "existing_partial_appliances_run_resumed": true,
+    "run_id": "8421dfd1-a81b-4b70-9706-564cb9fab6aa"
+  },
+  "final_index_execution": {
+    "report": "full-index-2026-10-15.json",
+    "run_id": "8421dfd1-a81b-4b70-9706-564cb9fab6aa",
+    "scope": "Appliances only",
+    "products_indexed": 10000,
+    "reviews_indexed": 65618,
+    "evidence_chunks": 287105,
+    "indexing_redaction_occurrences": {
+      "email": 8,
+      "phone": 1,
+      "ssn": 0,
+      "private_fields_removed": 21199
+    },
+    "post_index_reaudit_rows": {
+      "product_payloads": 10000,
+      "evidence_text": 287105,
+      "source_metadata": 287105
+    },
+    "post_index_remaining_matches": 0,
+    "source_database_mutated": false
+  },
+  "secondary_local_rag_target_observed": {
+    "target": "127.0.0.1:5432/toss_rag",
+    "active_run_id": "89c77fe9-b479-4139-ab36-1ae0b645afe4",
+    "status": "active separate run observed",
+    "post_index_reaudit_remaining_matches": 0,
+    "used_for_final_evaluation": false,
+    "raw_values_retained_or_printed": false
+  }
+}

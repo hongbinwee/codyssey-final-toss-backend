@@ -1,0 +1,117 @@
+{
+  "checked_at": "2026-10-19T17:53:35.394409+09:00",
+  "scope": {
+    "database_port": 5432,
+    "source_database": "toss",
+    "source_schema": "test_items2",
+    "baseline_schema": "public",
+    "rag_database": "toss_rag",
+    "profile_name": "test_items2"
+  },
+  "status": "PASS_WITH_INTENTIONAL_EXTENSION",
+  "total_detected_errors": 0,
+  "row_counts": {
+    "products": 1500,
+    "product_variants": 1917,
+    "reviews": 46100
+  },
+  "base_column_differences": [],
+  "intentional_extra_columns": [
+    {
+      "schema": "test_items2",
+      "table": "reviews",
+      "name": "source_option_label",
+      "position": 9,
+      "type": "text",
+      "nullable": "YES",
+      "default": null
+    }
+  ],
+  "constraint_differences_after_schema_normalization": [],
+  "index_differences_after_name_normalization": [],
+  "unvalidated_constraints": 0,
+  "foreign_keys_pointing_outside_new_schema": 0,
+  "data_checks_bad_row_counts": {
+    "products_duplicate_ids": 0,
+    "products_required_nulls": 0,
+    "products_missing_or_extra_source_ids": 0,
+    "product_variants_duplicate_ids": 0,
+    "product_variants_required_nulls": 0,
+    "product_variants_missing_or_extra_source_ids": 0,
+    "reviews_duplicate_ids": 0,
+    "reviews_required_nulls": 0,
+    "reviews_missing_or_extra_source_ids": 0,
+    "blank_product_identity": 0,
+    "invalid_product_json_shapes": 0,
+    "invalid_image_url_items": 0,
+    "invalid_variant_json_shapes": 0,
+    "orphan_variants": 0,
+    "orphan_reviews": 0,
+    "missing_or_mismatched_review_variant": 0,
+    "products_without_variant": 0,
+    "invalid_prices_or_stocks": 0,
+    "invalid_product_variant_version_or_active": 0,
+    "invalid_ratings": 0,
+    "invalid_source_kind": 0,
+    "blank_review_id_or_body": 0,
+    "invalid_source_option_label_type": 0,
+    "invalid_dates": 0
+  },
+  "source_file_mismatches": {
+    "products": {
+      "count": 0,
+      "sample_ids": []
+    },
+    "product_variants": {
+      "count": 0,
+      "sample_ids": []
+    },
+    "reviews": {
+      "count": 0,
+      "sample_ids": []
+    }
+  },
+  "public_primary_key_collisions": {
+    "products": 0,
+    "product_variants": 0,
+    "reviews": 0
+  },
+  "categories": {
+    "beauty": 781,
+    "fashion": 269,
+    "living": 268,
+    "food": 182
+  },
+  "review_source_kinds": {
+    "SYNTHETIC": 4577,
+    "REAL": 41523
+  },
+  "additional_stats": {
+    "empty_image_arrays": 0,
+    "empty_descriptions": 0,
+    "zero_price_variants": 0,
+    "zero_stock_variants": 27,
+    "source_option_labels": 29580
+  },
+  "rag_integrity": {
+    "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+    "profile_name": "test_items2",
+    "status": "active",
+    "indexed_products": 1500,
+    "indexed_product_ids_md5": "486f54794869b92f8f7a6d47aa736991",
+    "indexed_review_ids_md5": "d2674a5c8bf4a880402f2f6ed4be2a4d",
+    "chunks": 114106,
+    "unique_reviews": 46100,
+    "invalid_vector_dimensions": 0,
+    "invalid_source_metadata": 0,
+    "invalid_evidence_offsets": 0,
+    "product_ids_match_source": true,
+    "review_ids_match_source": true
+  },
+  "compatibility_notes": [
+    "Base column types/nullability/defaults match public; reviews has intentional nullable source_option_label TEXT.",
+    "Use explicit column mapping when copying to public.reviews because INSERT ... SELECT * has a different column count.",
+    "Source specs/option_values/spec_overrides map to specs_json/option_values_json/spec_overrides_json.",
+    "Schema validation does not establish product fact accuracy, semantic variant correctness, source authenticity, live sale readiness or HTTP API integration."
+  ]
+}

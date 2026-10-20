@@ -1,0 +1,38 @@
+{
+  "loaded_at": "2026-10-19T17:14:36.196201+09:00",
+  "database_port": 5432,
+  "database": "toss",
+  "schema": "test_items2",
+  "archive_filename": "shopping_brain_v6_1_review_refined_CANDIDATE.zip",
+  "archive_sha256": "94681a28271ca9b1a6039c98bef10d23cd87beb33004555b9a74d0ca93ccfd8e",
+  "counts": {
+    "products": 1500,
+    "variants": 1917,
+    "reviews": 46100
+  },
+  "categories": {
+    "beauty": 781,
+    "fashion": 269,
+    "living": 268,
+    "food": 182
+  },
+  "review_source_kinds": {
+    "SYNTHETIC": 4577,
+    "REAL": 41523
+  },
+  "source_option_label_count": 29580,
+  "additional_nullable_column": "reviews.source_option_label",
+  "validation": {
+    "duplicate_ids": 0,
+    "orphan_variants": 0,
+    "orphan_reviews": 0,
+    "mismatched_review_variants": 0,
+    "invalid_prices_stocks_ratings": 0
+  },
+  "field_mapping": {
+    "products.specs": "products.specs_json",
+    "variants.option_values": "product_variants.option_values_json",
+    "variants.spec_overrides": "product_variants.spec_overrides_json"
+  },
+  "statistics_note": "Optional explicit ANALYZE omitted after timeout; source import committed separately."
+}

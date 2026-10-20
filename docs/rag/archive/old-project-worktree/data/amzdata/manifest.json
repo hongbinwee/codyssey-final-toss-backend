@@ -1,0 +1,78 @@
+{
+  "dataset": "Amazon Reviews'23",
+  "source_project": "https://amazon-reviews-2023.github.io/",
+  "processed_at_utc": "2026-10-14T10:41:15.143181+00:00",
+  "random_seed": 20261014,
+  "product_sampling": "uniform reservoir sample over metadata rows, per category",
+  "review_sampling": "reservoir sample up to 8 reviews for each integer rating 1..5 per selected parent_asin; products with fewer available ratings retain fewer than 40 reviews",
+  "join_key": "parent_asin",
+  "product_limit_per_category": 10000,
+  "review_limit_per_product": 40,
+  "review_limit_per_rating_per_product": 8,
+  "source_archives_are_streamed_not_retained": true,
+  "categories": {
+    "Clothing_Shoes_and_Jewelry": {
+      "metadata_url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Clothing_Shoes_and_Jewelry.jsonl.gz",
+      "metadata_compressed_source_bytes": 4051587355,
+      "metadata_rows_seen": 7218481,
+      "selected_products": 10000,
+      "selected_products_file": "curated/Clothing_Shoes_and_Jewelry_products.jsonl",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Clothing_Shoes_and_Jewelry.jsonl.gz",
+      "compressed_source_bytes": 7109695439,
+      "rows_scanned": 66033346,
+      "matching_reviews_for_selected_products": 98672,
+      "selected_review_rows": 37006,
+      "selected_rows_by_rating": {
+        "1": 4361,
+        "2": 3223,
+        "3": 4474,
+        "4": 6534,
+        "5": 18414
+      },
+      "products_with_at_least_one_selected_review": 10000,
+      "output_file": "curated/Clothing_Shoes_and_Jewelry_reviews.jsonl"
+    },
+    "Grocery_and_Gourmet_Food": {
+      "metadata_url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Grocery_and_Gourmet_Food.jsonl.gz",
+      "metadata_compressed_source_bytes": 324346561,
+      "metadata_rows_seen": 603274,
+      "selected_products": 10000,
+      "selected_products_file": "curated/Grocery_and_Gourmet_Food_products.jsonl",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Grocery_and_Gourmet_Food.jsonl.gz",
+      "compressed_source_bytes": 1630860152,
+      "rows_scanned": 14318520,
+      "matching_reviews_for_selected_products": 223237,
+      "selected_review_rows": 75711,
+      "selected_rows_by_rating": {
+        "1": 13856,
+        "2": 7084,
+        "3": 8802,
+        "4": 11046,
+        "5": 34923
+      },
+      "products_with_at_least_one_selected_review": 10000,
+      "output_file": "curated/Grocery_and_Gourmet_Food_reviews.jsonl"
+    },
+    "Appliances": {
+      "metadata_url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Appliances.jsonl.gz",
+      "metadata_compressed_source_bytes": 66406659,
+      "metadata_rows_seen": 94327,
+      "selected_products": 10000,
+      "selected_products_file": "curated/Appliances_products.jsonl",
+      "url": "https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Appliances.jsonl.gz",
+      "compressed_source_bytes": 270209794,
+      "rows_scanned": 2128605,
+      "matching_reviews_for_selected_products": 216072,
+      "selected_review_rows": 65618,
+      "selected_rows_by_rating": {
+        "1": 12081,
+        "2": 5252,
+        "3": 6623,
+        "4": 10429,
+        "5": 31233
+      },
+      "products_with_at_least_one_selected_review": 10000,
+      "output_file": "curated/Appliances_reviews.jsonl"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "status": "active",
+  "profile_name": "test_items2",
+  "run_id": "e925490f-4f34-4c03-9248-eb9ebdfcde48",
+  "dataset_version": "test_items2:v6.1-review-refined:sha256=94681a28271ca9b1:products=1500:reviews=46100",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_dimensions": 384,
+  "chunk_max_tokens": 96,
+  "counts": {
+    "product_count": 1500,
+    "review_count": 46100,
+    "chunk_count": 114106,
+    "category_counts": {
+      "beauty": {
+        "products": 781,
+        "reviews": 34545,
+        "chunks": 78595,
+        "source_products": 781,
+        "source_reviews": 34545,
+        "quarantined_products": 0,
+        "quarantined_reviews": 0
+      },
+      "fashion": {
+        "products": 269,
+        "reviews": 2761,
+        "chunks": 11566,
+        "source_products": 269,
+        "source_reviews": 2761,
+        "quarantined_products": 0,
+        "quarantined_reviews": 0
+      },
+      "food": {
+        "products": 182,
+        "reviews": 5682,
+        "chunks": 13409,
+        "source_products": 182,
+        "source_reviews": 5682,
+        "quarantined_products": 0,
+        "quarantined_reviews": 0
+      },
+      "living": {
+        "products": 268,
+        "reviews": 3112,
+        "chunks": 10536,
+        "source_products": 268,
+        "source_reviews": 3112,
+        "quarantined_products": 0,
+        "quarantined_reviews": 0
+      }
+    }
+  },
+  "source_type_chunk_counts": {
+    "product": 37919,
+    "review": 76187
+  },
+  "review_source_kinds": {
+    "SYNTHETIC": 4577,
+    "REAL": 41523
+  },
+  "archive_sha256": "94681a28271ca9b1a6039c98bef10d23cd87beb33004555b9a74d0ca93ccfd8e",
+  "source_database": {
+    "port": 5432,
+    "database": "toss",
+    "schema": "test_items2"
+  },
+  "rag_database": {
+    "port": 5432,
+    "database": "toss_rag",
+    "schema": "rag"
+  },
+  "integrity": {
+    "chunks": 114106,
+    "products": 1500,
+    "reviews": 46100,
+    "invalid_dimensions": 0,
+    "invalid_offsets": 0,
+    "invalid_sources": 0
+  },
+  "search_smoke": [
+    {
+      "category": "beauty",
+      "query_product_id": "p-v41-o-0001",
+      "bm25_results": 5,
+      "vector_results": 5,
+      "query_product_in_top5": true
+    },
+    {
+      "category": "fashion",
+      "query_product_id": "p-v41-o-0286",
+      "bm25_results": 5,
+      "vector_results": 5,
+      "query_product_in_top5": true
+    },
+    {
+      "category": "food",
+      "query_product_id": "p-v41-o-0361",
+      "bm25_results": 5,
+      "vector_results": 5,
+      "query_product_in_top5": true
+    },
+    {
+      "category": "living",
+      "query_product_id": "p-v41-o-0326",
+      "bm25_results": 5,
+      "vector_results": 5,
+      "query_product_in_top5": true
+    }
+  ],
+  "previous_profiles_before": [
+    {
+      "profile_name": "all_products",
+      "active_run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689"
+    }
+  ],
+  "completed_at": "2026-10-19T08:26:59.265586+00:00",
+  "elapsed_seconds": 722.7
+}

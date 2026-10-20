@@ -1,0 +1,148 @@
+{
+  "mode": "search",
+  "search_executed": true,
+  "passed": false,
+  "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+  "case_count": 12,
+  "source_verified_cases": 12,
+  "live_source_checked": true,
+  "annotation_status": "source_verified_pending_team_review",
+  "results": [
+    {
+      "case_id": "RAG-001",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-002",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-003",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 23,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-004",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 20,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-009",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-010",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 20,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-013",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-014",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 19,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-015",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-016",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 18,
+      "invalid_evidence": 0,
+      "passed": true
+    },
+    {
+      "case_id": "RAG-017",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": false,
+      "evidence_checked": 21,
+      "invalid_evidence": 0,
+      "passed": false
+    },
+    {
+      "case_id": "RAG-018",
+      "status": "ok",
+      "contract_valid": true,
+      "status_match": true,
+      "product_hit": true,
+      "source_hit": true,
+      "evidence_checked": 22,
+      "invalid_evidence": 0,
+      "passed": true
+    }
+  ],
+  "search_attempts": 12,
+  "product_hits": 12,
+  "source_hits": 11,
+  "invalid_evidence": 0
+}

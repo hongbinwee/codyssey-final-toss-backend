@@ -1,0 +1,406 @@
+{
+  "schema_version": "0.1",
+  "description": "20 source-grounded proposed relevance cases; no retrieval has been executed. Splits are product-disjoint.",
+  "cases": [
+    {
+      "case_id": "RAG-001",
+      "split": "tuning",
+      "query": "리눅스에서 사용할 수 있는 Lascar EL-USB-RT 온습도 센서의 사용 후기를 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "9792284354",
+          "source_type": "review",
+          "source_id": "130ad24f3c248563b32bf13b490f9ab692d30358a52457173be5a921ee7e886d",
+          "source_field": "text",
+          "start_offset": 93,
+          "end_offset": 171,
+          "evidence_text": "There's code on github to make it work with linux, and that works pretty well."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-002",
+      "split": "tuning",
+      "query": "EL-USB-RT 온도 측정 범위는 몇 도인가요?",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "9792284354",
+          "source_type": "product",
+          "source_id": "9792284354",
+          "source_field": "features[0]",
+          "start_offset": 0,
+          "end_offset": 36,
+          "evidence_text": "-20 to 70 degree C Measurement Range"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-003",
+      "split": "tuning",
+      "query": "Whirlpool 285671 lid switch failed after four months and the washer would not drain or spin",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DM8JECC",
+          "source_type": "review",
+          "source_id": "40f29bb3a85997e02588970c0b3c9a2129c28576892ce30b4bb4b1e2901fe325",
+          "source_field": "text",
+          "start_offset": 124,
+          "end_offset": 172,
+          "evidence_text": "the water won't drain and the basket won't spin."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-004",
+      "split": "tuning",
+      "query": "Whirlpool 285671 세탁기 부품의 상품 정보를 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DM8JECC",
+          "source_type": "product",
+          "source_id": "B00DM8JECC",
+          "source_field": "title",
+          "start_offset": 0,
+          "end_offset": 23,
+          "evidence_text": "Whirlpool 285671 Washer"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-005",
+      "split": "holdout",
+      "query": "기름받이 트레이는 비어 있는데 레인지 후드 가장자리에서 기름이 샌다는 리뷰",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DYS970O",
+          "source_type": "review",
+          "source_id": "2a127d6777ca895a8a6f72a7b8e2653cf01a2ca5148c5491b1379580eb881a03",
+          "source_field": "text",
+          "start_offset": 451,
+          "end_offset": 498,
+          "evidence_text": "my vent hood is now leaking oil from the edges."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-006",
+      "split": "holdout",
+      "query": "XtremeAir PX04-I42 42인치 아일랜드 마운트 레인지 후드를 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "B00DYS970O",
+          "source_type": "product",
+          "source_id": "B00DYS970O",
+          "source_field": "title",
+          "start_offset": 0,
+          "end_offset": 18,
+          "evidence_text": "XtremeAir PX04-I42"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-007",
+      "split": "holdout",
+      "query": "조용한 집에서는 작동음이 들리지만 비교적 조용하다는 TABU 냉동고 후기",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "B0CBTRRLJC",
+          "source_type": "review",
+          "source_id": "1ba2085370ca515589afaaa0319038c419236e88bc4943515e5699ca1d32e92d",
+          "source_field": "text",
+          "start_offset": 250,
+          "end_offset": 329,
+          "evidence_text": "It is relatively quiet-although I can tell it is running if the house is quiet."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-008",
+      "split": "holdout",
+      "query": "TABU 체스트 프리저의 온도 조절 단계는 몇 단계인가요?",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Appliances",
+          "product_id": "B0CBTRRLJC",
+          "source_type": "product",
+          "source_id": "B0CBTRRLJC",
+          "source_field": "features[1]",
+          "start_offset": 50,
+          "end_offset": 97,
+          "evidence_text": "There is adjustable 7-level temperature control"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-009",
+      "split": "tuning",
+      "query": "천이 부드럽고 사이즈가 잘 맞으며 고객 서비스도 좋았다는 NOW Stop Injustice 스웨트셔츠 후기",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B08PDVF576",
+          "source_type": "review",
+          "source_id": "a0220fea2f909bd29c09ef51e5ee547c932b74b5779dd20d1e69faef23a22021",
+          "source_field": "text",
+          "start_offset": 83,
+          "end_offset": 125,
+          "evidence_text": "The fabric is so SOFT. The fit is PERFECT."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-010",
+      "split": "tuning",
+      "query": "NOW Stop Injustice Sweatshirt 면과 폴리에스터 혼용률을 알려줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B08PDVF576",
+          "source_type": "product",
+          "source_id": "B08PDVF576",
+          "source_field": "features[0]",
+          "start_offset": 0,
+          "end_offset": 25,
+          "evidence_text": "50% Polyester, 50% Cotton"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-011",
+      "split": "holdout",
+      "query": "코스프레용으로는 괜찮지만 부피가 커 일상 가발로 쓰기 어렵다는 리뷰",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B01ESKXPPY",
+          "source_type": "review",
+          "source_id": "24f7e4e803b28967fc1c4f2dcca1bc5c0d09a1e698e5b71772a3d820b5b293a3",
+          "source_field": "text",
+          "start_offset": 153,
+          "end_offset": 197,
+          "evidence_text": "The wig is well constructed, but very bulky."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-012",
+      "split": "holdout",
+      "query": "Simpleyourstyle Ice Blue 30cm 내열 합성 코스프레 가발을 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "B01ESKXPPY",
+          "source_type": "product",
+          "source_id": "B01ESKXPPY",
+          "source_field": "title",
+          "start_offset": 0,
+          "end_offset": 43,
+          "evidence_text": "Simpleyourstyle Ice Blue Anime Cosplay Wigs"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-013",
+      "split": "tuning",
+      "query": "맛과 향이 없어서 실망했다는 동결건조 망고 파우더 후기",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B085FQGY6V",
+          "source_type": "review",
+          "source_id": "0311c186852f3e66a2d1083992fa3f4ca9ad7d09302eb41774de032c5bcafcae",
+          "source_field": "text",
+          "start_offset": 0,
+          "end_offset": 41,
+          "evidence_text": "This white powder has NO flavor, NO smell"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-014",
+      "split": "tuning",
+      "query": "Freeze Dried Mango Fruit Powder 글루텐 프리와 비건 표기를 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B085FQGY6V",
+          "source_type": "product",
+          "source_id": "B085FQGY6V",
+          "source_field": "features[1]",
+          "start_offset": 0,
+          "end_offset": 39,
+          "evidence_text": "100% Pure, Non-GMO, Gluten-Free, Vegan."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-015",
+      "split": "tuning",
+      "query": "조금 딱딱하지만 맛있다는 리코리스 휠 사탕 리뷰",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B01H640HSC",
+          "source_type": "review",
+          "source_id": "030d3ff61a5c523c797ce38a232e4a1a24b3e1aa47353149ff66e2bb4c5494b4",
+          "source_field": "text",
+          "start_offset": 0,
+          "end_offset": 29,
+          "evidence_text": "A little hard but taste good."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-016",
+      "split": "tuning",
+      "query": "Broadway Licorice Wheels 4.4lb 상품을 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "B01H640HSC",
+          "source_type": "product",
+          "source_id": "B01H640HSC",
+          "source_field": "title",
+          "start_offset": 0,
+          "end_offset": 32,
+          "evidence_text": "Broadway Licorice Wheels - 4.4lb"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-017",
+      "split": "tuning",
+      "query": "마법과 로맨스가 있고 중독성 있게 읽힌다는 The Would Be Queen 독서 후기",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537",
+          "source_type": "review",
+          "source_id": "f7b0263c2e79d6dbcb7754eec2205cf5d645194974faf930cbef223f4d505250",
+          "source_field": "text",
+          "start_offset": 295,
+          "end_offset": 355,
+          "evidence_text": "Full of Magic , mayhem, romance ,but compulsively addictive."
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-018",
+      "split": "tuning",
+      "query": "The Would Be Queen 상품 제목을 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Clothing_Shoes_and_Jewelry",
+          "product_id": "1942191537",
+          "source_type": "product",
+          "source_id": "1942191537",
+          "source_field": "title",
+          "start_offset": 0,
+          "end_offset": 18,
+          "evidence_text": "The Would Be Queen"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-019",
+      "split": "holdout",
+      "query": "일반 홍차 같은 맛이 나는 디카페인 차 후기",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "5480451073",
+          "source_type": "review",
+          "source_id": "0b288b296f0b6f1f396a527ee2b1c480e0f5f48836246cfe5a95d2fea706b1db",
+          "source_field": "text",
+          "start_offset": 0,
+          "end_offset": 29,
+          "evidence_text": "Tastes like regular black tea"
+        }
+      ]
+    },
+    {
+      "case_id": "RAG-020",
+      "split": "holdout",
+      "query": "Tesco Decaffeinated 80 Teabags 250G 상품을 찾아줘",
+      "dataset_version": "amazon-reviews-2023:seed=20261014:processed_at=2026-10-14T10:41:15.143181+00:00",
+      "expected_status": "ok",
+      "annotation_status": "source_verified_pending_team_review",
+      "relevant": [
+        {
+          "category": "Grocery_and_Gourmet_Food",
+          "product_id": "5480451073",
+          "source_type": "product",
+          "source_id": "5480451073",
+          "source_field": "title",
+          "start_offset": 0,
+          "end_offset": 35,
+          "evidence_text": "Tesco Decaffeinated 80 Teabags 250G"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "evaluated_at": "2026-10-17",
+  "evaluation_mode": "direct-read-only-retriever",
+  "implementation": "codex/rag-multi-catalog working tree; not deployed to the running API",
+  "database": "127.0.0.1:5432/toss_rag",
+  "profile": "all_products",
+  "run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689",
+  "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+  "product_count": 180,
+  "review_count": 4737,
+  "chunk_count": 6741,
+  "supported_categories": ["beauty"],
+  "price_data": {
+    "products_with_price": 180,
+    "simulated_price_products": 180,
+    "real_budget_queries_returned_products": 0
+  },
+  "cases": [
+    {
+      "case_id": "blush_and_review_use",
+      "query": "블러셔",
+      "preferences": ["자연스러운 발색"],
+      "status": "ok",
+      "result_count": 2,
+      "products": [
+        "페리페라 맑게 물든 선샤인 치크 (젤리/파우더 2타입)",
+        "[브러쉬증정] 크리니크 치크 팝 12 colors 기획/단품"
+      ]
+    },
+    {
+      "case_id": "cleansing_oil_type",
+      "query": "클렌징 오일",
+      "status": "no_results",
+      "result_count": 0,
+      "reason": "No indexed source evidence matched the requested product type."
+    },
+    {
+      "case_id": "keyboard_out_of_current_catalog",
+      "query": "기계식 키보드",
+      "required_conditions": ["적축"],
+      "status": "no_results",
+      "result_count": 0
+    },
+    {
+      "case_id": "lotion_review_use",
+      "query": "보습 로션",
+      "preferences": ["민감한 피부"],
+      "status": "ok",
+      "result_count": 4,
+      "products": [
+        "[NEW] 온그리디언츠 바쿠글로우 캡슐 로션 150ml",
+        "[관하살PICK] 두잉왓 스킨톤 필터 로션 55ml(기획/단품)",
+        "[대용량] 라운드랩 1025 독도 로션 400ml",
+        "[9월 올영픽/산리오캐릭터즈] 온그리디언츠 바쿠글로우 캡슐 로션 150ml 기획 (+30ml+시나모롤 장바구니)"
+      ]
+    },
+    {
+      "case_id": "real_budget_only",
+      "query": "보습 로션",
+      "filters": {
+        "price_min": 20000,
+        "price_max": 30000,
+        "currency": "KRW"
+      },
+      "status": "no_results",
+      "result_count": 0,
+      "reason": "The active run has only simulated prices, which are excluded from budget matching."
+    }
+  ],
+  "checks": {
+    "returned_evidence_count": 16,
+    "evidence_mismatches_against_db": 0,
+    "items_without_review_evidence": 0,
+    "unsupported_keyboard_products_returned": 0,
+    "negated_or_uncertain_condition_regression_cases": 6,
+    "negated_or_uncertain_conditions_accepted": 0,
+    "database_writes": 0
+  },
+  "limitations": [
+    "This is a five-case policy smoke evaluation, not a human-labeled ranking benchmark.",
+    "Only beauty is currently present in the active run; live relevance for clothing, grocery, and beauty was not evaluated.",
+    "All active price values are simulated, so this run cannot validate real-budget ranking."
+  ]
+}

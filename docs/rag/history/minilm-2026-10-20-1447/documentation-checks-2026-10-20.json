@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-20T05:59:07.464135+00:00",
+  "status": "pass",
+  "checks": {
+    "unique_source_documents": 231,
+    "source_occurrences": 277,
+    "sha256_size_and_archive_membership_checked": 231,
+    "new_navigation_documents": 8,
+    "local_navigation_links_checked": 339,
+    "pdfs_readable": 11,
+    "initial_markdown_pdf_candidates_missing": 0,
+    "database_target": {
+      "host": "127.0.0.1",
+      "port": 5432,
+      "database": "toss_rag"
+    },
+    "total_active_test_items2_chunks": 114106,
+    "scope": "Documentation navigation, byte integrity, inventory coverage, PDF readability and the captured read-only state. Not application tests or a new RAG quality evaluation."
+  },
+  "failures": []
+}

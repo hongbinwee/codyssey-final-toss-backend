@@ -1,0 +1,43 @@
+services:
+  commerce-postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: commerce
+      POSTGRES_USER: commerce_demo
+      POSTGRES_PASSWORD: ${COMMERCE_POSTGRES_PASSWORD:?Set COMMERCE_POSTGRES_PASSWORD in the local env file}
+    ports:
+      - "127.0.0.1:15436:5432"
+    volumes:
+      - commerce_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U commerce_demo -d commerce"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  rag-postgres:
+    image: toss-ads-postgres-rag:18.6-vector-0.8.7-search-0.26.0
+    pull_policy: never
+    environment:
+      POSTGRES_DB: toss_rag
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${RAG_POSTGRES_PASSWORD:?Set RAG_POSTGRES_PASSWORD in the local env file}
+    ports:
+      - "127.0.0.1:15437:5432"
+    volumes:
+      - rag_postgres_data:/var/lib/postgresql/18/docker
+    command:
+      - postgres
+      - -c
+      - shared_preload_libraries=pg_search,pg_cron
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d toss_rag"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+volumes:
+  commerce_postgres_data:
+  rag_postgres_data:

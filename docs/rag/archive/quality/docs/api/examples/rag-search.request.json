@@ -1,0 +1,11 @@
+{
+  "request_id": "other-pc-test-001",
+  "profile": "test_items2",
+  "original_question": "니플패치 찾아줘. 리뷰도 보여줘",
+  "query": "니플패치",
+  "category": "fashion",
+  "filters": {},
+  "required_conditions": [],
+  "preferences": [],
+  "top_k": 5
+}

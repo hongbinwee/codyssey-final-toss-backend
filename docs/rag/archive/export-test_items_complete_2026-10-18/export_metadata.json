@@ -1,0 +1,46 @@
+{
+  "exported_at": "2026-10-18T12:00:30.348479+09:00",
+  "database_port": 5432,
+  "container_name": "toss-postgres",
+  "source_database": "toss",
+  "source_schema": "test_items",
+  "rag_database": "toss_rag",
+  "rag_schema": "rag",
+  "profile_name": "all_products",
+  "run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689",
+  "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_dimensions": 384,
+  "full_embeddings_included": true,
+  "counts": {
+    "source": {
+      "products": 180,
+      "product_variants": 180,
+      "reviews": 4737
+    },
+    "rag": {
+      "index_runs": 1,
+      "index_profiles": 1,
+      "indexed_products": 180,
+      "evidence_chunks": 6741,
+      "quarantined_products": 0
+    }
+  },
+  "original_archive_filename": "shopping_brain_v4_demo_final_16일22시.zip",
+  "original_archive_sha256": "f2ac859788f4267801a15525b75d8db0aa4f4a21270b57b3c119f5232db485da",
+  "original_files_preserved": 24,
+  "validation": {
+    "source_rag_product_ids_match": true,
+    "source_rag_review_ids_match": true,
+    "variant_review_references_valid": true,
+    "all_vectors_complete": true,
+    "original_file_bytes_preserved": true
+  },
+  "data_notes": [
+    "원본 입력 폴더는 수신한 ZIP의 경로와 파일 내용을 그대로 보존했습니다.",
+    "database_exports는 현재 5432 DB를 읽기 전용으로 내보낸 스냅샷입니다. 원본 입력 파일과 현재 DB 내용은 갱신 이력에 따라 다를 수 있습니다.",
+    "schema.sql은 구조만 포함하며 데이터는 JSONL/CSV에 있습니다.",
+    "현재 test_items 리뷰는 SYNTHETIC이며 가격·재고·옵션은 시연용 모의 데이터입니다.",
+    "이미지는 원본 데이터의 URL을 보존하며 별도 이미지 다운로드는 하지 않았습니다."
+  ]
+}

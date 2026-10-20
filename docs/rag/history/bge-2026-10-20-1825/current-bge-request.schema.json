@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "PriceFilters": {
+      "additionalProperties": false,
+      "properties": {
+        "price_min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Price Min"
+        },
+        "price_max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Price Max"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        }
+      },
+      "title": "PriceFilters",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "request_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Request Id"
+    },
+    "original_question": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Original Question",
+      "type": "string"
+    },
+    "query": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "title": "Query",
+      "type": "string"
+    },
+    "category": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Category"
+    },
+    "filters": {
+      "$ref": "#/$defs/PriceFilters"
+    },
+    "required_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Required Conditions",
+      "type": "array"
+    },
+    "preferences": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Preferences",
+      "type": "array"
+    },
+    "top_k": {
+      "default": 10,
+      "maximum": 20,
+      "minimum": 1,
+      "title": "Top K",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "original_question",
+    "query"
+  ],
+  "title": "RagSearchRequest",
+  "type": "object"
+}

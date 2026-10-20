@@ -1,0 +1,726 @@
+{
+  "evaluated_at": "2026-10-17",
+  "endpoint": "http://127.0.0.1:8002/v1/rag/search",
+  "database": "5432/toss_rag",
+  "profile": {
+    "name": "all_products",
+    "run_id": "49537fff-9b05-4b9c-aed1-c4e690a4f689",
+    "dataset_version": "test_items:sha256=4e9924492dcb536e:products=180:reviews=4737",
+    "product_count": 180,
+    "chunk_count": 6741,
+    "categories": [
+      "beauty"
+    ]
+  },
+  "label_method": "Provisional source-title proxies: expected product IDs are selected by transparent regexes over product titles in the active indexed_products run; no human relevance labels were supplied.",
+  "top_k": 5,
+  "metrics": {
+    "positive_query_count": 10,
+    "hit_rate_at_1": 0.6,
+    "hit_rate_at_5": 0.8,
+    "macro_recall_at_5": 0.48307692307692307,
+    "macro_mrr_at_5": 0.7,
+    "macro_precision_at_5_returned": 0.34,
+    "negative_query_count": 2,
+    "negative_queries_returning_products": 2,
+    "http_200_count": 12,
+    "all_status_ok_count": 12,
+    "latency_p50_ms": 73.445,
+    "latency_p95_nearest_rank_ms": 78.87,
+    "latency_max_ms": 78.87,
+    "evidence_count": 118,
+    "evidence_mismatches": 0
+  },
+  "results": [
+    {
+      "case_id": "concealer_type",
+      "query": "잡티를 가려줄 컨실러 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 68.29,
+      "item_count": 5,
+      "expected_count": 2,
+      "relevant_ranks": [
+        1,
+        4
+      ],
+      "hit_at_1": true,
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "precision_at_5_returned": 0.4,
+      "mrr_at_5": 1.0,
+      "evidence_count": 11,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000012239",
+          "title": "[24시간커버지속/올리브영 6년연속 1등] 루나 롱래스팅 팁 컨실러 EX 20colors",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000231339",
+          "title": "[레오파드 헬로키티]웨이크메이크 쉐이킹 블러 치크&쉐딩",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000201055",
+          "title": "[NEW산리오캐릭터즈] 롬앤 베러 댄 컨투어 (쿠로미)",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000238763",
+          "title": "[베이스1위/누적 390만개 판매] 더샘 커버 퍼펙션 트리플 팟 컨실러 5colors",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000171581",
+          "title": "[남성 선물 추천] 우르오스 2종 세트 택1(지복합성, 중건성)",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "blush_type",
+      "query": "블러셔 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 76.76,
+      "item_count": 5,
+      "expected_count": 4,
+      "relevant_ranks": [],
+      "hit_at_1": false,
+      "hit_at_5": false,
+      "recall_at_5": 0.0,
+      "precision_at_5_returned": 0.0,
+      "mrr_at_5": 0.0,
+      "evidence_count": 10,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000171581",
+          "title": "[남성 선물 추천] 우르오스 2종 세트 택1(지복합성, 중건성)",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000224494",
+          "title": "[세은 PICK/트러블1등] 셀라딕스 트러블 세범 리밸런싱 131 앰플 30ml",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000231339",
+          "title": "[레오파드 헬로키티]웨이크메이크 쉐이킹 블러 치크&쉐딩",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000249581",
+          "title": "[트러블 피부 추천/저자극 각질 케어] 제로이드 핌프로브 토너 200ml",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000140263",
+          "title": "페리페라 맑게 물든 선샤인 치크 (젤리/파우더 2타입)",
+          "relevance_ranks": []
+        }
+      ]
+    },
+    {
+      "case_id": "eyeliner_type",
+      "query": "아이라이너 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 73.34,
+      "item_count": 5,
+      "expected_count": 5,
+      "relevant_ranks": [
+        1,
+        2
+      ],
+      "hit_at_1": true,
+      "hit_at_5": true,
+      "recall_at_5": 0.4,
+      "precision_at_5_returned": 0.4,
+      "mrr_at_5": 1.0,
+      "evidence_count": 9,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000198343",
+          "title": "[NO.1 아이라이너] 클리오 샤프 쏘 심플 워터프루프 펜슬라이너 단품/더블기획",
+          "relevance_ranks": [
+            1,
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000185974",
+          "title": "[한정수량1+1] 키스미 스무스 리퀴드 아이라이너 N (3 color) (단품/기획)",
+          "relevance_ranks": [
+            1,
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000140263",
+          "title": "페리페라 맑게 물든 선샤인 치크 (젤리/파우더 2타입)",
+          "relevance_ranks": [
+            1,
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000241210",
+          "title": "[NEW산리오캐릭터즈 /1등 틴트]  롬앤 더 쥬시 래스팅 틴트 (쿠로미/한교동)",
+          "relevance_ranks": [
+            1,
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000201055",
+          "title": "[NEW산리오캐릭터즈] 롬앤 베러 댄 컨투어 (쿠로미)",
+          "relevance_ranks": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "brow_type",
+      "query": "눈썹용 브로우 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 77.44,
+      "item_count": 5,
+      "expected_count": 3,
+      "relevant_ranks": [
+        1,
+        4
+      ],
+      "hit_at_1": true,
+      "hit_at_5": true,
+      "recall_at_5": 0.6666666666666666,
+      "precision_at_5_returned": 0.4,
+      "mrr_at_5": 1.0,
+      "evidence_count": 9,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000138671",
+          "title": "페리페라 스피디 스키니 브로우 8 Colors",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000261065",
+          "title": "셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림 50ml",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000156230",
+          "title": "[1등 모공 수분천재크림] 에스네이처 아쿠아 스쿠알란 수분크림 60ml 기획 (+크림 30ml)",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000181223",
+          "title": "[리뉴얼] 엔트로피 브로우 블리치/애쉬브라운/베이지브라운/원유즈 3종",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000204983",
+          "title": "[촉촉립에센스] 브링그린 대나무 히알루 립 에센스 (2입/4입/기획)",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "lip_balm_type",
+      "query": "입술 보습 립밤 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 69.21,
+      "item_count": 5,
+      "expected_count": 5,
+      "relevant_ranks": [],
+      "hit_at_1": false,
+      "hit_at_5": false,
+      "recall_at_5": 0.0,
+      "precision_at_5_returned": 0.0,
+      "mrr_at_5": 0.0,
+      "evidence_count": 10,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000253243",
+          "title": "[파데프리/더마비비] 에스쁘아 더마커버 블레미쉬 밤 40g 3colors SPF 50 PA++++ 비비크림",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000212749",
+          "title": "[1등품절템/웜쿨대통합] 프레시안 에그라이크 크림 블러쉬 (단독 기획)",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000253205",
+          "title": "[화잘먹/볼륨광미스트] 디어달리아 엔드리스 스킨 크림 미스트",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000260580",
+          "title": "[트러블피부 추천] 제로이드 핌프로브 레드 컨트롤 크림 pH4 80ml 기획 (+토너 25ml +크림 10ml)",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000201055",
+          "title": "[NEW산리오캐릭터즈] 롬앤 베러 댄 컨투어 (쿠로미)",
+          "relevance_ranks": []
+        }
+      ]
+    },
+    {
+      "case_id": "hydrating_cream_type",
+      "query": "건조할 때 바르는 수분 크림 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 69.92,
+      "item_count": 5,
+      "expected_count": 13,
+      "relevant_ranks": [
+        2,
+        3,
+        4
+      ],
+      "hit_at_1": false,
+      "hit_at_5": true,
+      "recall_at_5": 0.23076923076923078,
+      "precision_at_5_returned": 0.6,
+      "mrr_at_5": 0.5,
+      "evidence_count": 7,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000130138",
+          "title": "에스트라 아토베리어365 크림미스트 120ml",
+          "relevance_ranks": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000256802",
+          "title": "[8월올영픽/속수분크림] 웰라쥬 리얼 히알루로닉 수딩 크림 80ml 기획(+20ml)",
+          "relevance_ranks": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000156230",
+          "title": "[1등 모공 수분천재크림] 에스네이처 아쿠아 스쿠알란 수분크림 60ml 기획 (+크림 30ml)",
+          "relevance_ranks": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000255244",
+          "title": "[총200ml/미니어처증정] 라운드랩 자작나무 수분 크림 80ml+80ml 더블 기획 (+40ml)",
+          "relevance_ranks": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000233337",
+          "title": "[수분진정/광채캡슐크림] 션리 다시마 글레이즈드 크림 50g",
+          "relevance_ranks": [
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "acne_toner_type",
+      "query": "트러블 피부에 쓰는 토너 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 73.55,
+      "item_count": 5,
+      "expected_count": 6,
+      "relevant_ranks": [
+        1,
+        4
+      ],
+      "hit_at_1": true,
+      "hit_at_5": true,
+      "recall_at_5": 0.3333333333333333,
+      "precision_at_5_returned": 0.4,
+      "mrr_at_5": 1.0,
+      "evidence_count": 11,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000249581",
+          "title": "[트러블 피부 추천/저자극 각질 케어] 제로이드 핌프로브 토너 200ml",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000260585",
+          "title": "[트러블 피부 추천/붉은기 진정 앰플] 제로이드 핌프로브 카밍 앰플 30ml 기획 (+크림 10ml)",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000156230",
+          "title": "[1등 모공 수분천재크림] 에스네이처 아쿠아 스쿠알란 수분크림 60ml 기획 (+크림 30ml)",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000229456",
+          "title": "[쿨링진정] 셀라딕스 트러블 쿨 카밍 131 토너 300ml",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000261065",
+          "title": "셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림 50ml",
+          "relevance_ranks": [
+            1,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "spf50_bb_type",
+      "query": "SPF 50 비비크림 추천",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 63.87,
+      "item_count": 5,
+      "expected_count": 1,
+      "relevant_ranks": [
+        2
+      ],
+      "hit_at_1": false,
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "precision_at_5_returned": 0.2,
+      "mrr_at_5": 0.5,
+      "evidence_count": 12,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000249581",
+          "title": "[트러블 피부 추천/저자극 각질 케어] 제로이드 핌프로브 토너 200ml",
+          "relevance_ranks": [
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000253243",
+          "title": "[파데프리/더마비비] 에스쁘아 더마커버 블레미쉬 밤 40g 3colors SPF 50 PA++++ 비비크림",
+          "relevance_ranks": [
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000259039",
+          "title": "[UPGRADE] 이니스프리 레티놀 시카 모공 흔적 크림 50ml 기획(+30ml)",
+          "relevance_ranks": [
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000189248",
+          "title": "[수분진정] 바이오힐보 판테셀 리페어시카 크림 50ml (단품/리필기획)",
+          "relevance_ranks": [
+            2
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000171581",
+          "title": "[남성 선물 추천] 우르오스 2종 세트 택1(지복합성, 중건성)",
+          "relevance_ranks": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "exact_product",
+      "query": "우르오스 올인원 스킨밀크 200ml",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 74.6,
+      "item_count": 5,
+      "expected_count": 1,
+      "relevant_ranks": [
+        1
+      ],
+      "hit_at_1": true,
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "precision_at_5_returned": 0.2,
+      "mrr_at_5": 1.0,
+      "evidence_count": 9,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000006565",
+          "title": "우르오스 올인원 스킨밀크 200ml",
+          "relevance_ranks": [
+            1
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000117541",
+          "title": "[베스트 올인원]우르오스 올인원 200ml 2종 택 1",
+          "relevance_ranks": [
+            1
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000258295",
+          "title": "[NEW/단독기획] 토리든 다이브인 저분자 히알루론산 수딩 크림 100ml (+20ml)",
+          "relevance_ranks": [
+            1
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000213943",
+          "title": "[화잘먹 프라이머] 연작 스킨 퍼펙팅 프로텍티브 베이스 프렙 3종 25ml/40ml 기획",
+          "relevance_ranks": [
+            1
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000263939",
+          "title": "[9월 올영픽/산리오캐릭터즈] 온그리디언츠 스킨 베리어 카밍 로션 이엑스 220ml 기획 (+30ml+헬로키티 스퀴시)",
+          "relevance_ranks": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "barrier_semantic",
+      "query": "민감하고 건조한 피부에 장벽 보습 크림",
+      "mode": "positive",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 71.31,
+      "item_count": 5,
+      "expected_count": 20,
+      "relevant_ranks": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "hit_at_1": true,
+      "hit_at_5": true,
+      "recall_at_5": 0.2,
+      "precision_at_5_returned": 0.8,
+      "mrr_at_5": 1.0,
+      "evidence_count": 10,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000130138",
+          "title": "에스트라 아토베리어365 크림미스트 120ml",
+          "relevance_ranks": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000214168",
+          "title": "[8월올영픽/NO.1 국민수분크림] 키엘 울트라 훼이셜 크림 28ml/50ml/150ml (기획/단품)",
+          "relevance_ranks": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000258834",
+          "title": "에스트라 아토베리어365 하이드로 수딩크림 80ml 기획 (+수딩크림 10ml+클렌징폼 30g)",
+          "relevance_ranks": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000212749",
+          "title": "[1등품절템/웜쿨대통합] 프레시안 에그라이크 크림 블러쉬 (단독 기획)",
+          "relevance_ranks": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "product_id": "p-v4-oy-a000000200725",
+          "title": "[손상/장벽 리페어] 아벤느 시칼파트 플러스 SOS 리페어 크림 100ml 기획 (+40ml)",
+          "relevance_ranks": [
+            1,
+            2,
+            3,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "unsupported_cleansing_oil",
+      "query": "클렌징 오일 추천",
+      "mode": "negative",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 74.67,
+      "item_count": 5,
+      "expected_count": 0,
+      "relevant_ranks": [],
+      "hit_at_1": false,
+      "hit_at_5": false,
+      "recall_at_5": null,
+      "precision_at_5_returned": null,
+      "mrr_at_5": 0.0,
+      "evidence_count": 9,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000246600",
+          "title": "[1등 보송젤파우더] 오브제 오일 컨트롤 피니셔 5g 단품",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000231339",
+          "title": "[레오파드 헬로키티]웨이크메이크 쉐이킹 블러 치크&쉐딩",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000263780",
+          "title": "[9/13 단하루특가] 유니딧 브로우 무드 스위치 베이지 브라운 60g",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000201055",
+          "title": "[NEW산리오캐릭터즈] 롬앤 베러 댄 컨투어 (쿠로미)",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000262621",
+          "title": "[맑은컬러감/필터블러쉬] 디어달리아 페탈 쉬어 베일 블러쉬 (+브러쉬 증정)",
+          "relevance_ranks": []
+        }
+      ]
+    },
+    {
+      "case_id": "unsupported_keyboard",
+      "query": "게임용 기계식 키보드 적축 추천",
+      "mode": "negative",
+      "http_status": 200,
+      "status": "ok",
+      "latency_ms": 78.87,
+      "item_count": 5,
+      "expected_count": 0,
+      "relevant_ranks": [],
+      "hit_at_1": false,
+      "hit_at_5": false,
+      "recall_at_5": null,
+      "precision_at_5_returned": null,
+      "mrr_at_5": 0.0,
+      "evidence_count": 11,
+      "evidence_mismatch_count": 0,
+      "top5": [
+        {
+          "product_id": "p-v4-oy-a000000171581",
+          "title": "[남성 선물 추천] 우르오스 2종 세트 택1(지복합성, 중건성)",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000238757",
+          "title": "[7일특가/13호, 19호 출시] 힌스 메쉬 매트 쿠션 6 Colors 한정 기획 (+리필+글리터밤)",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000249581",
+          "title": "[트러블 피부 추천/저자극 각질 케어] 제로이드 핌프로브 토너 200ml",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000258200",
+          "title": "[NEW 런칭/MYU 공동개발] 팁토우 위시 터치 아이 팔레트 6 Colors",
+          "relevance_ranks": []
+        },
+        {
+          "product_id": "p-v4-oy-a000000204975",
+          "title": "[NEW 보송버전 출시] [덱스PICK] 오브제 내추럴 커버 로션 50g 단품/기획(+미니어처 10ml)",
+          "relevance_ranks": []
+        }
+      ]
+    }
+  ]
+}

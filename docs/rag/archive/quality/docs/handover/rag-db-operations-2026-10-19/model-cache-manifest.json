@@ -1,0 +1,11 @@
+{
+  "cache_root": "/home/aiteam/.cache/codex-rag-fastembed",
+  "observed_model_files": [
+    {
+      "path": "/home/aiteam/.cache/codex-rag-fastembed/models--Qdrant--paraphrase-multilingual-MiniLM-L12-v2-onnx-Q/snapshots/faf4aa4225822f3bc6376869cb1164e8e3feedd0/model_optimized.onnx",
+      "bytes": 235052644,
+      "sha256": "634d0f66c29dc934c8fa72b8a4fe91dd4d420a22f1d82a241058d4316e659a99"
+    }
+  ],
+  "note": "관측한 로컬 캐시 파일. 배포 코드가 revision을 명시적으로 고정한다는 뜻은 아님."
+}
