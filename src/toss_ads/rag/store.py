@@ -484,3 +484,137 @@ class RagStore:
                 (encoded, run_id, category, category, source_type, source_type, product_ids, product_ids, limit),
             ).fetchall()
         return list(rows)
+
+    def embedding_profile_info(
+        self, run_id: str, embedding_model: str
+    ) -> dict[str, Any] | None:
+        with self.pool.connection() as connection:
+            row = connection.execute(
+                """SELECT model_revision, dimension, max_input_tokens,
+                          category_scope, chunk_count, status
+                   FROM rag.index_run_embedding_profiles
+                   WHERE run_id = %s AND embedding_model = %s""",
+                (run_id, embedding_model),
+            ).fetchone()
+        return dict(row) if row is not None else None
+
+    def embedding_profile_counts(
+        self, run_id: str, embedding_model: str, category: str
+    ) -> tuple[int, int]:
+        with self.pool.connection() as connection:
+            row = connection.execute(
+                """SELECT CASE WHEN %s = '*'
+                                THEN p.chunk_count
+                                ELSE COUNT(c.chunk_id)::bigint
+                           END AS expected_chunk_count,
+                          COUNT(e.chunk_id)::bigint AS stored_vector_count
+                   FROM rag.index_run_embedding_profiles AS p
+                   LEFT JOIN rag.evidence_chunks AS c
+                     ON c.run_id = p.run_id
+                    AND (p.category_scope = '*' OR c.category = p.category_scope)
+                    AND (%s::text = '*' OR c.category = %s)
+                   LEFT JOIN rag.evidence_chunk_embeddings AS e
+                     ON e.run_id = c.run_id AND e.chunk_id = c.chunk_id
+                    AND e.embedding_model = p.embedding_model
+                   WHERE p.run_id = %s AND p.embedding_model = %s
+                     AND (p.category_scope = %s OR p.category_scope = '*')
+                   GROUP BY p.chunk_count""",
+                (category, category, category, run_id, embedding_model, category),
+            ).fetchone()
+        if row is None:
+            raise ValueError("embedding_profile_not_found")
+        return int(row["expected_chunk_count"]), int(row["stored_vector_count"])
+
+    def embedding_target_chunk_count(
+        self, run_id: str, dataset_version: str, category: str
+    ) -> int:
+        with self.pool.connection() as connection:
+            row = connection.execute(
+                """SELECT r.dataset_version,
+                          COUNT(c.chunk_id) FILTER (
+                              WHERE %s::text = '*' OR c.category = %s
+                          ) AS target_chunk_count
+                   FROM rag.index_runs AS r
+                   LEFT JOIN rag.evidence_chunks AS c ON c.run_id = r.run_id
+                   WHERE r.run_id = %s
+                   GROUP BY r.dataset_version""",
+                (category, category, run_id),
+            ).fetchone()
+        if (
+            row is None
+            or row["dataset_version"] != dataset_version
+            or int(row["target_chunk_count"]) <= 0
+        ):
+            raise ValueError("embedding_target_mismatch")
+        return int(row["target_chunk_count"])
+
+    def search_embedding_vector(
+        self,
+        run_id: str,
+        embedding_model: str,
+        vector: Sequence[float],
+        limit: int,
+        category: str | None = None,
+        source_type: str | None = None,
+        product_ids: Sequence[str] | None = None,
+    ) -> list[dict[str, Any]]:
+        if len(vector) != 1024:
+            raise ValueError("embedding_dimension_mismatch")
+        if limit <= 0:
+            raise ValueError("invalid_search_limit")
+        vector_json = json.dumps([float(value) for value in vector], separators=(",", ":"))
+        product_ids = None if product_ids is None else list(product_ids)
+        with self.pool.connection() as connection:
+            profile = connection.execute(
+                """SELECT dimension, status, category_scope
+                   FROM rag.index_run_embedding_profiles
+                   WHERE run_id = %s AND embedding_model = %s""",
+                (run_id, embedding_model),
+            ).fetchone()
+            if profile is None or profile["status"] != "ready":
+                raise ValueError("embedding_profile_not_ready")
+            if profile["dimension"] != 1024:
+                raise ValueError("embedding_dimension_mismatch")
+            if (
+                category is not None
+                and profile["category_scope"] != "*"
+                and category != profile["category_scope"]
+            ):
+                raise ValueError("embedding_profile_scope_mismatch")
+            rows = connection.execute(
+                """WITH query_vector AS (SELECT %s::vector AS embedding)
+                   SELECT c.chunk_id, c.category, c.product_id, c.source_type,
+                          c.source_id, c.source_field, c.start_offset, c.end_offset,
+                          c.evidence_text, c.source_metadata, p.product_payload,
+                          e.embedding <=> query_vector.embedding AS distance
+                   FROM rag.evidence_chunk_embeddings AS e
+                   JOIN rag.index_run_embedding_profiles AS ep
+                     ON ep.run_id = e.run_id AND ep.embedding_model = e.embedding_model
+                   JOIN rag.evidence_chunks AS c
+                     ON c.run_id = e.run_id AND c.chunk_id = e.chunk_id
+                   JOIN rag.indexed_products AS p
+                     ON p.run_id = c.run_id AND p.category = c.category
+                    AND p.product_id = c.product_id
+                   CROSS JOIN query_vector
+                   WHERE e.run_id = %s AND e.embedding_model = %s
+                     AND ep.status = 'ready'
+                     AND (ep.category_scope = '*' OR c.category = ep.category_scope)
+                     AND (%s::text IS NULL OR c.category = %s)
+                     AND (%s::text IS NULL OR c.source_type = %s)
+                     AND (%s::text[] IS NULL OR c.product_id = ANY(%s::text[]))
+                   ORDER BY e.embedding <=> query_vector.embedding, c.chunk_id ASC
+                   LIMIT %s""",
+                (
+                    vector_json,
+                    run_id,
+                    embedding_model,
+                    category,
+                    category,
+                    source_type,
+                    source_type,
+                    product_ids,
+                    product_ids,
+                    limit,
+                ),
+            ).fetchall()
+        return list(rows)

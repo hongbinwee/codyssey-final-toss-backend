@@ -7,13 +7,13 @@ import re
 from collections import Counter
 from typing import Any
 
-from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
 from pydantic import ConfigDict
 
 from .chunker import is_semantic_field
+from .bge_m3 import BGE_M3_MODEL, BGE_M3_MODEL_REVISION
 from .commerce import CommerceStore, CommerceUnavailable
 from .config import Settings
 from .intent import lexical_relevance, normalized, type_registry
@@ -26,6 +26,22 @@ class SearchError(RuntimeError):
     def __init__(self, code: str):
         self.code = code
         super().__init__(code)
+
+
+def bge_profile_ready(store: RagStore, active: dict[str, Any]) -> bool:
+    profile = store.embedding_profile_info(active["run_id"], BGE_M3_MODEL)
+    if profile is None or (
+        profile.get("status") != "ready" or profile.get("category_scope") != "*"
+        or profile.get("dimension") != 1024 or profile.get("max_input_tokens") != 128
+        or profile.get("model_revision") != BGE_M3_MODEL_REVISION
+    ):
+        return False
+    try:
+        target = store.embedding_target_chunk_count(active["run_id"], active["dataset_version"], "*")
+        expected, stored = store.embedding_profile_counts(active["run_id"], BGE_M3_MODEL, "*")
+    except ValueError:
+        return False
+    return target > 0 and profile.get("chunk_count") == target == expected == stored
 
 
 _REVIEW_INTENT = re.compile(r"\b(?:reviews?|testimonials?)\b|리뷰|후기|사용평", re.IGNORECASE)
@@ -64,7 +80,8 @@ def _channel_candidates(store, method, run_id, query, settings, category, source
         return []
     limit = min(settings.candidate_scan_limit, max(settings.channel_depth, goal * settings.chunks_per_product))
     while True:
-        rows = getattr(store, method)(run_id, query, limit, category, source_type=source_type, product_ids=product_ids)
+        args = (run_id, settings.embedding_model, query, limit, category) if method == "search_embedding_vector" else (run_id, query, limit, category)
+        rows = getattr(store, method)(*args, source_type=source_type, product_ids=product_ids)
         retained = []
         counts: Counter[tuple[str, str]] = Counter()
         for row in rows:
@@ -84,7 +101,7 @@ def _channel_candidates(store, method, run_id, query, settings, category, source
 
 
 def hybrid_search(
-    store: RagStore, embedder: FastEmbedEmbeddings, settings: Settings,
+    store: RagStore, embedder: Any, settings: Settings,
     request: RagSearchRequest, *, commerce: CommerceStore | None = None,
 ) -> dict[str, Any]:
     profile = request.profile or settings.default_profile
@@ -109,7 +126,11 @@ def hybrid_search(
             base["error_code"] = "unsupported_category"
             return base
         base["applied_filters"]["category"] = request.category
-    if active["embedding_model"] != settings.embedding_model:
+    uses_bge = settings.embedding_model == BGE_M3_MODEL
+    if uses_bge and not bge_profile_ready(store, active):
+        base["error_code"] = "index_not_ready"
+        return base
+    if not uses_bge and active["embedding_model"] != settings.embedding_model:
         base["error_code"] = "configuration_error"
         return base
     if request.filters.currency not in (None, "KRW"):
@@ -189,17 +210,18 @@ def hybrid_search(
     product_ids = list(dict.fromkeys(r["product_id"] for r in eligible))
     try:
         vector = embedder.embed_query(request.query)
-        if len(vector) != 384 or any(not math.isfinite(float(x)) for x in vector):
+        if len(vector) != (1024 if uses_bge else 384) or any(not math.isfinite(float(x)) for x in vector):
             raise ValueError("invalid_embedding")
     except Exception:
         raise SearchError("embedding_failed") from None
+    vector_method = "search_embedding_vector" if uses_bge else "search_vector"
     channels = [
         ("bm25_rank", "search_bm25", request.query, None),
-        ("vector_rank", "search_vector", vector, None),
+        ("vector_rank", vector_method, vector, None),
     ]
     if _requests_review_evidence(request):
         channels.extend([("review_bm25_rank", "search_bm25", request.query, "review"),
-                         ("review_vector_rank", "search_vector", vector, "review")])
+                         ("review_vector_rank", vector_method, vector, "review")])
     chunks: dict[str, dict[str, Any]] = {}
     product_ranks: dict[str, dict[tuple[str, str], int]] = {}
     allowed_keys = {(r["category"], r["product_id"]) for r in eligible}
@@ -320,7 +342,7 @@ class HybridRagRetriever(BaseRetriever):
     """LangChain Core adapter returning source-grounded evidence Documents."""
 
     store: RagStore
-    embedder: FastEmbedEmbeddings
+    embedder: Any
     settings: Settings
     commerce: CommerceStore | None = None
 

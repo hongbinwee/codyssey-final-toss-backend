@@ -18,10 +18,11 @@ from starlette.concurrency import run_in_threadpool
 from pydantic import ValidationError
 
 from .commerce import CommerceStore
+from .bge_m3 import BGE_M3_MODEL
 from .config import Settings
 from .embeddings import create_embedder
 from .intent import type_registry
-from .retriever import SearchError, hybrid_search
+from .retriever import SearchError, bge_profile_ready, hybrid_search
 from .schemas import RagSearchRequest
 from .store import RagStore
 
@@ -95,7 +96,7 @@ def create_app(
 
     app = FastAPI(
         title="Product RAG",
-        version="0.3.0",
+        version="0.3.1",
         description="Source-grounded BM25 and vector retrieval for products and reviews.",
         lifespan=lifespan,
     )
@@ -115,6 +116,7 @@ def create_app(
     @app.get("/healthz")
     async def healthz(request: Request) -> dict[str, Any]:
         profile_name = request.app.state.rag_settings.default_profile
+        uses_bge = request.app.state.rag_settings.embedding_model == BGE_M3_MODEL
         try:
             active = request.app.state.rag_store.active_run(profile_name)
             category_reader = getattr(
@@ -125,6 +127,7 @@ def create_app(
                 if active is not None and callable(category_reader)
                 else []
             )
+            bge_ready = active is not None and bge_profile_ready(request.app.state.rag_store, active) if uses_bge else False
         except psycopg.Error:
             return {
                 "status": "error",
@@ -138,7 +141,13 @@ def create_app(
                 "dataset_version": None,
                 "supported_categories": [],
             }
-        if active["embedding_model"] != request.app.state.rag_settings.embedding_model:
+        if uses_bge and not bge_ready:
+            return {
+                "status": "not_ready", "profile_name": profile_name,
+                "error_code": "index_not_ready", "dataset_version": active["dataset_version"],
+                "supported_categories": supported,
+            }
+        if not uses_bge and active["embedding_model"] != request.app.state.rag_settings.embedding_model:
             return {
                 "status": "not_ready",
                 "profile_name": profile_name,
@@ -153,6 +162,8 @@ def create_app(
             "supported_categories": supported,
             "allowed_profiles": list(request.app.state.rag_settings.allowed_profiles),
             "commerce_configured": request.app.state.commerce_store is not None,
+            "embedding_model": request.app.state.rag_settings.embedding_model,
+            "embedding_dimension": 1024 if uses_bge else 384,
         }
 
     @app.post("/v1/rag/search")

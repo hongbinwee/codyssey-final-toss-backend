@@ -41,6 +41,7 @@ class Settings:
     rag_database_url: str = field(repr=False)
     embedding_model: str = DEFAULT_MODEL
     fastembed_cache_path: str = ".cache/fastembed"
+    bge_m3_cache_path: str = ".cache/fastembed/huggingface"
     chunk_max_tokens: int = 96
     embedding_batch_size: int = 64
     http_timeout_seconds: float = 20.0
@@ -98,7 +99,8 @@ class Settings:
             raise ValueError("invalid_configuration:RAG_DATABASE_URL")
         model_name = os.getenv("RAG_EMBEDDING_MODEL", DEFAULT_MODEL).strip()
         cache_path = os.getenv("FASTEMBED_CACHE_PATH", ".cache/fastembed").strip()
-        if not model_name or not cache_path:
+        bge_cache_path = os.getenv("BGE_M3_CACHE_PATH", os.path.join(cache_path, "huggingface")).strip()
+        if not model_name or not cache_path or not bge_cache_path:
             raise ValueError("invalid_embedding_configuration")
         threshold_raw = os.getenv("RAG_MIN_RRF_SCORE")
         threshold = None
@@ -129,6 +131,7 @@ class Settings:
             rag_database_url=database_url,
             embedding_model=model_name,
             fastembed_cache_path=cache_path,
+            bge_m3_cache_path=bge_cache_path,
             chunk_max_tokens=_positive_int("RAG_CHUNK_MAX_TOKENS", 96, 127, minimum=16),
             embedding_batch_size=_positive_int("RAG_EMBEDDING_BATCH_SIZE", 64, 512),
             http_timeout_seconds=_positive_float("RAG_HTTP_TIMEOUT_SECONDS", 20.0),
