@@ -23,7 +23,16 @@ from .config import Settings
 from .embeddings import create_embedder
 from .intent import type_registry
 from .retriever import SearchError, bge_profile_ready, hybrid_search
-from .schemas import RagSearchRequest
+from .review_followup import (
+    ReviewFeatureError,
+    aggregate_product_reviews,
+    search_product_reviews,
+)
+from .schemas import (
+    ProductScopedReviewAggregateRequest,
+    ProductScopedReviewRequest,
+    RagSearchRequest,
+)
 from .store import RagStore
 
 logger = logging.getLogger("toss_ads.rag")
@@ -69,6 +78,34 @@ def _status_code(error_code: str | None) -> int:
     }.get(error_code, 500)
 
 
+def _review_status_code(error_code: str | None) -> int:
+    return {
+        "invalid_request": 422,
+        "unsupported_profile": 422,
+        "unsupported_category": 422,
+        "unsupported_aspect": 422,
+        "unknown_product_id": 422,
+        "ambiguous_product_id": 422,
+        "dataset_version_mismatch": 409,
+        "index_not_ready": 503,
+        "configuration_error": 503,
+        "embedding_failed": 503,
+        "annotation_schema_not_ready": 503,
+        "database_failed": 503,
+        "timeout": 504,
+    }.get(error_code, 500)
+
+
+def _review_error_response(request_id: str | None, error_code: str) -> dict[str, Any]:
+    return {
+        "request_id": request_id,
+        "status": "error",
+        "dataset_version": None,
+        "items": [],
+        "error_code": error_code,
+    }
+
+
 def create_app(
     settings: Settings | None = None,
     *,
@@ -96,8 +133,8 @@ def create_app(
 
     app = FastAPI(
         title="Product RAG",
-        version="0.3.1",
-        description="Source-grounded BM25 and vector retrieval for products and reviews.",
+        version="0.4.0",
+        description="Source-grounded hybrid retrieval and product-scoped review analysis.",
         lifespan=lifespan,
     )
 
@@ -235,6 +272,110 @@ def create_app(
             response["error_code"],
         )
         return JSONResponse(response, status_code=status_code)
+
+    @app.post("/v1/rag/reviews/search")
+    async def search_reviews(request: Request) -> JSONResponse:
+        request_id: str | None = None
+        content_length = request.headers.get("content-length")
+        if content_length is not None:
+            try:
+                if int(content_length) > MAX_REQUEST_BYTES:
+                    return JSONResponse(_review_error_response(None, "invalid_request"), status_code=422)
+            except ValueError:
+                return JSONResponse(_review_error_response(None, "invalid_request"), status_code=422)
+        raw = await request.body()
+        if len(raw) > MAX_REQUEST_BYTES:
+            return JSONResponse(_review_error_response(None, "invalid_request"), status_code=422)
+        try:
+            payload = json.loads(raw)
+            if isinstance(payload, dict):
+                request_id = _safe_request_id(payload.get("request_id"))
+            parsed = ProductScopedReviewRequest.model_validate(payload)
+        except (json.JSONDecodeError, UnicodeError, ValidationError, ValueError, TypeError):
+            return JSONResponse(_review_error_response(request_id, "invalid_request"), status_code=422)
+        try:
+            response = await run_in_threadpool(
+                search_product_reviews,
+                request.app.state.rag_store,
+                request.app.state.rag_embedder,
+                request.app.state.rag_settings,
+                parsed,
+            )
+            return JSONResponse(response)
+        except ReviewFeatureError as error:
+            code = error.code if error.code in {
+                "unsupported_profile", "unsupported_category", "unsupported_aspect",
+                "unknown_product_id", "ambiguous_product_id", "dataset_version_mismatch",
+                "index_not_ready", "configuration_error", "embedding_failed",
+            } else "search_failed"
+            return JSONResponse(_review_error_response(request_id, code), status_code=_review_status_code(code))
+        except psycopg.Error as error:
+            logger.warning(
+                "rag_review_search request_id=%s status=error error_code=database_failed "
+                "exception=%s sqlstate=%s",
+                request_id,
+                type(error).__name__,
+                getattr(error, "sqlstate", None),
+            )
+            return JSONResponse(_review_error_response(request_id, "database_failed"), status_code=503)
+        except TimeoutError:
+            return JSONResponse(_review_error_response(request_id, "timeout"), status_code=504)
+        except Exception:
+            return JSONResponse(_review_error_response(request_id, "search_failed"), status_code=500)
+
+    @app.post("/v1/rag/reviews/aspect-aggregate")
+    async def aggregate_reviews(request: Request) -> JSONResponse:
+        request_id: str | None = None
+        content_length = request.headers.get("content-length")
+        if content_length is not None:
+            try:
+                if int(content_length) > MAX_REQUEST_BYTES:
+                    return JSONResponse(_review_error_response(None, "invalid_request"), status_code=422)
+            except ValueError:
+                return JSONResponse(_review_error_response(None, "invalid_request"), status_code=422)
+        raw = await request.body()
+        if len(raw) > MAX_REQUEST_BYTES:
+            return JSONResponse(_review_error_response(None, "invalid_request"), status_code=422)
+        try:
+            payload = json.loads(raw)
+            if isinstance(payload, dict):
+                request_id = _safe_request_id(payload.get("request_id"))
+            parsed = ProductScopedReviewAggregateRequest.model_validate(payload)
+        except (json.JSONDecodeError, UnicodeError, ValidationError, ValueError, TypeError):
+            return JSONResponse(_review_error_response(request_id, "invalid_request"), status_code=422)
+        try:
+            response = await run_in_threadpool(
+                aggregate_product_reviews,
+                request.app.state.rag_store,
+                request.app.state.rag_settings,
+                parsed,
+            )
+            return JSONResponse(response)
+        except ReviewFeatureError as error:
+            code = error.code if error.code in {
+                "unsupported_profile", "unsupported_category", "unsupported_aspect",
+                "unknown_product_id", "ambiguous_product_id", "dataset_version_mismatch",
+                "index_not_ready",
+            } else "search_failed"
+            return JSONResponse(_review_error_response(request_id, code), status_code=_review_status_code(code))
+        except psycopg.errors.UndefinedTable:
+            return JSONResponse(
+                _review_error_response(request_id, "annotation_schema_not_ready"),
+                status_code=503,
+            )
+        except psycopg.Error as error:
+            logger.warning(
+                "rag_review_aggregate request_id=%s status=error error_code=database_failed "
+                "exception=%s sqlstate=%s",
+                request_id,
+                type(error).__name__,
+                getattr(error, "sqlstate", None),
+            )
+            return JSONResponse(_review_error_response(request_id, "database_failed"), status_code=503)
+        except TimeoutError:
+            return JSONResponse(_review_error_response(request_id, "timeout"), status_code=504)
+        except Exception:
+            return JSONResponse(_review_error_response(request_id, "search_failed"), status_code=500)
 
     @app.get("/v1/catalog/test-items")
     async def list_test_items(request: Request) -> JSONResponse:

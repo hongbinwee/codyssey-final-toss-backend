@@ -10,6 +10,7 @@ from collections.abc import Sequence
 from typing import Any
 
 from psycopg.rows import dict_row
+from psycopg.errors import UndefinedTable
 from psycopg_pool import ConnectionPool
 from psycopg.types.json import Jsonb
 
@@ -421,6 +422,259 @@ class RagStore:
                 (run_id, dataset_version, product_id),
             ).fetchall()
         return list(rows)
+
+    def list_review_texts(
+        self, run_id: str, dataset_version: str, category: str
+    ) -> list[dict[str, Any]]:
+        """Reconstruct each complete review from its ordered source chunks."""
+        with self.pool.connection() as connection:
+            rows = connection.execute(
+                """WITH ordered_chunks AS (
+                       SELECT product_id, source_id, source_field, start_offset,
+                              end_offset, evidence_text,
+                              lag(end_offset) OVER (
+                                  PARTITION BY product_id, source_id, source_field
+                                  ORDER BY start_offset, end_offset
+                              ) AS previous_end
+                       FROM rag.evidence_chunks
+                       WHERE run_id = %s AND dataset_version = %s
+                         AND category = %s AND source_type = 'review'
+                   ), grouped_reviews AS (
+                       SELECT product_id, source_id,
+                              min(source_field) AS source_field,
+                              string_agg(evidence_text, '' ORDER BY source_field,
+                                         start_offset, end_offset) AS review_text,
+                              count(DISTINCT source_field)::int AS source_field_count,
+                              bool_and(
+                                  char_length(evidence_text) = end_offset - start_offset
+                                  AND start_offset = coalesce(previous_end, 0)
+                              ) AS spans_contiguous
+                       FROM ordered_chunks
+                       GROUP BY product_id, source_id
+                   )
+                   SELECT product_id, source_id, source_field, review_text,
+                          source_field_count = 1 AND spans_contiguous AS text_valid
+                   FROM grouped_reviews
+                   ORDER BY product_id, source_id""",
+                (run_id, dataset_version, category),
+            ).fetchall()
+        return list(rows)
+
+    def review_aspect_labels_for_sources(
+        self,
+        run_id: str,
+        profile_name: str,
+        dataset_version: str,
+        category: str,
+        product_id: str,
+        source_ids: Sequence[str],
+        aspect: str,
+        taxonomy_version: str,
+    ) -> dict[str, dict[str, Any]]:
+        if not source_ids:
+            return {}
+        try:
+            with self.pool.connection() as connection:
+                rows = connection.execute(
+                    """SELECT l.source_id, l.polarity, l.confidence,
+                              b.classifier_version, b.taxonomy_version
+                       FROM rag.review_aspect_annotation_batches b
+                       JOIN rag.review_aspect_labels l ON l.batch_id = b.batch_id
+                       WHERE b.profile_name = %s AND b.dataset_version = %s AND b.category = %s
+                         AND b.taxonomy_version = %s AND b.status = 'active'
+                         AND b.expected_review_count = b.labeled_review_count
+                         AND l.product_id = %s AND l.source_id = ANY(%s::text[])
+                         AND l.aspect = %s
+                         AND b.expected_review_count = (
+                           SELECT count(DISTINCT (c.product_id, c.source_id))::bigint
+                           FROM rag.evidence_chunks c
+                           WHERE c.run_id = %s AND c.dataset_version = b.dataset_version
+                             AND c.category = b.category AND c.source_type = 'review'
+                         )
+                         AND b.expected_review_count = (
+                           SELECT count(DISTINCT (l2.product_id, l2.source_id))::bigint
+                           FROM rag.review_aspect_labels l2
+                           WHERE l2.batch_id = b.batch_id AND l2.aspect = l.aspect
+                         )
+                         AND EXISTS (
+                           SELECT 1 FROM rag.index_runs r
+                           WHERE r.run_id = %s AND r.dataset_version = b.dataset_version
+                         )""",
+                    (profile_name, dataset_version, category, taxonomy_version, product_id,
+                     list(source_ids), aspect, run_id, run_id),
+                ).fetchall()
+        except UndefinedTable:
+            # The search route remains useful before the optional annotation migration.
+            return {}
+        return {
+            row["source_id"]: {
+                "sentiment": row["polarity"],
+                "confidence": float(row["confidence"]) if row["confidence"] is not None else None,
+                "taxonomy_version": row["taxonomy_version"],
+                "classifier_version": row["classifier_version"],
+            }
+            for row in rows
+        }
+
+    def review_aspect_aggregate(
+        self,
+        run_id: str,
+        profile_name: str,
+        dataset_version: str,
+        category: str,
+        product_ids: Sequence[str],
+        aspect: str,
+        taxonomy_version: str,
+    ) -> dict[str, Any]:
+        product_ids = list(product_ids)
+        with self.pool.connection() as connection:
+            batch = connection.execute(
+                """SELECT b.batch_id::text AS batch_id, b.taxonomy_version, b.classifier_version,
+                          b.expected_review_count, b.labeled_review_count,
+                          (SELECT count(DISTINCT (c.product_id, c.source_id))::bigint
+                           FROM rag.evidence_chunks c
+                           WHERE c.run_id = %s AND c.dataset_version = %s
+                             AND c.category = %s AND c.source_type = 'review') AS current_review_count,
+                          (SELECT count(DISTINCT (l.product_id, l.source_id))::bigint
+                           FROM rag.review_aspect_labels l
+                           WHERE l.batch_id = b.batch_id AND l.aspect = %s) AS aspect_review_count
+                   FROM rag.review_aspect_annotation_batches b
+                   WHERE b.profile_name = %s AND b.dataset_version = %s AND b.category = %s
+                     AND b.taxonomy_version = %s AND b.status = 'active'""",
+                (run_id, dataset_version, category, aspect, profile_name,
+                 dataset_version, category, taxonomy_version),
+            ).fetchone()
+            rows = connection.execute(
+                """WITH requested_products AS (
+                         SELECT unnest(%s::text[]) AS product_id
+                   ), review_population AS (
+                         SELECT DISTINCT c.product_id, c.source_id
+                         FROM rag.evidence_chunks c
+                         WHERE c.run_id = %s AND c.dataset_version = %s
+                           AND c.category = %s AND c.product_id = ANY(%s::text[])
+                           AND c.source_type = 'review'
+                   ), selected_batch AS (
+                         SELECT %s::uuid AS batch_id
+                   ), joined AS (
+                         SELECT rp.product_id, rp.source_id, l.polarity
+                         FROM requested_products requested
+                         LEFT JOIN review_population rp ON rp.product_id = requested.product_id
+                         LEFT JOIN rag.review_aspect_labels l
+                           ON l.batch_id = (SELECT batch_id FROM selected_batch)
+                          AND l.product_id = rp.product_id AND l.source_id = rp.source_id
+                          AND l.aspect = %s
+                   )
+                   SELECT product_id,
+                          count(source_id)::bigint AS review_population_count,
+                          count(source_id) FILTER (WHERE polarity IS NOT NULL)::bigint
+                              AS annotated_review_count,
+                          count(source_id) FILTER (WHERE polarity = 'positive')::bigint AS positive_count,
+                          count(source_id) FILTER (WHERE polarity = 'negative')::bigint AS negative_count,
+                          count(source_id) FILTER (WHERE polarity = 'mixed')::bigint AS mixed_count,
+                          count(source_id) FILTER (WHERE polarity = 'neutral')::bigint AS neutral_count,
+                          count(source_id) FILTER (WHERE polarity = 'not_mentioned')::bigint AS not_mentioned_count,
+                          count(source_id) FILTER (WHERE polarity = 'unclassified')::bigint AS unclassified_count
+                   FROM joined GROUP BY product_id ORDER BY product_id""",
+                (product_ids, run_id, dataset_version, category, product_ids,
+                 batch["batch_id"] if batch else None, aspect),
+            ).fetchall()
+        return {"batch": dict(batch) if batch is not None else None, "items": list(rows)}
+
+    def import_review_aspect_annotations(
+        self,
+        *,
+        profile_name: str,
+        dataset_version: str,
+        category: str,
+        taxonomy_version: str,
+        classifier_version: str,
+        aspects: Sequence[str],
+        labels: Sequence[dict[str, Any]],
+    ) -> dict[str, int | str]:
+        """Atomically activate a complete, versioned annotation snapshot."""
+        active = self.active_run(profile_name)
+        if active is None or active["dataset_version"] != dataset_version:
+            raise ValueError("active_dataset_version_mismatch")
+        if category not in self.supported_categories(active["run_id"]):
+            raise ValueError("unsupported_category")
+        aspect_list = list(aspects)
+        if not aspect_list or len(set(aspect_list)) != len(aspect_list):
+            raise ValueError("invalid_aspects")
+        if not labels:
+            raise ValueError("empty_annotation_file")
+
+        batch_id = str(uuid.uuid4())
+        rows = [
+            (batch_id, row["product_id"], row["review_key"], row["aspect"],
+             row["polarity"], row.get("confidence"))
+            for row in labels
+        ]
+        with self.pool.connection() as connection:
+            with connection.transaction():
+                population = connection.execute(
+                    """SELECT count(DISTINCT (product_id, source_id))::bigint AS review_count
+                       FROM rag.evidence_chunks
+                       WHERE run_id = %s AND dataset_version = %s AND category = %s
+                         AND source_type = 'review'""",
+                    (active["run_id"], dataset_version, category),
+                ).fetchone()
+                expected = int(population["review_count"])
+                connection.execute(
+                    """INSERT INTO rag.review_aspect_annotation_batches
+                           (batch_id, profile_name, dataset_version, category, taxonomy_version,
+                            classifier_version, status, expected_review_count)
+                       VALUES (%s, %s, %s, %s, %s, %s, 'building', %s)""",
+                    (batch_id, profile_name, dataset_version, category, taxonomy_version,
+                     classifier_version, expected),
+                )
+                with connection.cursor() as cursor:
+                    cursor.executemany(
+                        """INSERT INTO rag.review_aspect_labels
+                               (batch_id, product_id, source_id, aspect, polarity, confidence)
+                           VALUES (%s, %s, %s, %s, %s, %s)""",
+                        rows,
+                    )
+                unknown = connection.execute(
+                    """SELECT count(*)::bigint AS unknown_count
+                       FROM rag.review_aspect_labels l
+                       WHERE l.batch_id = %s AND NOT EXISTS (
+                           SELECT 1 FROM rag.evidence_chunks c
+                           WHERE c.run_id = %s AND c.dataset_version = %s AND c.category = %s
+                             AND c.product_id = l.product_id AND c.source_id = l.source_id
+                             AND c.source_type = 'review'
+                       )""",
+                    (batch_id, active["run_id"], dataset_version, category),
+                ).fetchone()
+                coverage = connection.execute(
+                    """SELECT aspect, count(DISTINCT (product_id, source_id))::bigint AS count
+                       FROM rag.review_aspect_labels WHERE batch_id = %s GROUP BY aspect""",
+                    (batch_id,),
+                ).fetchall()
+                coverage_by_aspect = {row["aspect"]: int(row["count"]) for row in coverage}
+                if int(unknown["unknown_count"]) != 0 or set(coverage_by_aspect) != set(aspect_list):
+                    raise ValueError("annotation_population_mismatch")
+                if expected <= 0 or any(coverage_by_aspect.get(aspect) != expected for aspect in aspect_list):
+                    raise ValueError("incomplete_annotation_coverage")
+
+                connection.execute(
+                    """UPDATE rag.review_aspect_annotation_batches
+                       SET status = 'superseded'
+                       WHERE dataset_version = %s AND category = %s
+                         AND profile_name = %s AND taxonomy_version = %s AND status = 'active'""",
+                    (dataset_version, category, profile_name, taxonomy_version),
+                )
+                connection.execute(
+                    """UPDATE rag.review_aspect_annotation_batches
+                       SET status = 'active', labeled_review_count = %s, activated_at = now()
+                       WHERE batch_id = %s AND status = 'building'""",
+                    (expected, batch_id),
+                )
+        return {
+            "batch_id": batch_id,
+            "expected_review_count": expected,
+            "labeled_review_count": expected,
+            "label_rows": len(rows),
+        }
 
     def search_bm25(
         self,
